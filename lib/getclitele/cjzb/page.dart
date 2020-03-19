@@ -1,4 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/cjzb/components/component.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/cjzb/components/state.dart';
 
 import 'effect.dart';
 import 'reducer.dart';
@@ -15,6 +17,7 @@ class CjzbPage extends Page<CjzbState, Map<String, dynamic>> {
             dependencies: Dependencies<CjzbState>(
                 adapter: null,
                 slots: <String, Dependent<CjzbState>>{
+                  'cell':  CjConnector() + CjcellComponent()
                 }),
             middleware: <Middleware<CjzbState>>[
             ],);

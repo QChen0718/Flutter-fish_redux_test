@@ -12,7 +12,7 @@ import 'my/page.dart';
 
 class YicaifuApp extends StatelessWidget{
 //  初始化路由表，管理所有页面的路由
-   AbstractRoutes routes = PageRoutes(
+  final AbstractRoutes routes = PageRoutes(
       pages: <String, Page<Object,dynamic>>{
         'main':MainPage(),
         'getclitele':GetClitelePage(),
@@ -34,11 +34,22 @@ class YicaifuApp extends StatelessWidget{
 //        设置统一风格
         primarySwatch: Colors.red
       ),
-      home: routes.buildPage('main', null),
+      home: routes.buildPage('main', {
+        'pages':List<Widget>.unmodifiable([
+//          子路由的设置
+          routes.buildPage('getclitele', {
+            'clitelesubpages':List<Widget>.unmodifiable([
+              routes.buildPage('cjzb', null),
+              routes.buildPage('hotzx', null)
+            ])
+          }),
+          routes.buildPage('customer', null),
+          routes.buildPage('my', null)
+        ])
+      }),
       onGenerateRoute: (RouteSettings settings){
         return MaterialPageRoute<Object>(
             builder: (BuildContext context){
-
               return routes.buildPage(settings.name, settings.arguments);
             });
       },

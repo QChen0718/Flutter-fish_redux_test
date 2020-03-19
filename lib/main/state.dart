@@ -32,14 +32,13 @@ MainState initState(Map<String, dynamic> args) {
 
       );
   });
-  List<Widget> controllers = [
 
-  ];
   GetCliteleState getCliteleState = GetCliteleState();
   return MainState()
   ..tabs = tabs
   ..selectIndex = 0
-  ..getCliteleState = getCliteleState;
+  ..getCliteleState = getCliteleState
+  ..controllers = args['pages'];
 }
 // 获客
 class GetCliteleConnector extends ConnOp<MainState,GetCliteleState> {

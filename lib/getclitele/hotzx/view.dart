@@ -7,25 +7,11 @@ import 'state.dart';
 
 Widget buildView(HotzxState state, Dispatch dispatch, ViewService viewService) {
   return Scaffold(
-    body: new Center(
-      child: new Column(
-        children: <Widget>[
-          new RaisedButton(
-              onPressed: (){
-
-              },
-            child: new Text(
-              state.titlename
-            ),
-          ),
-          Expanded(
-              child:
-//                  添加子组件
-              viewService.buildComponent('header')
-          )
-
-        ],
-      ),
+    body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (ctx,index){
+          return viewService.buildComponent('header');
+        }
     ),
   );
 }

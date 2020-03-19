@@ -6,11 +6,17 @@ import 'package:flutter_fish_redux_router_qt/getclitele/hotzx/state.dart';
 class HeaderState implements Cloneable<HeaderState> {
   bool showHeaderMovie;
   String content;
+  String celltitle;
+  String datetext;
+  String coverimagename;
   @override
   HeaderState clone() {
     return HeaderState()
     ..showHeaderMovie = showHeaderMovie
-    ..content = content;
+    ..content = content
+    ..celltitle = celltitle
+    ..datetext = datetext
+    ..coverimagename = coverimagename;
   }
 }
 //这块是父组件与子组件state交互的地方
@@ -20,6 +26,9 @@ class HeaderConnector extends ConnOp<HotzxState,HeaderState> {
     HeaderState mstate = HeaderState();
     mstate.showHeaderMovie = state.showHeaderMovie;
     mstate.content = state.headerState.content;
+    mstate.celltitle = state.headerState.celltitle;
+    mstate.datetext = state.headerState.datetext;
+    mstate.coverimagename = state.headerState.coverimagename;
     return mstate;
   }
   void set(HotzxState state, HeaderState subState) {

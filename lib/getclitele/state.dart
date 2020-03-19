@@ -14,20 +14,22 @@ class GetCliteleState implements Cloneable<GetCliteleState>  {
   TabController tabController;
   CjzbState cjzbState;
   HotzxState hotzxState;
-
+  List<Widget> controllers;
   @override
   GetCliteleState clone() {
     return GetCliteleState()
     ..context = context
     ..tabs = tabs
-    ..tabController = tabController;
+    ..tabController = tabController
+    ..controllers = controllers;
   }
 }
 
 GetCliteleState initState(Map<String, dynamic> args) {
   List<String> tabs = ['财经早报','热门资讯'];
   return GetCliteleState()
-  ..tabs = tabs;
+  ..tabs = tabs
+  ..controllers = args['clitelesubpages'];
 }
 
 //财经早报

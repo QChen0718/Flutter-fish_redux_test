@@ -5,25 +5,19 @@ import 'action.dart';
 import 'state.dart';
 
 Widget buildView(CjzbState state, Dispatch dispatch, ViewService viewService) {
+
+  Widget _buildCell(int index){
+      return viewService.buildComponent('cell');
+  }
   return Scaffold(
-    body: new Center(
-      child: new Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          new Text(
-              '财经早报'
-          ),
-          new RaisedButton(
-            onPressed: (){
-              dispatch(CjzbActionCreator.onJumpDetail());
-            },
-            child: new Text(
-                '跳转到详情'
-            ),
-          )
-        ],
-      ),
-    ),
+    body: new ListView.builder(
+        itemCount: 10,
+        itemBuilder: (ctx,index){
+          return _buildCell(index);
+        }
+    )
   );
+
 }
+
+
