@@ -14,5 +14,9 @@ void _onAction(Action action, Context<CjcellState> ctx) {
 }
 
 void _onJumpDetail(Action action, Context<CjcellState> ctx) {
-   Navigator.pushNamed(ctx.context, 'cjzbdetail');
+   Navigator.pushNamed(ctx.context, 'cjzbdetail').then((value){
+     if (value != null){
+       ctx.dispatch(CjcellActionCreator.onUpdateData(value));
+     }
+   });
 }

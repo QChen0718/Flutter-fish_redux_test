@@ -1,7 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 
 //TODO replace with your own action
-enum CjzbAction { action,onjumpDetail }
+enum CjzbAction { action,onjumpDetail,updateData }
 
 class CjzbActionCreator {
   static Action onAction() {
@@ -9,5 +9,8 @@ class CjzbActionCreator {
   }
   static Action onJumpDetail() {
     return Action(CjzbAction.onjumpDetail);
+  }
+  static Action onUpdateData(String newtitle){
+    return Action(CjzbAction.updateData);
   }
 }

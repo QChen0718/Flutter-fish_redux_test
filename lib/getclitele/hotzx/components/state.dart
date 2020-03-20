@@ -4,7 +4,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/hotzx/state.dart';
 
 class HeaderState implements Cloneable<HeaderState> {
-  bool showHeaderMovie;
+//  bool showHeaderMovie;
   String content;
   String celltitle;
   String datetext;
@@ -12,7 +12,7 @@ class HeaderState implements Cloneable<HeaderState> {
   @override
   HeaderState clone() {
     return HeaderState()
-    ..showHeaderMovie = showHeaderMovie
+//    ..showHeaderMovie = showHeaderMovie
     ..content = content
     ..celltitle = celltitle
     ..datetext = datetext
@@ -24,7 +24,7 @@ class HeaderConnector extends ConnOp<HotzxState,HeaderState> {
   @override
   HeaderState get(HotzxState state){
     HeaderState mstate = HeaderState();
-    mstate.showHeaderMovie = state.showHeaderMovie;
+//    mstate.showHeaderMovie = state.showHeaderMovie;
     mstate.content = state.headerState.content;
     mstate.celltitle = state.headerState.celltitle;
     mstate.datetext = state.headerState.datetext;
@@ -32,7 +32,7 @@ class HeaderConnector extends ConnOp<HotzxState,HeaderState> {
     return mstate;
   }
   void set(HotzxState state, HeaderState subState) {
-    state.showHeaderMovie = subState.showHeaderMovie;
+//    state.showHeaderMovie = subState.showHeaderMovie;
   }
 }
 

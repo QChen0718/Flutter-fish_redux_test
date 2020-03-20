@@ -14,5 +14,5 @@ void _onAction(Action action, Context<CjzbDetailState> ctx) {
 }
 
 void _onBack(Action action, Context<CjzbDetailState> ctx) {
-  Navigator.pop(ctx.context);
+  Navigator.pop(ctx.context,"修改标题");
 }

@@ -13,5 +13,7 @@ Effect<CjzbState> buildEffect() {
 void _onAction(Action action, Context<CjzbState> ctx) {
 }
 void _onJumpDetail(Action action,Context<CjzbState> ctx) {
-  Navigator.pushNamed(ctx.context, 'cjzbdetail');
+  Navigator.pushNamed(ctx.context, 'cjzbdetail').then((value){
+    ctx.dispatch(CjzbActionCreator.onUpdateData(value));
+  });
 }

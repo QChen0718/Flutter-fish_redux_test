@@ -1,9 +1,8 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/hotzx/components/state.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/hotzx/subwidget/state.dart';
 
 class HotzxState implements Cloneable<HotzxState> {
-  SubItemState subItemState;
+//  SubItemState subItemState;
   String titlename;
   bool showHeaderMovie;
   HeaderState headerState;

@@ -12,8 +12,7 @@ Widget buildView(CjcellState state, Dispatch dispatch, ViewService viewService) 
         padding: EdgeInsets.all(Adapt.px(25)),
         child: new Row(
           children: <Widget>[
-            new Container(
-              child: new Expanded(
+             new Expanded(
                 child: new Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -22,8 +21,9 @@ Widget buildView(CjcellState state, Dispatch dispatch, ViewService viewService) 
                         state.celltitle,
                         style: new TextStyle(
                             color: Color(0xff333333),
-                            fontSize: Adapt.px(32)
+                            fontSize: Adapt.px(32),
                         ),
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     new Container(
@@ -37,7 +37,6 @@ Widget buildView(CjcellState state, Dispatch dispatch, ViewService viewService) 
                     )
                   ],
                 ),
-              ),
             ),
             new Container(
               margin: EdgeInsets.only(right: Adapt.px(25)),

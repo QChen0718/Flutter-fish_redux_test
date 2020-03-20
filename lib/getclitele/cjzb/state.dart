@@ -12,7 +12,7 @@ class CjzbState implements Cloneable<CjzbState> {
 
 CjzbState initState(Map<String, dynamic> args) {
   CjcellState cjcellState = CjcellState();
-  cjcellState.celltitle = '今日资讯2019年11月26日';
+  cjcellState.celltitle = '今日资讯2019年11月26日今日资讯2019年11月26日今日资讯2019年11月26日';
   cjcellState.cellcontent = '3/19·132阅读·预计阅读：6分钟';
   cjcellState.cellcoverimagename = 'images/Bitmap.webp';
   return CjzbState()
