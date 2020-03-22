@@ -1,5 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/hotzx/components/state.dart';
+
 
 class HotzxState implements Cloneable<HotzxState> {
 //  SubItemState subItemState;

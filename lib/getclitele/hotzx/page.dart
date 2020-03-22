@@ -9,7 +9,6 @@ import 'state.dart';
 import 'view.dart';
 
 class HotzxPage extends Page<HotzxState, Map<String, dynamic>> {
-
   HotzxPage()
       : super(
             initState: initState,

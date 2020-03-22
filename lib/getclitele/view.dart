@@ -1,28 +1,39 @@
+
+
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_fish_redux_router_qt/actions/keepalive_widget.dart';
 import 'package:flutter_fish_redux_router_qt/app.dart';
 
 import 'action.dart';
 import 'state.dart';
 
 Widget buildView(GetCliteleState state, Dispatch dispatch, ViewService viewService) {
-  return Scaffold(
-    appBar: new AppBar(
-      title: new Text(
-        '获客'
-      ),
-      bottom: TabBar(
-          tabs: List.generate(state.tabs.length, (index){
-            return new Text(
-              state.tabs[index]
-            );
-          }),
-          controller: state.tabController,
-      ),
-    ),
-    body: TabBarView(
-      children: state.controllers,
-      controller: state.tabController,
-    )
+  return Builder(
+      builder: (context){
+        Widget _buildPage(Widget page){
+          return KeepAliveWidget(page);
+        }
+        return  Scaffold(
+            appBar: new AppBar(
+              title: new Text(
+                  '获客'
+              ),
+              bottom: TabBar(
+                tabs: List.generate(state.tabs.length, (index){
+                  return new Text(
+                      state.tabs[index]
+                  );
+                }),
+                controller: state.tabController,
+              ),
+            ),
+            body: TabBarView(
+              children: state.controllers.map(_buildPage).toList(),
+              controller: state.tabController,
+            )
+        );
+      }
   );
+
 }

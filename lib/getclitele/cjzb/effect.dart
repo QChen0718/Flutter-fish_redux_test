@@ -24,6 +24,7 @@ void _onJumpDetail(Action action,Context<CjzbState> ctx) {
   });
 }
 void _onInit(Action action,Context<CjzbState> ctx) {
+
   if (ctx.state.listcell ==null){
     _loadData(ctx);
   }
