@@ -6,7 +6,6 @@ import 'action.dart';
 import 'state.dart';
 
 Widget buildView(GetCliteleState state, Dispatch dispatch, ViewService viewService) {
-  YicaifuApp yicaifuApp = YicaifuApp();
   return Scaffold(
     appBar: new AppBar(
       title: new Text(
