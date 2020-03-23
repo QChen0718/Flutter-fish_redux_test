@@ -1,14 +1,25 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_fish_redux_router_qt/actions/appinfo.dart';
 import 'package:flutter_fish_redux_router_qt/actions/globalConfig.dart';
 //json 解析需要的，系统自带的
 import 'dart:convert' ;
 
 import 'package:flutter_fish_redux_router_qt/network/resultcode.dart';
 
+enum Method{
+  get,
+  post
+}
 class Request{
   //写一个单例
   static Request _instance;
 
+  Map<String,dynamic> nomalparams = {
+    'appKey':APPInfo.APP_KEY,
+    'timeStamp':APPInfo.timeStamp,
+    'sign':APPInfo.sign,
+    'version':'6.8.0'
+  };
   static Request getInstance() {
     if(_instance == null) {
       _instance = Request();
@@ -21,7 +32,8 @@ class Request{
   Request() {
 //    设置请求头
     dio.options.headers = {
-
+      "Accept-Version" : "2.1.0",
+      "Content-Type" : "application/json"
     };
 //    设置连接超时的时间 5 秒
     dio.options.connectTimeout = 5000;
@@ -32,29 +44,32 @@ class Request{
 //    缓存相关类
   }
 //  get请求
-  get(String url,dynamic params,Function successCallBack,Function errorCallBack) async {
-    _requestHttp(url, successCallBack,'get',params,errorCallBack);
+  get(String url,Map<String,dynamic> params,Function successCallBack,Function errorCallBack) async {
+    _requestHttp(url, successCallBack,Method.get,params,errorCallBack);
   }
 //  post请求
-  post(String url,dynamic params,Function successCallBack,Function errorCallBack) async {
-    _requestHttp(url, successCallBack,'post',params,errorCallBack);
+  post(String url,Map<String,dynamic> params,Function successCallBack,Function errorCallBack) async {
+    _requestHttp(url, successCallBack,Method.post,params,errorCallBack);
   }
 //  请求网络
-  _requestHttp(String url,Function successCallBack,[String method,dynamic params,Function errorCallBack]) async {
+  _requestHttp(String url,Function successCallBack,[Method method,Map<String,dynamic> params,Function errorCallBack]) async {
     Response response;
     try{
-      if(method == 'get'){
-        if(params != null && params.isNotEmpty){
-          response = await dio.get(url,queryParameters: params);
-        }else{
-          response = await dio.get(url);
-        }
-      }else if(method == 'post') {
-        if(params != null && params.isNotEmpty){
-          response = await dio.post(url,data: params);
-        }else{
-          response = await dio.post(url);
-        }
+      switch(method){
+        case Method.get:
+          if(params != null && params.isNotEmpty){
+            response = await dio.get(url,queryParameters: params);
+          }else{
+            response = await dio.get(url);
+          }
+          break;
+        case Method.post:
+          if(params != null && params.isNotEmpty){
+            response = await dio.post(url,data: params);
+          }else{
+            response = await dio.post(url);
+          }
+          break;
       }
     }on DioError catch(error) {
 //      请求错误处理

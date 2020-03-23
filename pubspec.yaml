@@ -27,6 +27,12 @@ dependencies:
   fish_redux: ^0.3.1
   # 网络请求库
   dio: ^3.0.9
+  # 获取APP版本号
+  package_info: ^0.4.0+14
+  #时间格式化
+  date_format: ^1.0.8
+  #数据持久化，类似于nsuserdefault
+  shared_preferences: ^0.5.6+3
 
 dev_dependencies:
   flutter_test:
@@ -47,6 +53,24 @@ flutter:
     - images/Bitmap.webp
     - images/2.0x/Bitmap.webp
     - images/3.0x/Bitmap.webp
+    - images/customer.webp
+    - images/2.0x/customer.webp
+    - images/3.0x/customer.webp
+    - images/home.webp
+    - images/2.0x/home.webp
+    - images/3.0x/home.webp
+    - images/my.webp
+    - images/2.0x/my.webp
+    - images/3.0x/my.webp
+    - images/customer_select.webp
+    - images/2.0x/customer_select.webp
+    - images/3.0x/customer_select.webp
+    - images/home_select.webp
+    - images/2.0x/home_select.webp
+    - images/3.0x/home_select.webp
+    - images/my_select.webp
+    - images/2.0x/my_select.webp
+    - images/3.0x/my_select.webp
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
