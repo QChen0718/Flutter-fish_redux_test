@@ -71,6 +71,9 @@ flutter:
     - images/my_select.webp
     - images/2.0x/my_select.webp
     - images/3.0x/my_select.webp
+    - images/loginback.webp
+    - images/2.0x/loginback.webp
+    - images/3.0x/loginback.webp
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
