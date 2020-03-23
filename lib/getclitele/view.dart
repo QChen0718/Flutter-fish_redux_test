@@ -35,5 +35,4 @@ Widget buildView(GetCliteleState state, Dispatch dispatch, ViewService viewServi
         );
       }
   );
-
 }

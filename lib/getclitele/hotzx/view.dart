@@ -6,22 +6,11 @@ import 'action.dart';
 import 'state.dart';
 
 Widget buildView(HotzxState state, Dispatch dispatch, ViewService viewService) {
-
-  return Builder(
-      builder: (context){
-
-        Widget _buildPage(Widget page) {
-          return KeepAliveWidget(page);
-        }
-        return Scaffold(
-          body:ListView.builder(
-              itemCount: 10,
-              itemBuilder: (ctx,index){
-
-                return _buildPage(viewService.buildComponent('cells')) ;
-              }
-          ),
-        );
-      }
+  return Scaffold(
+    body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (ctx, index) {
+          return viewService.buildComponent('cells');
+        }),
   );
 }

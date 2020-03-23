@@ -16,7 +16,6 @@ class MainPage extends Page<MainState, Map<String, dynamic>> {
             dependencies: Dependencies<MainState>(
                 adapter: null,
                 slots: <String, Dependent<MainState>>{
-
                   'getclitele':GetCliteleConnector() + GetClitelePage()
                 }),
             middleware: <Middleware<MainState>>[
