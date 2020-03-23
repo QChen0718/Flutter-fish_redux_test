@@ -4,6 +4,7 @@ import 'package:flutter_fish_redux_router_qt/getclitele/cjzb/cjzbdetail/page.dar
 import 'package:flutter_fish_redux_router_qt/getclitele/cjzb/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/getclitele_detail/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/hotzx/page.dart';
+import 'package:flutter_fish_redux_router_qt/login/page.dart';
 import 'package:flutter_fish_redux_router_qt/main/page.dart';
 
 import 'customer/page.dart';
@@ -14,6 +15,7 @@ class YicaifuApp extends StatelessWidget{
 //  初始化路由表，管理所有页面的路由
   final AbstractRoutes routes = PageRoutes(
       pages: <String, Page<Object,dynamic>>{
+        'login':LoginPage(),
         'main':MainPage(),
         'getclitele':GetClitelePage(),
         'customer':CustomerPage(),
@@ -34,19 +36,20 @@ class YicaifuApp extends StatelessWidget{
 //        设置统一风格
         primarySwatch: Colors.red
       ),
-      home: routes.buildPage('main', {
-        'pages':List<Widget>.unmodifiable([
-//          子路由的设置
-          routes.buildPage('getclitele', {
-            'clitelesubpages':List<Widget>.unmodifiable([
-              routes.buildPage('cjzb', null),
-              routes.buildPage('hotzx', null)
-            ])
-          }),
-          routes.buildPage('customer', null),
-          routes.buildPage('my', null)
-        ])
-      }),
+      home: routes.buildPage('login', null),
+//      routes.buildPage('main', {
+//        'pages':List<Widget>.unmodifiable([
+////          子路由的设置
+//          routes.buildPage('getclitele', {
+//            'clitelesubpages':List<Widget>.unmodifiable([
+//              routes.buildPage('cjzb', null),
+//              routes.buildPage('hotzx', null)
+//            ])
+//          }),
+//          routes.buildPage('customer', null),
+//          routes.buildPage('my', null)
+//        ])
+//      }),
       onGenerateRoute: (RouteSettings settings){
         return MaterialPageRoute<Object>(
             builder: (BuildContext context){
