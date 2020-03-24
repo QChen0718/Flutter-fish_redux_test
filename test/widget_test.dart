@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/app.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:flutter_fish_redux_router_qt/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

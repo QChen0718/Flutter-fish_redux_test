@@ -1,3 +1,4 @@
+//屏幕适配
 import 'package:flutter/material.dart';
 import 'dart:ui';
 class Adapt {

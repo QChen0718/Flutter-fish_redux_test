@@ -1,6 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
 import 'package:flutter_fish_redux_router_qt/actions/appinfo.dart';
+import 'package:flutter_fish_redux_router_qt/actions/tost.dart';
 import 'package:flutter_fish_redux_router_qt/app.dart';
 import 'package:flutter_fish_redux_router_qt/main/page.dart';
 import 'package:flutter_fish_redux_router_qt/models/loginmodel.dart';
@@ -50,7 +51,7 @@ _loginClick(Map<String,dynamic> params,Context<LoginState> ctx){
       ])
     })));
   }, (error){
-
+    Toast.toast(ctx.context,msg:error,position: ToastPostion.bottom);
   });
 }
 //存储用户基本信息到本地

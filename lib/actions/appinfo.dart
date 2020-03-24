@@ -1,3 +1,4 @@
+import 'package:flutter_fish_redux_router_qt/actions/sputil.dart';
 import 'package:package_info/package_info.dart';
 import 'dart:convert';
 import 'package:convert/convert.dart';
@@ -15,14 +16,9 @@ class APPInfo{
     var digest = md5.convert(content);
     return digest.toString();
   }
-  static String version;
+  static String version = SpUtil.packageInfo.version;
   static String signStr = APP_CIPHERTEX + "apiVersion" + "1.0.0" + "appKey" + APP_KEY + "timeStamp" +
      timeStamp;
 //  MD5加密
   static String sign = generateMd5(signStr).toUpperCase();
-// 获取APP信息
-  static getpackageInfo()async{
-    PackageInfo packageInfo = await PackageInfo.fromPlatform();
-    version = packageInfo.version;
-  }
 }

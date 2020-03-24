@@ -5,7 +5,7 @@ import 'package:flutter_fish_redux_router_qt/actions/globalConfig.dart';
 import 'dart:convert' ;
 
 import 'package:flutter_fish_redux_router_qt/network/resultcode.dart';
-
+import 'package:flutter/material.dart';
 enum Method{
   get,
   post
@@ -111,8 +111,8 @@ class Request{
     String dataStr = json.encode(response.data);
     Map<String,dynamic> dataMap = json.decode(dataStr);
 //    接口请求成功了，后台返回的错误结果
-    if(dataMap == null || dataMap['state'] == 0) {
-      _error(errorCallBack, '错误码：' + dataMap['errorCode'].toString() + '，' + response.data.toString());
+    if(dataMap == null || dataMap['errMsg'] != null) {
+      _error(errorCallBack, dataMap['errMsg']);
     }else if(successCallBack != null){
 //      请求接口回调出去
       successCallBack(dataMap);
