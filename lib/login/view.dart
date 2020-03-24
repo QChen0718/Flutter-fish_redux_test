@@ -7,6 +7,8 @@ import 'state.dart';
 
 Widget buildView(LoginState state, Dispatch dispatch, ViewService viewService) {
   return Scaffold(
+//    解决键盘谈起时页面会上下移动的问题
+    resizeToAvoidBottomPadding: false,
     body: Stack(
       children: <Widget>[
         new Image.asset(
@@ -33,23 +35,28 @@ Widget buildView(LoginState state, Dispatch dispatch, ViewService viewService) {
                       new Center(
                         child: new Image.asset(
                           state.login_input_bgimagename,
+                          width: Adapt.px(655),
+                          height: Adapt.px(472),
                           fit: BoxFit.fill,
                         ),
                       ),
                       new Column(
                         children: <Widget>[
                           new Container(
-                            margin: EdgeInsets.all(36),
-                            height: Adapt.px(60),
+                            margin: EdgeInsets.only(left: Adapt.px(84),right: Adapt.px(84),top: Adapt.px(30)),
+                            height: Adapt.px(104),
                             decoration: BoxDecoration(
                                 border: Border(bottom: BorderSide(color: Color(0xffD8D8D8),width: 0.5))
                             ),
                             child: new Row(
                               children: <Widget>[
-                                new Image.asset(
-                                  state.phone_icon,
-                                  width: Adapt.px(30),
-                                  height: Adapt.px(42),
+                                new Container(
+                                  margin: EdgeInsets.only(right: Adapt.px(30)),
+                                  child: new Image.asset(
+                                    state.phone_icon,
+                                    width: Adapt.px(30),
+                                    height: Adapt.px(42),
+                                  ),
                                 ),
                                 new Expanded(
                                     child: new TextField(
@@ -62,11 +69,12 @@ Widget buildView(LoginState state, Dispatch dispatch, ViewService viewService) {
                                         focusedBorder:InputBorder.none,
                                         enabledBorder: InputBorder.none,
                                       ),
-                                      controller: state.textEditingController,
+                                      controller: state.phone_textEditingController,
                                       style: new TextStyle(
                                           color: Color(0xff333333),
                                           fontSize: Adapt.px(34)
                                       ),
+                                      keyboardType: TextInputType.phone,
                                     )
                                 ),
 
@@ -74,17 +82,20 @@ Widget buildView(LoginState state, Dispatch dispatch, ViewService viewService) {
                             ),
                           ),
                           new Container(
-                            margin: EdgeInsets.all(36),
-                            height: Adapt.px(60),
+                            margin: EdgeInsets.only(left: Adapt.px(84),right: Adapt.px(84)),
+                            height: Adapt.px(104),
                             decoration: BoxDecoration(
                                 border: Border(bottom: BorderSide(color: Color(0xffD8D8D8),width: 0.5))
                             ),
                             child: new Row(
                               children: <Widget>[
-                                new Image.asset(
-                                  state.password_icon,
-                                  width: Adapt.px(30),
-                                  height: Adapt.px(42),
+                                new Container(
+                                  margin: EdgeInsets.only(right: Adapt.px(30)),
+                                  child: new Image.asset(
+                                    state.password_icon,
+                                    width: Adapt.px(30),
+                                    height: Adapt.px(42),
+                                  ),
                                 ),
                                 new Expanded(
                                     child: TextField(
@@ -98,15 +109,43 @@ Widget buildView(LoginState state, Dispatch dispatch, ViewService viewService) {
                                       enabledBorder: InputBorder.none,
                                       disabledBorder: InputBorder.none
                                   ),
-                                  controller: state.textEditingController,
+                                  controller: state.password_textEditingController,
                                   style: new TextStyle(
                                       color: Color(0xff333333),
                                       fontSize: Adapt.px(34)
                                   ),
-                                ))
+                                      keyboardType: TextInputType.visiblePassword,
+//                                      设置已密文展示
+                                      obscureText: true,
+                                )),
+                                new Container(
+                                  child: new GestureDetector(
+                                    onTap: (){
+                                      dispatch(LoginActionCreator.onUpdate());
+                                    },
+                                    child: new Image.asset(
+                                      state.isshow?state.eyeopenimagename:state.eyecloseimagename,
+                                      width: Adapt.px(32),
+                                      height: Adapt.px(28),
+                                    ),
+                                  ),
+                                )
                               ],
                             ),
                           ),
+                          new Container(
+                            margin: EdgeInsets.only(top: Adapt.px(96)),
+                            child: new GestureDetector(
+                              onTap: (){
+                                dispatch(LoginActionCreator.onJumpHome());
+                              },
+                              child: new Image.asset(
+                                state.loginbtnimagename,
+                                width: Adapt.px(98),
+                                height: Adapt.px(98),
+                              ),
+                            ),
+                          )
                         ],
                       )
                     ],

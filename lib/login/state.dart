@@ -9,7 +9,12 @@ class LoginState implements Cloneable<LoginState> {
   String password_icon;
   String phone_placehold;
   String password_placehold;
-  TextEditingController textEditingController;
+  TextEditingController phone_textEditingController;
+  TextEditingController password_textEditingController;
+  bool isshow;
+  String eyecloseimagename;
+  String eyeopenimagename;
+  String loginbtnimagename;
   @override
   LoginState clone() {
     return LoginState()
@@ -20,12 +25,18 @@ class LoginState implements Cloneable<LoginState> {
     ..password_icon = password_icon
     ..phone_placehold = phone_placehold
     ..password_placehold = password_placehold
-    ..textEditingController = textEditingController;
+    ..phone_textEditingController = phone_textEditingController
+    ..password_textEditingController = password_textEditingController
+    ..isshow = isshow
+    ..eyecloseimagename = eyecloseimagename
+    ..eyeopenimagename = eyeopenimagename
+    ..loginbtnimagename = loginbtnimagename;
   }
 }
 
 LoginState initState(Map<String, dynamic> args) {
-  TextEditingController textEditingController = TextEditingController();
+  TextEditingController phonetextEditingController = TextEditingController();
+  TextEditingController passwordtextEditingController = TextEditingController();
   return LoginState()
   ..backimagename = 'images/loginback.png'
   ..logoimagename = 'images/ycf_logo.webp'
@@ -34,5 +45,10 @@ LoginState initState(Map<String, dynamic> args) {
   ..password_icon = 'images/password_icon.webp'
   ..phone_placehold = '请输入手机号'
   ..password_placehold = '请输入密码'
-  ..textEditingController = textEditingController;
+  ..phone_textEditingController = phonetextEditingController
+  ..password_textEditingController = passwordtextEditingController
+  ..isshow = false
+  ..eyecloseimagename = 'images/password_hidden_icon.webp'
+  ..eyeopenimagename = 'images/password_show_icon.webp'
+  ..loginbtnimagename = 'images/jump_arrow.webp';
 }

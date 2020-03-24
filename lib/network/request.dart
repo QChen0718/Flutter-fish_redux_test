@@ -32,8 +32,8 @@ class Request{
   Request() {
 //    设置请求头
     dio.options.headers = {
-      "Accept-Version" : "2.1.0",
-      "Content-Type" : "application/json"
+//      "Accept-Version" : "2.1.0",
+//      "Content-Type" : "application/json"
     };
 //    设置连接超时的时间 5 秒
     dio.options.connectTimeout = 5000;
@@ -49,6 +49,7 @@ class Request{
   }
 //  post请求
   post(String url,Map<String,dynamic> params,Function successCallBack,Function errorCallBack) async {
+    params.addAll(nomalparams);
     _requestHttp(url, successCallBack,Method.post,params,errorCallBack);
   }
 //  请求网络

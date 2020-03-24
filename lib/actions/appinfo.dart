@@ -16,7 +16,7 @@ class APPInfo{
     return digest.toString();
   }
   static String version;
-  static String signStr = APP_CIPHERTEX + "apiVersion" + "2.1.0" + "appKey" + APP_KEY + "timeStamp" +
+  static String signStr = APP_CIPHERTEX + "apiVersion" + "1.0.0" + "appKey" + APP_KEY + "timeStamp" +
      timeStamp;
 //  MD5加密
   static String sign = generateMd5(signStr).toUpperCase();
