@@ -24,7 +24,7 @@ Widget buildView(GetCliteleState state, Dispatch dispatch, ViewService viewServi
               bottom: TabBar(
                 tabs: List.generate(state.tabs.length, (index){
                   return new Text(
-                      state.tabs[index]
+                      state.tabs[index].name
                   );
                 }),
                 controller: state.tabController,

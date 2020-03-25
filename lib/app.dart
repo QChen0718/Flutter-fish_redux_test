@@ -34,12 +34,7 @@ class YicaifuApp extends StatelessWidget{
      return routes.buildPage('main', {
        'pages':List<Widget>.unmodifiable([
 //          子路由的设置
-         routes.buildPage('getclitele', {
-           'clitelesubpages':List<Widget>.unmodifiable([
-             routes.buildPage('cjzb', null),
-             routes.buildPage('hotzx', null)
-           ])
-         }),
+         routes.buildPage('getclitele', null),
          routes.buildPage('customer', null),
          routes.buildPage('my', null)
        ])

@@ -3,18 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/cjzb/state.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/hotzx/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/hotzx/state.dart';
+import 'package:flutter_fish_redux_router_qt/models/newstitlemodel.dart';
 
+// 一次使用的用 SingleTickerProviderStateMixin
 // 使用 SingleTickerProviderStateMixin 主要是TabBar需要用到这块
-class GetCliteleStateKeepAliveStf extends ComponentState<GetCliteleState> with SingleTickerProviderStateMixin{
+// 多次使用时使用常规的TickerProviderStateMixin
+// 如果一个状态被用于多个AnimationController对象，或者它被传递给其他对象，而这些对象可能不止一次地使用它，
+// 那么不要混合使用一个单独的TickerProviderStateMixin，而是使用一个常规的TickerProviderStateMixin。
+class GetCliteleStateKeepAliveStf extends ComponentState<GetCliteleState> with TickerProviderStateMixin{
 
 }
 class GetCliteleState implements Cloneable<GetCliteleState>  {
   Context context;
-  List<String> tabs;
+  List<NewsTitleData> tabs = [];
   TabController tabController;
   CjzbState cjzbState;
   HotzxState hotzxState;
-  List<Widget> controllers;
+  List<Widget> controllers = [];
   @override
   GetCliteleState clone() {
     return GetCliteleState()
@@ -26,10 +31,7 @@ class GetCliteleState implements Cloneable<GetCliteleState>  {
 }
 
 GetCliteleState initState(Map<String, dynamic> args) {
-  List<String> tabs = ['财经早报','热门资讯'];
-  return GetCliteleState()
-  ..tabs = tabs
-  ..controllers = args['clitelesubpages'];
+  return GetCliteleState();
 }
 
 //财经早报
