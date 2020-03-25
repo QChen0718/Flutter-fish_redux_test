@@ -24,7 +24,7 @@ GetCliteleState _onInit(GetCliteleState state, Action action) {
   newState.tabs = datadict['model'].data;
   newState.tabController = TabController(length: newState.tabs.length, vsync: datadict['tickerProvider']);
   newState.controllers = [
-   YicaifuApp.routes.buildPage('cjzb', null),
+    YicaifuApp.routes.buildPage('cjzb', null),
     YicaifuApp.routes.buildPage('cjzb', null),
     YicaifuApp.routes.buildPage('hotzx', null)
   ];
