@@ -18,6 +18,7 @@ Widget buildView(CustomerState state, Dispatch dispatch, ViewService viewService
             title: new Text(
                 '客户'
             ),
+            centerTitle: true,
           ),
           body: _buildPage(
               new Column(

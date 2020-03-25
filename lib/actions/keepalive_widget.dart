@@ -1,5 +1,5 @@
 //这块遵循  AutomaticKeepAliveClientMixin 是为了解决在tabbar,bottombar等情况下切换页面的时候
-//会重复处罚initstate方法
+//会重复触发initstate方法
 
 import 'package:flutter/material.dart';
 

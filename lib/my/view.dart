@@ -10,6 +10,7 @@ Widget buildView(MyState state, Dispatch dispatch, ViewService viewService) {
       title: new Text(
         '我的'
       ),
+      centerTitle: true,
     ),
     body: new Center(
       child: new Text(

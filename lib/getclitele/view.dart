@@ -19,6 +19,8 @@ Widget buildView(GetCliteleState state, Dispatch dispatch, ViewService viewServi
               title: new Text(
                   '获客'
               ),
+//              安卓上默认是在最左边的
+              centerTitle: true,
               bottom: TabBar(
                 tabs: List.generate(state.tabs.length, (index){
                   return new Text(

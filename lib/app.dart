@@ -7,7 +7,6 @@ import 'package:flutter_fish_redux_router_qt/getclitele/getclitele_detail/page.d
 import 'package:flutter_fish_redux_router_qt/getclitele/hotzx/page.dart';
 import 'package:flutter_fish_redux_router_qt/login/page.dart';
 import 'package:flutter_fish_redux_router_qt/main/page.dart';
-import 'package:flutter_fish_redux_router_qt/start/page.dart';
 import 'customer/page.dart';
 import 'getclitele/page.dart';
 import 'my/page.dart';
@@ -16,7 +15,6 @@ class YicaifuApp extends StatelessWidget{
 //  初始化路由表，管理所有页面的路由
   static AbstractRoutes routes = PageRoutes(
       pages: <String, Page<Object,dynamic>>{
-        'start':StartPage(),
         'login':LoginPage(),
         'main':MainPage(),
         'getclitele':GetClitelePage(),
@@ -32,6 +30,7 @@ class YicaifuApp extends StatelessWidget{
  Widget _checkshowpage(){
    String userid = SpUtil.preferences.getString('id');
    if(userid != null){
+//     主页面
      return routes.buildPage('main', {
        'pages':List<Widget>.unmodifiable([
 //          子路由的设置
@@ -46,6 +45,7 @@ class YicaifuApp extends StatelessWidget{
        ])
      });
    }else{
+//     登录页面
      return routes.buildPage('login', null);
    }
   }

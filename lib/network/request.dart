@@ -14,12 +14,6 @@ class Request{
   //写一个单例
   static Request _instance;
 
-  Map<String,dynamic> nomalparams = {
-    'appKey':APPInfo.APP_KEY,
-    'timeStamp':APPInfo.timeStamp,
-    'sign':APPInfo.sign,
-    'version':'6.8.0'
-  };
   static Request getInstance() {
     if(_instance == null) {
       _instance = Request();
@@ -49,7 +43,6 @@ class Request{
   }
 //  post请求
   post(String url,Map<String,dynamic> params,Function successCallBack,Function errorCallBack) async {
-    params.addAll(nomalparams);
     _requestHttp(url, successCallBack,Method.post,params,errorCallBack);
   }
 //  请求网络
