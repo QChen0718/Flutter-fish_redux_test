@@ -24,11 +24,6 @@ class Request{
   Dio dio = new Dio();
 
   Request() {
-//    设置请求头
-    dio.options.headers = {
-//      "Accept-Version" : "2.1.0",
-//      "Content-Type" : "application/json"
-    };
 //    设置连接超时的时间 5 秒
     dio.options.connectTimeout = 5000;
 //    接收超时的时间 3 秒
@@ -38,16 +33,21 @@ class Request{
 //    缓存相关类
   }
 //  get请求
-  get(String url,Map<String,dynamic> params,Function successCallBack,Function errorCallBack) async {
-    _requestHttp(url, successCallBack,Method.get,params,errorCallBack);
+  get(String url,Map<String,dynamic> headers,Map<String,dynamic> params,Function successCallBack,Function errorCallBack) async {
+    _requestHttp(url, successCallBack,Method.get,headers,params,errorCallBack);
   }
 //  post请求
-  post(String url,Map<String,dynamic> params,Function successCallBack,Function errorCallBack) async {
-    _requestHttp(url, successCallBack,Method.post,params,errorCallBack);
+  post(String url,Map<String,dynamic> headers, Map<String,dynamic> params,Function successCallBack,Function errorCallBack) async {
+
+    _requestHttp(url, successCallBack,Method.post,headers,params,errorCallBack);
   }
 //  请求网络
-  _requestHttp(String url,Function successCallBack,[Method method,Map<String,dynamic> params,Function errorCallBack]) async {
+  _requestHttp(String url,Function successCallBack,[Method method,Map<String,dynamic> headers,Map<String,dynamic> params,Function errorCallBack]) async {
     Response response;
+    //    设置请求头
+    if(headers != null){
+      dio.options.headers = headers;
+    }
     try{
       switch(method){
         case Method.get:

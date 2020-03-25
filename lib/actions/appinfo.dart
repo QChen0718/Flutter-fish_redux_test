@@ -21,19 +21,19 @@ class APPInfo{
 
   static String ApiVersionKey = 'Accept-Version';
 
-  static Map getFirstHeader(){
+  static Map<String,dynamic> getFirstHeader(){
     return {ApiVersionKey:'1.0.0'};
   }
-  static Map getSecondHeader(){
+  static Map<String,dynamic> getSecondHeader(){
     return {ApiVersionKey:'2.0.0'};
   }
-  static Map getSecondFirstHeader(){
+  static Map<String,dynamic> getSecondFirstHeader(){
     return {ApiVersionKey:'2.1.0'};
   }
-  static Map getThirdHeader(){
+  static Map<String,dynamic> getThirdHeader(){
     return {ApiVersionKey:'3.0.0'};
   }
-  static Map getFourthHeader(){
+  static Map<String,dynamic> getFourthHeader(){
     return {ApiVersionKey:'4.0.0'};
   }
 //  获取请求默认参数

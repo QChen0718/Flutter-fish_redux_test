@@ -34,7 +34,7 @@ void _onJumpHome(Action action, Context<LoginState> ctx) {
 }
 
 _loginClick(Map<String,dynamic> params,Context<LoginState> ctx){
-  Request.getInstance().post(API.REQUEST_URL_LOGIN, params, (succeck){
+  Request.getInstance().post(API.REQUEST_URL_LOGIN,null, params, (succeck){
     UserInfo.cacheuserdata(succeck);
     Navigator.pushReplacement(ctx.context, MaterialPageRoute(builder:(BuildContext context) => MainPage().buildPage({
       'pages':List<Widget>.unmodifiable([
