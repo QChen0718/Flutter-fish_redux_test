@@ -5,12 +5,14 @@ class CjcellState implements Cloneable<CjcellState> {
   String celltitle = "";
   String cellcontent = "";
   String cellcoverimagename = "";
+  String cellid;
   @override
   CjcellState clone() {
     return CjcellState()
     ..celltitle = cellcontent
     ..cellcontent = cellcontent
-    ..cellcoverimagename = cellcoverimagename;
+    ..cellcoverimagename = cellcoverimagename
+    ..cellid = cellid;
   }
 }
 
@@ -24,6 +26,7 @@ class CjConnector extends ConnOp<CjzbState,CjcellState> {
       mstate.celltitle = state.cjcellState.celltitle;
       mstate.cellcontent = state.cjcellState.cellcontent;
       mstate.cellcoverimagename = state.cjcellState.cellcoverimagename;
+      mstate.cellid = state.cjcellState.cellid;
     return mstate;
   }
   void set(CjzbState state, CjcellState subState) {

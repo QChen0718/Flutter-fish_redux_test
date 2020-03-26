@@ -23,10 +23,10 @@ GetCliteleState _onInit(GetCliteleState state, Action action) {
   final GetCliteleState newState = state.clone();
   newState.tabs = datadict['model'].data;
   newState.tabController = TabController(length: newState.tabs.length, vsync: datadict['tickerProvider']);
-  newState.controllers = [
-    YicaifuApp.routes.buildPage('cjzb', null),
-    YicaifuApp.routes.buildPage('cjzb', null),
-    YicaifuApp.routes.buildPage('hotzx', null)
-  ];
+//  动态添加
+  newState.tabs.forEach((value){
+//    添加子页面，
+    newState.controllers.add(YicaifuApp.routes.buildPage('cjzb', {'model':value}));
+  });
   return newState;
 }

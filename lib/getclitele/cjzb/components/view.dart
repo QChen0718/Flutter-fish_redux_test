@@ -40,9 +40,8 @@ Widget buildView(CjcellState state, Dispatch dispatch, ViewService viewService) 
             ),
             new Container(
               margin: EdgeInsets.only(right: Adapt.px(25)),
-              child: Image.asset(
-                state.cellcoverimagename,
-                fit: BoxFit.fill,
+              child: Image.network(
+                state.cellcoverimagename,fit: BoxFit.fill,
                 width: Adapt.px(160),
                 height: Adapt.px(106),
               ),

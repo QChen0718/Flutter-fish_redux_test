@@ -7,6 +7,6 @@ class UserInfo{
    LoginModel loginModel = LoginModel.fromJson(data);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setString('id', loginModel.data.id.toString());
-    print('id:'+loginModel.data.id.toString());
+    sharedPreferences.setString('mobile', loginModel.data.mobile);
   }
 }

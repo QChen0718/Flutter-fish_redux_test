@@ -1,5 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
+import 'package:flutter_fish_redux_router_qt/network/api.dart';
 import 'action.dart';
 import 'state.dart';
 
@@ -14,7 +15,9 @@ void _onAction(Action action, Context<CjcellState> ctx) {
 }
 
 void _onJumpDetail(Action action, Context<CjcellState> ctx) {
-   Navigator.pushNamed(ctx.context, 'cjzbdetail').then((value){
+//  传送weburl
+    String weburl = API.REQUEST_WEB_URL_ZIXUN_DETAIL + ctx.state.cellid;
+   Navigator.pushNamed(ctx.context, 'cjzbdetail',arguments: {'url':weburl}).then((value){
      if (value != null){
        ctx.dispatch(CjcellActionCreator.onUpdateData(value));
      }

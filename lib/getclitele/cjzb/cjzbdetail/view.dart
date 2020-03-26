@@ -1,6 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
-
+import 'package:webview_flutter/webview_flutter.dart';
 import 'action.dart';
 import 'state.dart';
 
@@ -11,15 +11,9 @@ Widget buildView(CjzbDetailState state, Dispatch dispatch, ViewService viewServi
         '财经早报详情'
       ),
     ),
-    body: new Center(
-      child: new RaisedButton(
-          onPressed: (){
-            dispatch(CjzbDetailActionCreator.onBack());
-          },
-        child: new Text(
-          '返回'
-        ),
-      ),
-    ),
+    body: WebView(
+      initialUrl: state.weburl,
+      javascriptMode: JavascriptMode.unrestricted,
+    )
   );
 }

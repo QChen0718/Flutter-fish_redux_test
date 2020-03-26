@@ -8,7 +8,7 @@ class APPInfo{
   static const APP_KEY = "ycfiosiplqs93zpd98qjhayrm";
   // 接口密文
   static const APP_CIPHERTEX = "dhzurowp8adlrmacrkhai8zjrksbdaycfios";
-
+  static const HTTP_IMAGE_DOWNLOAD_REQUEST_URL = "https://rescdn.xiaohu.in/";
   static String timeStamp = formatDate(DateTime.now(), [yyyy,'-',mm,'-',dd,'T',HH,':',mm,':',ss,z]);
 //
   static String generateMd5(String data) {
