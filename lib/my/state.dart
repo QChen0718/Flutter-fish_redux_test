@@ -34,11 +34,15 @@ MyState initState(Map<String, dynamic> args) {
   headerviewState.itemlist = ['会员特权','员工号'];
   NumbercellState numbercellState = NumbercellState();
   numbercellState.numbers = ['658,500.00','6600','2','9818'];
+  PushMessageState pushMessageState = PushMessageState();
+  pushMessageState.commpanyicon = 'images/company_icon.webp';
+  pushMessageState.messagetitles = ['【交易作废】您提交的报单  国企信托-青白…','【交易作废】您提交的报单  国企信托-青白…'];
   return MyState()
   ..headerviewState = headerviewState
   ..numbercellState = numbercellState
   ..navbgimagename = 'images/nav_backgroundimage.webp'
   ..rightmessage = 'images/persion_message.webp'
   ..rightset = 'images/persion_set.webp'
-  ..navtitle = '我的';
+  ..navtitle = '我的'
+  ..pushMessageState = pushMessageState;
 }

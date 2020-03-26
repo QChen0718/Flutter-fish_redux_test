@@ -16,6 +16,7 @@ Widget buildView(MainState state, Dispatch dispatch, ViewService viewService) {
           return pages.map(_buildPage).toList();
         }
         return Scaffold(
+          backgroundColor: Colors.white,
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: state.selectIndex,
               items: state.tabs,

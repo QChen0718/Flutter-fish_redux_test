@@ -14,7 +14,7 @@ Widget buildView(PushMessageState state, Dispatch dispatch, ViewService viewServ
     child: new Row(
       children: <Widget>[
         new Image.asset(
-          'images/company_icon.webp',
+          state.commpanyicon,
           width: Adapt.px(90),
           height: Adapt.px(90),
         ),
@@ -23,25 +23,21 @@ Widget buildView(PushMessageState state, Dispatch dispatch, ViewService viewServ
           child: new Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              new Text(
-                '【交易作废】您提交的报单  国企信托-青白…',
-                style: TextStyle(
-                    color: Color(0xff666666),
-                    fontSize: Adapt.px(24)
-                ),
-              ),
-              new Text(
-                '【交易作废】您提交的报单  国企信托-青白…',
-                style: TextStyle(
-                    color: Color(0xff666666),
-                    fontSize: Adapt.px(24)
-                ),
-              ),
-            ],
+            children: List.generate(state.messagetitles.length, (index){
+              return _messagecell(state.messagetitles[index]);
+            })
           ),
         )
       ],
+    ),
+  );
+}
+Widget _messagecell(String title){
+  return Text(
+    title,
+    style: TextStyle(
+        color: Color(0xff666666),
+        fontSize: Adapt.px(24)
     ),
   );
 }
