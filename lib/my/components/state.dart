@@ -7,6 +7,7 @@ class HeaderviewState implements Cloneable<HeaderviewState> {
   String viplevelicon;  //会员等级图标
   bool isstaff; //是否是员工
   String headerbgimagename; //背景图片
+  List<String> itemlist;
   @override
   HeaderviewState clone() {
     return HeaderviewState()
@@ -14,7 +15,8 @@ class HeaderviewState implements Cloneable<HeaderviewState> {
     ..username = username
     ..viplevelicon = viplevelicon
     ..isstaff = isstaff
-    ..headerbgimagename = headerbgimagename;
+    ..headerbgimagename = headerbgimagename
+    ..itemlist = itemlist;
   }
 }
 

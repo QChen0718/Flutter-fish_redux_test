@@ -50,40 +50,9 @@ Widget buildView(HeaderviewState state, Dispatch dispatch, ViewService viewServi
                     ),
                     new Wrap(
                       spacing: Adapt.px(24),
-                      children: <Widget>[
-                        new Container(
-                          alignment: Alignment.center,
-                          height: Adapt.px(38),
-                          padding: EdgeInsets.only(left: Adapt.px(20),right: Adapt.px(20)),
-                          decoration: BoxDecoration(
-                              color: Color(0xff977A32),
-                              borderRadius: BorderRadius.circular(Adapt.px(17))
-                          ),
-                          child: new Text(
-                            '会员特权',
-                            style: TextStyle(
-                                fontSize: Adapt.px(26),
-                                color: Color(0xffF2D89C)
-                            ),
-                          ),
-                        ),
-                        new Container(
-                          alignment: Alignment.center,
-                          height: Adapt.px(38),
-                          padding: EdgeInsets.only(left: Adapt.px(20),right: Adapt.px(20)),
-                          decoration: BoxDecoration(
-                              color: Color(0xff977A32),
-                              borderRadius: BorderRadius.circular(Adapt.px(17))
-                          ),
-                          child: new Text(
-                            '员工号',
-                            style: TextStyle(
-                                fontSize: Adapt.px(26),
-                                color: Color(0xffF2D89C)
-                            ),
-                          ),
-                        )
-                      ],
+                      children: List.generate(state.itemlist.length, (index){
+                        return _getItem(state.itemlist[index]);
+                      })
                     )
                   ],
                 ),
@@ -92,6 +61,25 @@ Widget buildView(HeaderviewState state, Dispatch dispatch, ViewService viewServi
           ),
         )
       ],
+    ),
+  );
+}
+
+Widget _getItem(String itemtitle){
+  return Container(
+    alignment: Alignment.center,
+    height: Adapt.px(38),
+    padding: EdgeInsets.only(left: Adapt.px(20),right: Adapt.px(20)),
+    decoration: BoxDecoration(
+        color: Color(0xff977A32),
+        borderRadius: BorderRadius.circular(Adapt.px(17))
+    ),
+    child: new Text(
+      itemtitle,
+      style: TextStyle(
+          fontSize: Adapt.px(26),
+          color: Color(0xffF2D89C)
+      ),
     ),
   );
 }
