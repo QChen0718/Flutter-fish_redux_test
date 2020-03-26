@@ -101,6 +101,28 @@ flutter:
     - images/password_hidden_icon.webp
     - images/2.0x/password_hidden_icon.webp
     - images/3.0x/password_hidden_icon.webp
+
+    - images/company_icon.webp
+    - images/2.0x/company_icon.webp
+    - images/3.0x/company_icon.webp
+    - images/normal_vip.webp
+    - images/2.0x/normal_vip.webp
+    - images/3.0x/normal_vip.webp
+    - images/header_photo.webp
+    - images/2.0x/header_photo.webp
+    - images/3.0x/header_photo.webp
+    - images/persion_set.webp
+    - images/2.0x/persion_set.webp
+    - images/3.0x/persion_set.webp
+    - images/persion_message.webp
+    - images/2.0x/persion_message.webp
+    - images/3.0x/persion_message.webp
+    - images/info_descbgimage.webp
+    - images/2.0x/info_descbgimage.webp
+    - images/3.0x/info_descbgimage.webp
+    - images/nav_backgroundimage.webp
+    - images/2.0x/nav_backgroundimage.webp
+    - images/3.0x/nav_backgroundimage.webp
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
