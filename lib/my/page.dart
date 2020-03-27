@@ -2,6 +2,8 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_fish_redux_router_qt/my/components/component.dart';
 import 'package:flutter_fish_redux_router_qt/my/components/menucell/component.dart';
 import 'package:flutter_fish_redux_router_qt/my/components/menucell/state.dart';
+import 'package:flutter_fish_redux_router_qt/my/components/nomalcell/component.dart';
+import 'package:flutter_fish_redux_router_qt/my/components/nomalcell/state.dart';
 import 'package:flutter_fish_redux_router_qt/my/components/numbercell/component.dart';
 import 'package:flutter_fish_redux_router_qt/my/components/numbercell/state.dart';
 import 'package:flutter_fish_redux_router_qt/my/components/ordercell/component.dart';
@@ -29,7 +31,8 @@ class MyPage extends Page<MyState, Map<String, dynamic>> {
                   'numbercell':NumberConnector() + NumbercellComponent(),
                   'pushcell':PushConnectort() + PushMessageComponent(),
                   'ordercell':OrderConnector() + OrdercellComponent(),
-                  'menucell':MenuConnector() + MenucellComponent()
+                  'menucell':MenuConnector() + MenucellComponent(),
+                  'nomalcell':NomalConnector() + NomalcellComponent()
                 }),
             middleware: <Middleware<MyState>>[
             ],);

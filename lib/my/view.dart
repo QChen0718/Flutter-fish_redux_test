@@ -8,7 +8,8 @@ import 'state.dart';
 Widget buildView(MyState state, Dispatch dispatch, ViewService viewService) {
   return Scaffold(
       backgroundColor: Colors.transparent,
-      body: Column(
+      body:
+      Column(
         children: <Widget>[
           new Stack(
             children: <Widget>[
@@ -44,15 +45,40 @@ Widget buildView(MyState state, Dispatch dispatch, ViewService viewService) {
                 ],
                 centerTitle: true,
               ),
-              viewService.buildComponent('numbercell'),
-              viewService.buildComponent('headerview')
-            ],
+               viewService.buildComponent('headerview')
+            ]
           ),
-          viewService.buildComponent('pushcell'),
-          viewService.buildComponent('ordercell'),
-          viewService.buildComponent('menucell')
+          Expanded(
+            child: new MediaQuery.removePadding(
+                removeTop: true,
+                context: viewService.context,
+                child: new ListView.builder(
+                    itemCount: 9,
+                    itemBuilder: (ctx,index){
+                      switch (index){
+                        case 0:
+                          return viewService.buildComponent('numbercell');
+                          break;
+                        case 1:
+                          return viewService.buildComponent('pushcell');
+                          break;
+                        case 2:
+                          return viewService.buildComponent('ordercell');
+                          break;
+                        case 3:
+                          return viewService.buildComponent('menucell');
+                          break;
+                        default:
+                          state.nomalcellState = state.nomalcells[index];
+                          return viewService.buildComponent('nomalcell');
+                          break;
+                      }
+                    }
+                ),
+            )
+          ),
         ],
-      )
-
+      ),
   );
 }
+

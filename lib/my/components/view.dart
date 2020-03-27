@@ -15,6 +15,7 @@ Widget buildView(HeaderviewState state, Dispatch dispatch, ViewService viewServi
           state.headerbgimagename,
           width: Adapt.px(640),
           height: Adapt.px(184),
+          fit: BoxFit.fill,
         ),
         new Padding(
           padding: EdgeInsets.fromLTRB(Adapt.px(57), Adapt.px(30), Adapt.px(57), Adapt.px(30)),

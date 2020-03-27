@@ -1,5 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_fish_redux_router_qt/my/components/menucell/state.dart';
+import 'package:flutter_fish_redux_router_qt/my/components/nomalcell/state.dart';
 import 'package:flutter_fish_redux_router_qt/my/components/numbercell/state.dart';
 import 'package:flutter_fish_redux_router_qt/my/components/ordercell/state.dart';
 import 'package:flutter_fish_redux_router_qt/my/components/pushmessagecell/state.dart';
@@ -11,10 +12,13 @@ class MyState implements Cloneable<MyState> {
   PushMessageState pushMessageState;
   OrdercellState ordercellState;
   MenucellState menucellState;
+  NomalcellState nomalcellState;
   String navbgimagename;
   String rightmessage;
   String rightset;
   String navtitle;
+  List<Map<String,dynamic>>nomalcelltitles;
+  List<NomalcellState> nomalcells;
   @override
   MyState clone() {
     return MyState()
@@ -26,7 +30,10 @@ class MyState implements Cloneable<MyState> {
     ..navtitle = navtitle
     ..pushMessageState = pushMessageState
     ..ordercellState = ordercellState
-    ..menucellState = menucellState;
+    ..menucellState = menucellState
+    ..nomalcellState = nomalcellState
+    ..nomalcelltitles = nomalcelltitles
+    ..nomalcells = nomalcells;
   }
 }
 
@@ -72,6 +79,13 @@ MyState initState(Map<String, dynamic> args) {
     {'title':'我的足迹','iconname':'images/menu_icon6.webp'},
     {'title':'我的客服','iconname':'images/menu_icon7.webp'},
   ];
+  List<Map<String,dynamic>> nomaltitles = [
+    {'title':'理财师认证','icon':'images/nomal_icon0.webp'},
+    {'title':'我的服务经理','icon':'images/nomal_icon1.webp'},
+    {'title':'实名认证','icon':'images/nomal_icon2.webp'},
+    {'title':'邀请理财师好友','icon':'images/nomal_icon3.webp'},
+    {'title':'客服电话','icon':'images/nomal_icon4.webp'}];
+
   return MyState()
   ..headerviewState = headerviewState
   ..numbercellState = numbercellState
@@ -81,5 +95,6 @@ MyState initState(Map<String, dynamic> args) {
   ..navtitle = '我的'
   ..pushMessageState = pushMessageState
   ..ordercellState = ordercellState
-  ..menucellState = menucellState;
+  ..menucellState = menucellState
+  ..nomalcelltitles = nomaltitles;
 }

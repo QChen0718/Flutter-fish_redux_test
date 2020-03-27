@@ -8,7 +8,7 @@ import 'state.dart';
 Widget buildView(NumbercellState state, Dispatch dispatch, ViewService viewService) {
   return new Container(
     color: Colors.white,
-    margin: EdgeInsets.only(top: Adapt.px(298)),
+//    margin: EdgeInsets.only(top: Adapt.px(298)),
     padding: EdgeInsets.only(left: Adapt.px(30),right: Adapt.px(30)),
     height: Adapt.px(186),
     child: new Row(
