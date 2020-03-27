@@ -10,7 +10,6 @@ Widget buildView(PushMessageState state, Dispatch dispatch, ViewService viewServ
     margin: EdgeInsets.only(top: Adapt.px(10)),
     padding: EdgeInsets.fromLTRB(Adapt.px(24), Adapt.px(12), Adapt.px(24), Adapt.px(12)),
     height: Adapt.px(114),
-    color: Colors.white,
     child: new Row(
       children: <Widget>[
         new Image.asset(
@@ -29,6 +28,19 @@ Widget buildView(PushMessageState state, Dispatch dispatch, ViewService viewServ
           ),
         )
       ],
+    ),
+    decoration: BoxDecoration(
+        color: Colors.white,
+      border: Border(
+              top: BorderSide(
+              color: Color(0xfff5f5f5), 
+              width: Adapt.px(10)
+          ),
+          bottom: BorderSide(
+              color: Color(0xfff5f5f5),
+              width: Adapt.px(10)
+          )
+      )
     ),
   );
 }

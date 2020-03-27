@@ -12,11 +12,21 @@ Widget buildView(MyState state, Dispatch dispatch, ViewService viewService) {
         children: <Widget>[
           new Stack(
             children: <Widget>[
-              new Image.asset(
-                state.navbgimagename,
-                width: Adapt.screenW(),
-                height: Adapt.px(288),
-                fit: BoxFit.fill,
+              new Container(
+                child: new Image.asset(
+                  state.navbgimagename,
+                  width: Adapt.screenW(),
+                  height: Adapt.px(288),
+                  fit: BoxFit.fill,
+                ),
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Color(0xfff5f5f5),
+                      width: Adapt.px(10)
+                    )
+                  )
+                ),
               ),
               new AppBar(
                 backgroundColor: Colors.transparent,
@@ -38,7 +48,9 @@ Widget buildView(MyState state, Dispatch dispatch, ViewService viewService) {
               viewService.buildComponent('headerview')
             ],
           ),
-          viewService.buildComponent('pushcell')
+          viewService.buildComponent('pushcell'),
+          viewService.buildComponent('ordercell'),
+          viewService.buildComponent('menucell')
         ],
       )
 

@@ -123,6 +123,62 @@ flutter:
     - images/nav_backgroundimage.webp
     - images/2.0x/nav_backgroundimage.webp
     - images/3.0x/nav_backgroundimage.webp
+
+    - images/order_icon0.webp
+    - images/2.0x/order_icon0.webp
+    - images/3.0x/order_icon0.webp
+    - images/order_icon1.webp
+    - images/2.0x/order_icon1.webp
+    - images/3.0x/order_icon1.webp
+    - images/order_icon2.webp
+    - images/2.0x/order_icon2.webp
+    - images/3.0x/order_icon2.webp
+    - images/order_icon3.webp
+    - images/2.0x/order_icon3.webp
+    - images/3.0x/order_icon3.webp
+    - images/order_icon4.webp
+    - images/2.0x/order_icon4.webp
+    - images/3.0x/order_icon4.webp
+    - images/order_icon5.webp
+    - images/2.0x/order_icon5.webp
+    - images/3.0x/order_icon5.webp
+    - images/order_icon6.webp
+    - images/2.0x/order_icon6.webp
+    - images/3.0x/order_icon6.webp
+    - images/order_icon7.webp
+    - images/2.0x/order_icon7.webp
+    - images/3.0x/order_icon7.webp
+    - images/order_icon8.webp
+    - images/2.0x/order_icon8.webp
+    - images/3.0x/order_icon8.webp
+    - images/order_icon9.webp
+    - images/2.0x/order_icon9.webp
+    - images/3.0x/order_icon9.webp
+
+    - images/menu_icon0.webp
+    - images/2.0x/menu_icon0.webp
+    - images/3.0x/menu_icon0.webp
+    - images/menu_icon1.webp
+    - images/2.0x/menu_icon1.webp
+    - images/3.0x/menu_icon1.webp
+    - images/menu_icon2.webp
+    - images/2.0x/menu_icon2.webp
+    - images/3.0x/menu_icon2.webp
+    - images/menu_icon3.webp
+    - images/2.0x/menu_icon3.webp
+    - images/3.0x/menu_icon3.webp
+    - images/menu_icon4.webp
+    - images/2.0x/menu_icon4.webp
+    - images/3.0x/menu_icon4.webp
+    - images/menu_icon5.webp
+    - images/2.0x/menu_icon5.webp
+    - images/3.0x/menu_icon5.webp
+    - images/menu_icon6.webp
+    - images/2.0x/menu_icon6.webp
+    - images/3.0x/menu_icon6.webp
+    - images/menu_icon7.webp
+    - images/2.0x/menu_icon7.webp
+    - images/3.0x/menu_icon7.webp
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
