@@ -7,30 +7,12 @@
     },
     {
       "idiom" : "iphone",
-      "filename" : "1242x2208.png",
+      "filename" : "1125x2436.png",
       "scale" : "2x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "1125x2436.png",
-      "scale" : "3x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "LaunchImage.png",
-      "unassigned" : true,
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "LaunchImage@2x.png",
-      "unassigned" : true,
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "LaunchImage@3x.png",
-      "unassigned" : true,
+      "filename" : " 1242x2688.png",
       "scale" : "3x"
     }
   ],
