@@ -7,6 +7,7 @@ import 'package:flutter_fish_redux_router_qt/getclitele/getclitele_detail/page.d
 import 'package:flutter_fish_redux_router_qt/getclitele/hotzx/page.dart';
 import 'package:flutter_fish_redux_router_qt/login/page.dart';
 import 'package:flutter_fish_redux_router_qt/main/page.dart';
+import 'package:flutter_fish_redux_router_qt/my/pages/userset/page.dart';
 import 'customer/page.dart';
 import 'getclitele/page.dart';
 import 'my/page.dart';
@@ -23,7 +24,8 @@ class YicaifuApp extends StatelessWidget{
         'getcliteledetail':GetCliteleDetailPage(),
         'cjzb':CjzbPage(),
         'hotzx':HotzxPage(),
-        'cjzbdetail':CjzbDetailPage()
+        'cjzbdetail':CjzbDetailPage(),
+        'userset':UsersetPage()
       }
   );
 //这块检查是显示登录页面还是直接显示首页

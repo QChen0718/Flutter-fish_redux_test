@@ -34,13 +34,20 @@ Widget buildView(MyState state, Dispatch dispatch, ViewService viewService) {
                 elevation: 0,
                 title: new Text(state.navtitle,style: TextStyle(color: Colors.white),),
                 actions: <Widget>[
-                  new Container(
-                    margin: EdgeInsets.only(right: Adapt.px(30)),
-                    child: Image.asset(state.rightmessage,width: Adapt.px(58),height: Adapt.px(58),),
-                  ) ,
-                  new Container(
-                    margin: EdgeInsets.only(right: Adapt.px(30)),
-                    child: Image.asset(state.rightset,width: Adapt.px(58),height: Adapt.px(58),),
+                  new GestureDetector(
+                    child: new Container(
+                      margin: EdgeInsets.only(right: Adapt.px(30)),
+                      child: Image.asset(state.rightmessage,width: Adapt.px(58),height: Adapt.px(58),),
+                    ),
+                  ),
+                  new GestureDetector(
+                    onTap: (){
+                      dispatch(MyActionCreator.onJumpSetpage());
+                    },
+                    child: new Container(
+                      margin: EdgeInsets.only(right: Adapt.px(30)),
+                      child: Image.asset(state.rightset,width: Adapt.px(58),height: Adapt.px(58),),
+                    ),
                   )
                 ],
                 centerTitle: true,
@@ -69,7 +76,7 @@ Widget buildView(MyState state, Dispatch dispatch, ViewService viewService) {
                           return viewService.buildComponent('menucell');
                           break;
                         default:
-                          state.nomalcellState = state.nomalcells[index];
+                          state.nomalcellState = state.nomalcells[index-4];
                           return viewService.buildComponent('nomalcell');
                           break;
                       }

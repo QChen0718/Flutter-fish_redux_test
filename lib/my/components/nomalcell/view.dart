@@ -11,6 +11,7 @@ Widget buildView(NomalcellState state, Dispatch dispatch, ViewService viewServic
     child: new Row(
       children: <Widget>[
         new Container(
+          margin: EdgeInsets.only(left: Adapt.px(29),right: Adapt.px(18)),
           child: new Image.asset(
             state.nomal_iconname,
             width: Adapt.px(47),
@@ -40,7 +41,7 @@ Widget buildView(NomalcellState state, Dispatch dispatch, ViewService viewServic
       border: Border(
         bottom: BorderSide(
           color: Color(0xfff5f5f5),
-          width: Adapt.px(1)
+          width: Adapt.px(2)
         )
       )
     ),

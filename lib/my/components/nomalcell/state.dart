@@ -18,11 +18,11 @@ class NomalConnector extends ConnOp<MyState,NomalcellState>{
   @override
   void set(MyState state, NomalcellState subState) {
     // TODO: implement set
-    super.set(state, subState);
+    state.nomalcellState = subState;
   }
   @override
   NomalcellState get(MyState state) {
     // TODO: implement get
-    return super.get(state);
+    return state.nomalcellState;
   }
 }

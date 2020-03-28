@@ -1,5 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter_fish_redux_router_qt/my/components/component.dart';
+import 'package:flutter_fish_redux_router_qt/my/components/headerview/component.dart';
 import 'package:flutter_fish_redux_router_qt/my/components/menucell/component.dart';
 import 'package:flutter_fish_redux_router_qt/my/components/menucell/state.dart';
 import 'package:flutter_fish_redux_router_qt/my/components/nomalcell/component.dart';
@@ -10,7 +10,7 @@ import 'package:flutter_fish_redux_router_qt/my/components/ordercell/component.d
 import 'package:flutter_fish_redux_router_qt/my/components/ordercell/state.dart';
 import 'package:flutter_fish_redux_router_qt/my/components/pushmessagecell/component.dart';
 import 'package:flutter_fish_redux_router_qt/my/components/pushmessagecell/state.dart';
-import 'package:flutter_fish_redux_router_qt/my/components/state.dart';
+import 'package:flutter_fish_redux_router_qt/my/components/headerview/state.dart';
 
 import 'effect.dart';
 import 'reducer.dart';

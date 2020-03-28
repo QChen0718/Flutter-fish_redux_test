@@ -4,7 +4,7 @@ import 'package:flutter_fish_redux_router_qt/my/components/nomalcell/state.dart'
 import 'package:flutter_fish_redux_router_qt/my/components/numbercell/state.dart';
 import 'package:flutter_fish_redux_router_qt/my/components/ordercell/state.dart';
 import 'package:flutter_fish_redux_router_qt/my/components/pushmessagecell/state.dart';
-import 'package:flutter_fish_redux_router_qt/my/components/state.dart';
+import 'package:flutter_fish_redux_router_qt/my/components/headerview/state.dart';
 
 class MyState implements Cloneable<MyState> {
   HeaderviewState headerviewState;

@@ -1,5 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
-import 'action.dart';
+import 'package:flutter_fish_redux_router_qt/my/components/headerview/action.dart';
+
 import 'state.dart';
 
 Effect<HeaderviewState> buildEffect() {
