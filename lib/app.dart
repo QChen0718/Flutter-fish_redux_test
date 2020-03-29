@@ -55,7 +55,8 @@ class YicaifuApp extends StatelessWidget{
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
 //        设置统一风格
-        primarySwatch: Colors.red
+        primarySwatch: Colors.red,
+
       ),
       home: _checkshowpage(),
       onGenerateRoute: (RouteSettings settings){

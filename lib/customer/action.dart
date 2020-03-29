@@ -1,7 +1,9 @@
 import 'package:fish_redux/fish_redux.dart';
 
+import 'components/listcell/state.dart';
+
 //TODO replace with your own action
-enum CustomerAction { action ,updateData}
+enum CustomerAction { action ,updateData , init}
 
 class CustomerActionCreator {
   static Action onAction() {
@@ -9,5 +11,8 @@ class CustomerActionCreator {
   }
   static Action onUpdateData() {
     return Action(CustomerAction.updateData);
+  }
+  static Action onInit(List<CustomerListcellState> cellstates) {
+    return Action(CustomerAction.init,payload: cellstates);
   }
 }

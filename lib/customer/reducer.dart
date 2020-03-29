@@ -7,7 +7,8 @@ Reducer<CustomerState> buildReducer() {
   return asReducer(
     <Object, Reducer<CustomerState>>{
       CustomerAction.action: _onAction,
-      CustomerAction.updateData:_onUpdateData
+      CustomerAction.updateData:_onUpdateData,
+      CustomerAction.init:_onInit
     },
   );
 }
@@ -19,6 +20,11 @@ CustomerState _onAction(CustomerState state, Action action) {
 
 CustomerState _onUpdateData(CustomerState state, Action action) {
   final CustomerState newState = state.clone();
-  newState.textname = '修改客户';
+//  newState.textname = '修改客户';
+  return newState;
+}
+CustomerState _onInit(CustomerState state, Action action) {
+  final CustomerState newState = state.clone();
+  newState.customercells = action.payload;
   return newState;
 }

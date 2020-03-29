@@ -202,6 +202,32 @@ flutter:
     - images/splash.png
     - images/2.0x/splash.png
     - images/3.0x/splash.png
+
+    - images/message_icon.webp
+    - images/2.0x/message_icon.webp
+    - images/3.0x/message_icon.webp
+    - images/addpersion_icon.webp
+    - images/2.0x/addpersion_icon.webp
+    - images/3.0x/addpersion_icon.webp
+
+    - images/search_icon.webp
+    - images/2.0x/search_icon.webp
+    - images/3.0x/search_icon.webp
+    - images/close_icon.webp
+    - images/2.0x/close_icon.webp
+    - images/3.0x/close_icon.webp
+
+    - images/filter_icon.webp
+    - images/2.0x/filter_icon.webp
+    - images/3.0x/filter_icon.webp
+
+    - images/select_filter_btn.webp
+    - images/2.0x/select_filter_btn.webp
+    - images/3.0x/select_filter_btn.webp
+
+    - images/arrow_bottom.webp
+    - images/2.0x/arrow_bottom.webp
+    - images/3.0x/arrow_bottom.webp
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
