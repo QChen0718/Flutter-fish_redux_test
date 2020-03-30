@@ -2,9 +2,9 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/cjzb/state.dart';
 
 class CjcellState implements Cloneable<CjcellState> {
-  String celltitle = "";
-  String cellcontent = "";
-  String cellcoverimagename = "";
+  String celltitle;
+  String cellcontent;
+  String cellcoverimagename;
   String cellid;
   @override
   CjcellState clone() {

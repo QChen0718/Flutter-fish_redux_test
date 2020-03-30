@@ -1,7 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/adapt.dart';
-
+import 'package:cached_network_image/cached_network_image.dart';
 import 'action.dart';
 import 'state.dart';
 
@@ -26,8 +26,8 @@ Widget buildView(HeaderviewState state, Dispatch dispatch, ViewService viewServi
                 children: <Widget>[
                   new CircleAvatar(
                     radius: Adapt.px(64),
-                    backgroundImage: new AssetImage(state.headerphotoname),
-                    backgroundColor: Colors.transparent,
+                    backgroundImage:
+                        new CachedNetworkImageProvider(state.headerphotoname)
                   ),
                   new Image.asset(
                     state.viplevelicon,

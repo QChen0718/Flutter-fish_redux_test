@@ -7,7 +7,7 @@ Reducer<MyState> buildReducer() {
   return asReducer(
     <Object, Reducer<MyState>>{
       MyAction.action: _onAction,
-      MyAction.init: _onInit
+      MyAction.init: _onInit,
     },
   );
 }
@@ -19,6 +19,6 @@ MyState _onAction(MyState state, Action action) {
 
 MyState _onInit(MyState state, Action action) {
   final MyState newState = state.clone();
-  newState.nomalcells = action.payload;
+  newState.headerviewState = action.payload['userinfo'];
   return newState;
 }

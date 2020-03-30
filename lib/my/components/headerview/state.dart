@@ -2,12 +2,13 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_fish_redux_router_qt/my/state.dart';
 
 class HeaderviewState implements Cloneable<HeaderviewState> {
-  String headerphotoname; //头像
-  String username;  //用户名
-  String viplevelicon;  //会员等级图标
-  bool isstaff; //是否是员工
-  String headerbgimagename; //背景图片
-  List<String> itemlist;
+//  组件在网络加载结束之前展示，需要给属性附初始值，不然会报错
+  String headerphotoname = ''; //头像
+  String username = '';  //用户名
+  String viplevelicon = '';  //会员等级图标
+  bool isstaff = false; //是否是员工
+  String headerbgimagename ='images/info_descbgimage.webp'; //背景图片
+  List<String> itemlist =[];
   @override
   HeaderviewState clone() {
     return HeaderviewState()

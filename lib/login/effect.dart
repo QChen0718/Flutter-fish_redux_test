@@ -36,7 +36,7 @@ void _onJumpHome(Action action, Context<LoginState> ctx) {
 _loginClick(Map<String,dynamic> params,Context<LoginState> ctx){
   Request.getInstance().post(API.REQUEST_URL_LOGIN,null, params, (succeck){
     UserInfo.cacheuserdata(succeck);
-    Navigator.pushReplacement(ctx.context, MaterialPageRoute(builder:(BuildContext context) => MainPage().buildPage({
+    Navigator.pushAndRemoveUntil(ctx.context, MaterialPageRoute(builder:(BuildContext context) => MainPage().buildPage({
       'pages':List<Widget>.unmodifiable([
 //          子路由的设置
         YicaifuApp.routes.buildPage('getclitele', {
@@ -48,7 +48,8 @@ _loginClick(Map<String,dynamic> params,Context<LoginState> ctx){
         YicaifuApp.routes.buildPage('customer', null),
         YicaifuApp.routes.buildPage('my', null)
       ])
-    })));
+    })), ModalRoute.withName('login')
+    );
   }, (error){
     Toast.toast(ctx.context,msg:error,position: ToastPostion.bottom);
   });

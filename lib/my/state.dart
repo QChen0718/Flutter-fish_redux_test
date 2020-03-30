@@ -39,12 +39,6 @@ class MyState implements Cloneable<MyState> {
 
 MyState initState(Map<String, dynamic> args) {
   HeaderviewState headerviewState = HeaderviewState();
-  headerviewState.headerbgimagename = 'images/info_descbgimage.webp';
-  headerviewState.username = 'C';
-  headerviewState.viplevelicon = 'images/normal_vip.webp';
-  headerviewState.isstaff = true;
-  headerviewState.headerphotoname = 'images/header_photo.webp';
-  headerviewState.itemlist = ['会员特权','员工号'];
 
   NumbercellState numbercellState = NumbercellState();
   numbercellState.numbers = ['658,500.00','6600','2','9818'];
@@ -86,6 +80,15 @@ MyState initState(Map<String, dynamic> args) {
     {'title':'邀请理财师好友','icon':'images/nomal_icon3.webp'},
     {'title':'客服电话','icon':'images/nomal_icon4.webp'}];
 
+  List<NomalcellState> listcell = [];
+  nomaltitles.forEach((value){
+    NomalcellState nomalcellState = NomalcellState();
+    nomalcellState.nomal_iconname = value['icon'];
+    nomalcellState.nomal_title = value['title'];
+    nomalcellState.nomal_arrow = 'images/nomal_arrow.webp';
+    listcell.add(nomalcellState);
+  });
+//  NomalcellState nomalcellState = NomalcellState();
   return MyState()
   ..headerviewState = headerviewState
   ..numbercellState = numbercellState
@@ -96,5 +99,6 @@ MyState initState(Map<String, dynamic> args) {
   ..pushMessageState = pushMessageState
   ..ordercellState = ordercellState
   ..menucellState = menucellState
-  ..nomalcelltitles = nomaltitles;
+  ..nomalcells = listcell;
+//  ..nomalcellState =nomalcellState;
 }
