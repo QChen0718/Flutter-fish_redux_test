@@ -8,9 +8,10 @@ class API {
   static const REQUEST_URL_LOGIN = BASE_URL + "User/Login";
   // 获取每日财经头部标题
   static const REQUEST_GET_NEWSTYPE_TITLE = BASE_URL + "Site/GetNewsType";
-  //     获取新闻列表
+  // 获取新闻列表
   static const REQUEST_URL_GET_NEWS_LIST = BASE_URL + "Site/GetNewsList";
-
+  // 获取用户信息
+  static const REQUEST_URL_GET_BASE_INFO_DETAIL = BASE_URL + "User/GetUserBaseInfoDetail";
 //  h5链接 -----------------------------------------
   //热门资讯详情页
   static const REQUEST_WEB_URL_ZIXUN_DETAIL  = HTTP_REQUEST_WEB_URL + "app/wxnews/";

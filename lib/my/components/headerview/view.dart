@@ -26,7 +26,7 @@ Widget buildView(HeaderviewState state, Dispatch dispatch, ViewService viewServi
                 children: <Widget>[
                   new CircleAvatar(
                     radius: Adapt.px(64),
-                    backgroundImage: new AssetImage(state.headerphotoname),
+                    backgroundImage: new Image.network(state.headerphotoname).image,
                     backgroundColor: Colors.transparent,
                   ),
                   new Image.asset(
