@@ -1,4 +1,5 @@
 
+import 'package:date_format/date_format.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/adapt.dart';
@@ -9,68 +10,84 @@ import 'state.dart';
 
 Widget buildView(CustomerState state, Dispatch dispatch, ViewService viewService) {
 
-  return new Column(
-    children: <Widget>[
-      new Container(
-        margin: EdgeInsets.only(top: Adapt.px(88)),
-        height: Adapt.px(88),
-        child: NavBar(
-            leftIcon: Image.asset(
-              state.lefticonname,
-              width: Adapt.px(35),
-              height: Adapt.px(35),),
-            titleStr: state.navtitle,
-            titleColor: Color(0xff333333),
-            rightIcons: <Widget>[
-              _righticon(state.righticonname)
-            ],
+  return Scaffold(
+    backgroundColor: Colors.white,
+    body: new Column(
+      children: <Widget>[
+        new Container(
+          margin: EdgeInsets.only(top: Adapt.padTopH()),
+          height: Adapt.px(88),
+          child: NavBar(
+              leftIcon: Image.asset(
+                state.lefticonname,
+                width: Adapt.px(35),
+                height: Adapt.px(35),),
+              titleStr: state.navtitle,
+              titleColor: Color(0xff333333),
+              rightIcons: <Widget>[
+                _righticon(state.righticonname)
+              ],
 //            rightIcons: _righticons(),
-            leftButtonClick: _leftBtnClick
-        ),
-        decoration: BoxDecoration(
-            border: Border(
-                bottom: BorderSide(width: Adapt.px(10),color: Color(0xfff5f5f5))
-            )
-        ),
-      ),
-      new Container(
-        margin: EdgeInsets.fromLTRB(Adapt.px(25), Adapt.px(32), Adapt.px(25), Adapt.px(32)),
-        child: viewService.buildComponent('searchbar'),
-      ),
-      new Padding(
-        padding: EdgeInsets.only(bottom: Adapt.px(30)),
-        child: viewService.buildComponent('filter'),
-      ),
-      new Container(
-        width: Adapt.screenW(),
-        margin: EdgeInsets.fromLTRB(Adapt.px(25), Adapt.px(10), Adapt.px(25), Adapt.px(10)),
-        child: new Container(
-          padding: EdgeInsets.only(bottom: Adapt.px(10)),
-          child: new Text(
-            '共890条记录',
-            style: TextStyle(
-                color: Color(0xff999999),
-                fontSize: Adapt.px(24)
-            ),
+              leftButtonClick: _leftBtnClick
+          ),
+          decoration: BoxDecoration(
+              border: Border(
+                  bottom: BorderSide(width: Adapt.px(10),color: Color(0xfff5f5f5))
+              )
           ),
         ),
-        decoration: BoxDecoration(
-            border: Border(
-                bottom: BorderSide(width: 1,color: Color(0xffC7C6C6))
+        new Container(
+          margin: EdgeInsets.fromLTRB(Adapt.px(25), Adapt.px(32), Adapt.px(25), Adapt.px(32)),
+          child: viewService.buildComponent('searchbar'),
+        ),
+        new Expanded(
+            child: new Stack(
+              children: <Widget>[
+                new Container(
+                    margin: EdgeInsets.only(top: Adapt.px(130)),
+                    child:new MediaQuery.removePadding(
+                        removeTop: true,
+                        context: viewService.context,
+                        child: ListView.builder(
+                            itemCount: viewService.buildAdapter().itemCount,
+                            itemBuilder: viewService.buildAdapter().itemBuilder
+                        )
+                    )
+                ),
+                new Container(
+                  width: Adapt.screenW(),
+                  height: Adapt.px(60),
+                  margin: EdgeInsets.fromLTRB(Adapt.px(25), Adapt.px(84), Adapt.px(25), Adapt.px(10)),
+                  child: new Container(
+                    padding: EdgeInsets.only(bottom: Adapt.px(10)),
+                    child: new Text(
+                      '共890条记录',
+                      style: TextStyle(
+                          color: Color(0xff999999),
+                          fontSize: Adapt.px(24)
+                      ),
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border(
+                          bottom: BorderSide(width: 1,color: Color(0xffC7C6C6))
+                      )
+                  ),
+                ),
+
+                viewService.buildComponent('filter'),
+              ],
             )
         ),
+      ],
+    ),
+    endDrawer: Drawer(
+
+      child: new Text(
+        '测试'
       ),
-      new Expanded(
-          child: new MediaQuery.removePadding(
-              removeTop: true,
-              context: viewService.context,
-              child: ListView.builder(
-                  itemCount: viewService.buildAdapter().itemCount,
-                  itemBuilder: viewService.buildAdapter().itemBuilder
-              )
-          )
-      )
-    ],
+    ),
   );
 }
 Widget _righticon(String content){

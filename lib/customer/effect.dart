@@ -14,6 +14,8 @@ void _onAction(Action action, Context<CustomerState> ctx) {
 }
 
 void _onInit(Action action, Context<CustomerState> ctx) {
+  List<CustomerListcellState> listcell = [];
+  for(int i=0;i<10;i++){
     CustomerListcellState customerListcellState = CustomerListcellState();
     customerListcellState.cellheaderimagename = 'images/header_photo.webp';
     customerListcellState.username = '王强';
@@ -22,5 +24,8 @@ void _onInit(Action action, Context<CustomerState> ctx) {
     customerListcellState.numbers = '1256';
     customerListcellState.unit = '万';
     customerListcellState.description ='累计交易';
-  ctx.dispatch(CustomerActionCreator.onInit([customerListcellState]));
+    listcell.add(customerListcellState);
+  }
+
+  ctx.dispatch(CustomerActionCreator.onInit(listcell));
 }

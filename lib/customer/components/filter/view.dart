@@ -25,6 +25,7 @@ Widget buildView(
         child: new Container(
           margin: EdgeInsets.only(left: Adapt.px(32)),
           width: Adapt.px(186),
+          height: Adapt.px(214),
           color: Colors.white,
           child: new Column(
             children: <Widget>[

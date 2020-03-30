@@ -58,7 +58,7 @@ Widget buildView(MyState state, Dispatch dispatch, ViewService viewService) {
               ),
               new Container(
                 height: Adapt.px(88),
-                margin: EdgeInsets.only(top: Adapt.px(88)),
+                margin: EdgeInsets.only(top: Adapt.padTopH()),
                 child: new NavBar(titleStr: state.navtitle,titleColor: Colors.white,rightIcons: <Widget>[
                   new GestureDetector(
                     child: new Container(
