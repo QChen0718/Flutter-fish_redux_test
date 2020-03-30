@@ -38,7 +38,6 @@ _loaduseinfoData(Context<MyState> ctx){
     var userdict = value['data']['userInfo'];
     UserInfoModel userInfo = UserInfoModel.fromJson(userdict);
     HeaderviewState headerviewState = HeaderviewState();
-    headerviewState.headerbgimagename = 'images/info_descbgimage.webp';
     headerviewState.username = userInfo.realName;
     headerviewState.viplevelicon = 'images/normal_vip.webp';
     headerviewState.isstaff = true;

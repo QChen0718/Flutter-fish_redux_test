@@ -22,7 +22,7 @@ class MyState implements Cloneable<MyState> {
   @override
   MyState clone() {
     return MyState()
-//    ..headerviewState = headerviewState
+    ..headerviewState = headerviewState
     ..numbercellState = numbercellState
     ..navbgimagename = navbgimagename
     ..rightmessage = rightmessage
