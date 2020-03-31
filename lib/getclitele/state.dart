@@ -1,8 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/cjzb/state.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/hotzx/page.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/hotzx/state.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/cjzb/state.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/hotzx/state.dart';
 import 'package:flutter_fish_redux_router_qt/models/newstitlemodel.dart';
 
 // 一次使用的用 SingleTickerProviderStateMixin
@@ -20,18 +19,21 @@ class GetCliteleState implements Cloneable<GetCliteleState>  {
   CjzbState cjzbState;
   HotzxState hotzxState;
   List<Widget> controllers = [];
+  String navtitle;
   @override
   GetCliteleState clone() {
     return GetCliteleState()
     ..context = context
     ..tabs = tabs
     ..tabController = tabController
-    ..controllers = controllers;
+    ..controllers = controllers
+    ..navtitle = navtitle;
   }
 }
 
 GetCliteleState initState(Map<String, dynamic> args) {
-  return GetCliteleState();
+  return GetCliteleState()
+  ..navtitle = '获客';
 }
 
 //财经早报

@@ -228,6 +228,46 @@ flutter:
     - images/arrow_bottom.webp
     - images/2.0x/arrow_bottom.webp
     - images/3.0x/arrow_bottom.webp
+
+    - images/item_gzs.webp
+    - images/2.0x/item_gzs.webp
+    - images/3.0x/item_gzs.webp
+    - images/item_mp.webp
+    - images/2.0x/item_mp.webp
+    - images/3.0x/item_mp.webp
+    - images/item_tj.webp
+    - images/2.0x/item_tj.webp
+    - images/3.0x/item_tj.webp
+    - images/item_cj.webp
+    - images/2.0x/item_cj.webp
+    - images/3.0x/item_cj.webp
+    - images/item_hb.webp
+    - images/2.0x/item_hb.webp
+    - images/3.0x/item_hb.webp
+    - images/item_video.webp
+    - images/2.0x/item_video.webp
+    - images/3.0x/item_video.webp
+    - images/item_zs.webp
+    - images/2.0x/item_zs.webp
+    - images/3.0x/item_zs.webp
+    - images/item_ssf.webp
+    - images/2.0x/item_ssf.webp
+    - images/3.0x/item_ssf.webp
+    - images/item_qd.webp
+    - images/2.0x/item_qd.webp
+    - images/3.0x/item_qd.webp
+    - images/marketing.webp
+    - images/2.0x/marketing.webp
+    - images/3.0x/marketing.webp
+    - images/nav_right_numbericon.webp
+    - images/2.0x/nav_right_numbericon.webp
+    - images/3.0x/nav_right_numbericon.webp
+    - images/number_bg.webp
+    - images/2.0x/number_bg.webp
+    - images/3.0x/number_bg.webp
+    - images/number_icon.webp
+    - images/2.0x/number_icon.webp
+    - images/3.0x/number_icon.webp
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

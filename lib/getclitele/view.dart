@@ -17,7 +17,7 @@ Widget buildView(GetCliteleState state, Dispatch dispatch, ViewService viewServi
         return  Scaffold(
             appBar: new AppBar(
               title: new Text(
-                  '获客'
+                  state.navtitle
               ),
 //              安卓上默认是在最左边的
               centerTitle: true,

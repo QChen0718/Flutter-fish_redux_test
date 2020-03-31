@@ -1,10 +1,11 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/sputil.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/cjzb/cjzbdetail/page.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/cjzb/page.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/getclitele_detail/page.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/hotzx/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/cjzb/cjzbdetail/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/cjzb/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/getclitele_detail/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/hotzx/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/page.dart';
 import 'package:flutter_fish_redux_router_qt/login/page.dart';
 import 'package:flutter_fish_redux_router_qt/main/page.dart';
 import 'package:flutter_fish_redux_router_qt/my/pages/userset/page.dart';
@@ -21,6 +22,7 @@ class YicaifuApp extends StatelessWidget{
         'login':LoginPage(),
         'main':MainPage(),
         'getclitele':GetClitelePage(),
+        'newgetclitele':NewGetClitelePage(),
         'customer':CustomerPage(),
         'my':MyPage(),
         'getcliteledetail':GetCliteleDetailPage(),
@@ -39,7 +41,7 @@ class YicaifuApp extends StatelessWidget{
      return routes.buildPage('main', {
        'pages':List<Widget>.unmodifiable([
 //          子路由的设置
-         routes.buildPage('getclitele', null),
+         routes.buildPage('newgetclitele', null),
          routes.buildPage('customer', null),
          routes.buildPage('my', null)
        ])
