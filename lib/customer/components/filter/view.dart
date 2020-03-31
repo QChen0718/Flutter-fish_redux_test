@@ -93,7 +93,7 @@ _item(String title, int index, Dispatch dispatch, FilterState state) {
 //            dispatch(FilterActionCreator.onShow());
             break;
           case 3:
-//            dispatch(FilterActionCreator.onShow());
+            dispatch(FilterActionCreator.onOpenDrawer());
             break;
         }
         ;

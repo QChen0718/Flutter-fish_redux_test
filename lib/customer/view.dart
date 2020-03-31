@@ -83,13 +83,13 @@ Widget buildView(CustomerState state, Dispatch dispatch, ViewService viewService
       ],
     ),
     endDrawer: Drawer(
-
-      child: new Text(
-        '测试'
-      ),
+      child: viewService.buildComponent('screening'),
     ),
+//    禁止滑动出Drawer
+    drawerEdgeDragWidth: 0.0,
   );
 }
+
 Widget _righticon(String content){
   return GestureDetector(
     onTap: (){

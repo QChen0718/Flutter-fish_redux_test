@@ -2,6 +2,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_fish_redux_router_qt/customer/adapter.dart';
 import 'package:flutter_fish_redux_router_qt/customer/components/filter/state.dart';
 import 'package:flutter_fish_redux_router_qt/customer/components/listcell/state.dart';
+import 'package:flutter_fish_redux_router_qt/customer/components/screening/state.dart';
 import 'package:flutter_fish_redux_router_qt/customer/components/searchbar/state.dart';
 
 class CustomerState extends MutableSource implements Cloneable<CustomerState> {
@@ -11,6 +12,7 @@ class CustomerState extends MutableSource implements Cloneable<CustomerState> {
   SearchBarState searchBarState;
   FilterState filterState;
   List<CustomerListcellState> customercells;
+  ScreeningState screeningState;
   @override
   CustomerState clone() {
     return CustomerState()
@@ -19,7 +21,8 @@ class CustomerState extends MutableSource implements Cloneable<CustomerState> {
     ..righticonname = righticonname
     ..searchBarState = searchBarState
     ..filterState = filterState
-    ..customercells = customercells;
+    ..customercells = customercells
+    ..screeningState = screeningState;
   }
 
   @override

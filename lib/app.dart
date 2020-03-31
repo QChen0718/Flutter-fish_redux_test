@@ -30,6 +30,7 @@ class YicaifuApp extends StatelessWidget{
         'userset':UsersetPage()
       }
   );
+  static BuildContext appContext;
 //这块检查是显示登录页面还是直接显示首页
  Widget _checkshowpage(){
    String userid = SpUtil.preferences.getString('id');
@@ -48,10 +49,15 @@ class YicaifuApp extends StatelessWidget{
      return routes.buildPage('login', null);
    }
   }
+// 定义NavigatorState的GlobalKey
+  static GlobalKey<NavigatorState> navigatorState = new GlobalKey();
+//  3、在需要跳转的地方调用navigatorState.currentState获取到NavigatorState进行界面跳转即可。
   @override
   Widget build(BuildContext context) {
+    appContext = context;
     // TODO: implement build
     return MaterialApp(
+      navigatorKey: navigatorState,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
 //        设置统一风格

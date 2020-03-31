@@ -13,6 +13,7 @@ class MainState implements Cloneable<MainState> {
 //  选择的下标
   int selectIndex;
   GetCliteleState getCliteleState;
+  static BuildContext appContext;
   @override
   MainState clone() {
     return MainState()
