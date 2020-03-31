@@ -20,7 +20,7 @@ Widget buildView(NewGetCliteleState state, Dispatch dispatch, ViewService viewSe
       actions: <Widget>[
         new GestureDetector(
           onTap: (){
-//            Navigator.push(context, MaterialPageRoute(builder: (context)=>NumberStatisticsPage()));
+
           },
           child: Padding(
             padding: new EdgeInsets.only(right: 20),
@@ -49,16 +49,15 @@ Widget buildView(NewGetCliteleState state, Dispatch dispatch, ViewService viewSe
                   ),
               ),
               new Container(
-//                color: Colors.blue,
-                margin: EdgeInsets.fromLTRB(Adapt.px(48), Adapt.px(40), Adapt.px(48),Adapt.px(0)),
+                margin: EdgeInsets.fromLTRB(Adapt.px(48), Adapt.px(40), Adapt.px(48),Adapt.px(40)),
                 height: Adapt.px(290),
                 child: new Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     new Container(
-                      margin: EdgeInsets.only(left: Adapt.px(42)),
-                      height: Adapt.px(160),
+                      margin: EdgeInsets.only(left: Adapt.px(42),right: Adapt.px(20)),
                       child: new Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           new Image.asset(
                             state.numbericon,
@@ -77,35 +76,17 @@ Widget buildView(NewGetCliteleState state, Dispatch dispatch, ViewService viewSe
                       ),
                     ),
                     new Container(
-                      margin: EdgeInsets.only(left: 40),
-                      height: Adapt.px(195),
-                      child:new Column(
-                        children: <Widget>[
-                          subwidget('日增', '累计客户(人)'),
-                          new Container(
-                            margin: EdgeInsets.only(top: 30),
-                            child: subwidget('日增', '累计发布(次)'),
-                          )
-                        ],
+                      width: Adapt.px(420),
+                      child: new Wrap(
+                          spacing: Adapt.px(10),
+                          children: List.generate(state.numberslist.length, (index){
+                            return subwidget(state.numberslist[index]);
+                          })
                       ),
                     ),
-                    new Container(
-                      margin: EdgeInsets.only(left: 40),
-                      height: Adapt.px(195),
-                      child: new Column(
-                        children: <Widget>[
-                          subwidget('日增', '累计访问(人)'),
-                          new Container(
-                            margin: EdgeInsets.only(top: 30),
-                            child: subwidget('日增', '累计绑定客户数(人)'),
-                          )
-                        ],
-                      ),
-                    )
                   ],
                 ),
               )
-
             ],
           ),
           new Stack(
@@ -114,8 +95,7 @@ Widget buildView(NewGetCliteleState state, Dispatch dispatch, ViewService viewSe
               new Container(
                 child: GestureDetector(
                   onTap: (){
-//                      Navigator.push(context, MaterialPageRoute(builder: (context)=>MarketingAssistant()));
-//                    Navigator.of(context).pushNamed('/signup');
+
                   },
                   child: marketingview(),
                 ) ,
@@ -157,35 +137,64 @@ Widget buildView(NewGetCliteleState state, Dispatch dispatch, ViewService viewSe
               )
             ],
           ),
-//          gamelistwidget()
+          new Container(
+            margin: EdgeInsets.only(left: Adapt.px(20),top: Adapt.px(40)),
+            child: new Wrap(
+              spacing: Adapt.px(110),
+              runSpacing: Adapt.px(30),
+              children: List.generate(state.items.length, (index){
+                return items(state.items[index]);
+              }),
+            ),
+          )
         ],
       ),
     ),
   );
 }
-Widget subwidget(String number,String title){
-  return  new Column(
-    children: <Widget>[
-      new Container(
-        height: 24,
-        child:new Text(number,style: new TextStyle(
-            color: Color(0xFFB3C4EA),
-            fontSize: 24,
-            height: 1
-        ),
-        ),
-      ),
 
-      new Padding(
-        padding: EdgeInsets.only(top: 5),
-        child: new Text(title,style: new TextStyle(
-            color: Color(0xFFB3C4EA),
-            fontSize: 11,
-            height: 1
+Widget subwidget(Map<String,dynamic> data){
+  return Container(
+    width: Adapt.px(200),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        new RichText(
+            text: TextSpan(
+                text: data['days']+' ',
+                style: new TextStyle(
+                    color: Colors.white,
+                    fontSize: Adapt.px(48)
+                ),
+                children: [
+                  new TextSpan(
+                      text: data['title'],
+                      style: new TextStyle(
+                          color: Color(0xffB3C4EA),
+                          fontSize: Adapt.px(22)
+                      )
+                  ),
+                  new TextSpan(
+                      text: ' '+data['number'],
+                      style: new TextStyle(
+                          color: Colors.white,
+                          fontSize: Adapt.px(30)
+                      )
+                  )
+                ]
+            )
         ),
-        ),
-      )
-    ],
+        new Container(
+          child: new Text(
+            data['desc'],
+            style: new TextStyle(
+                color: Color(0xff8D93A9),
+                fontSize: Adapt.px(22)
+            ),
+          ),
+        )
+      ],
+    ),
   );
 }
 //营销
@@ -226,60 +235,27 @@ Widget marketingview(){
     ],
   );
 }
-
-//List<Container> _buildGridTitleList(int count){
-//  return new List<Container>.generate(count, (int index)=>
-//  new Container(
-//    margin: EdgeInsets.only(top: Adapt.px(20)),
-//    child: new Column(
-//      children: <Widget>[
-//        new Image.asset(
-//          _imagename[index],
-//          width: Adapt.px(75),
-//          height: Adapt.px(75),
-//        ),
-//        new Container(
-//          margin: EdgeInsets.only(top: Adapt.px(15)),
-//          child: new Text(_titles[index],
-//            style: new TextStyle(fontSize: 14,height: 1),
-//          ),
-//        )
-//      ],
-//    ),
-//  )
-//  );
-//}
-//Widget gamelistwidget(){
-//  return Container(
-//      width: Adapt.screenW(),
-//      height: Adapt.px(493),
-//      margin: EdgeInsets.only(top: 20),
-//      child: new GridView.builder(
-//        itemCount: _imagename.length,
-//        physics: new NeverScrollableScrollPhysics(),
-//        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//            crossAxisCount: 3,
-//            crossAxisSpacing: Adapt.px(10),
-//            childAspectRatio: 1.5
-//        ),
-//        itemBuilder: (BuildContext context,int index){
-//          return new GestureDetector(
-//            onTap: (){
-//              if (index == 4){
-////                Navigator.push(context, MaterialPageRoute(builder:(context)=>PosterPage()));
-//              }
-//              else if (index == 1){
-////                Navigator.push(context, MaterialPageRoute(builder: (context)=>MyCardPage()));
-//              }
-//              else if (index == 2){
-////                Navigator.push(context, MaterialPageRoute(builder: (context)=>ProducttjPage()));
-//              }
-//            },
-//            child:_buildGridTitleList(9)[index] ,
-//          ) ;
-//        },
 //
-//        padding: const EdgeInsets.all(4),
-//      )
-//  );
-//}
+Widget items(Map<String,dynamic>itemdata){
+  return Container(
+    width: Adapt.px(150),
+    child: new Column(
+      children: <Widget>[
+        new Image.asset(
+          itemdata['imagename'],
+          width: Adapt.px(75),
+          height: Adapt.px(75),
+        ),
+        new Container(
+          child: new Text(
+            itemdata['title'],
+            style: new TextStyle(
+              color: Color(0xff333333),
+              fontSize: Adapt.px(28)
+            ),
+          ),
+        )
+      ],
+    ),
+  );
+}
