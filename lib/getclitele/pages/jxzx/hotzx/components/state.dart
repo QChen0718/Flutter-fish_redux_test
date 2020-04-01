@@ -1,7 +1,7 @@
 //存储视图中的数据的地方，包括初始值的设置，包括与父子组件的交互的地方
 
 import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/pages/hotzx/state.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/hotzx/state.dart';
 
 class HeaderState implements Cloneable<HeaderState> {
 //  bool showHeaderMovie;

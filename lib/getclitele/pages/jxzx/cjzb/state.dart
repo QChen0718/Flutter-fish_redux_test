@@ -1,6 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/pages/cjzb/adapter.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/cjzb/adapter.dart';
 import 'package:flutter_fish_redux_router_qt/models/newstitlemodel.dart';
 import 'components/state.dart';
 

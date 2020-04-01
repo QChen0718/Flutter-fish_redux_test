@@ -1,5 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/pages/hotzx/components/state.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/hotzx/components/state.dart';
 import 'action.dart';
 import 'state.dart';
 

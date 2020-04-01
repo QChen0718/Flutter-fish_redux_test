@@ -1,7 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/page.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/state.dart';
 
 const _tabTitles = ['获客','客户','我的'];
 const _tabImagenames = ['images/home.webp','images/customer.webp','images/my.webp'];
@@ -12,15 +10,13 @@ class MainState implements Cloneable<MainState> {
   List<Widget> controllers;
 //  选择的下标
   int selectIndex;
-  GetCliteleState getCliteleState;
   static BuildContext appContext;
   @override
   MainState clone() {
     return MainState()
     ..selectIndex = selectIndex
     ..tabs = tabs
-    ..controllers = controllers
-    ..getCliteleState = getCliteleState;
+    ..controllers = controllers;
   }
 }
 
@@ -41,19 +37,8 @@ MainState initState(Map<String, dynamic> args) {
       );
   });
 
-  GetCliteleState getCliteleState = GetCliteleState();
   return MainState()
   ..tabs = tabs
   ..selectIndex = 0
-  ..getCliteleState = getCliteleState
   ..controllers = args['pages'];
-}
-// 获客
-class GetCliteleConnector extends ConnOp<MainState,GetCliteleState> {
-  @override
-  GetCliteleState get (MainState state) => state.getCliteleState;
-  @override
-  void set(MainState state, GetCliteleState subState) {
-    state.getCliteleState = subState;
-  }
 }

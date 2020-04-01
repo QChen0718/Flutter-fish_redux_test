@@ -1,11 +1,11 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/sputil.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/pages/cjzb/cjzbdetail/page.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/pages/cjzb/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/cjzb/cjzbdetail/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/cjzb/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/getclitele_detail/page.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/pages/hotzx/page.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/pages/getclitele/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/hotzx/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/page.dart';
 import 'package:flutter_fish_redux_router_qt/login/page.dart';
 import 'package:flutter_fish_redux_router_qt/main/page.dart';
 import 'package:flutter_fish_redux_router_qt/my/pages/userset/page.dart';

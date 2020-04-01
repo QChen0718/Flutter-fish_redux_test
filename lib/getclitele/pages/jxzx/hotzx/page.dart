@@ -1,7 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/pages/hotzx/components/component.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/pages/hotzx/state.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/pages/hotzx/components/state.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/hotzx/components/component.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/hotzx/state.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/hotzx/components/state.dart';
 
 import 'effect.dart';
 import 'reducer.dart';
