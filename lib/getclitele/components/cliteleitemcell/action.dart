@@ -4,7 +4,7 @@ import 'package:fish_redux/fish_redux.dart';
 enum CliteleItemCellAction { action }
 
 class CliteleItemCellActionCreator {
-  static Action onAction() {
-    return const Action(CliteleItemCellAction.action);
+  static Action onAction(int index) {
+    return  Action(CliteleItemCellAction.action,payload: index);
   }
 }
