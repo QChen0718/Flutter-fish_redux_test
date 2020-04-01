@@ -1,28 +1,23 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/components/cliteleitemcell/state.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/components/markingcell/state.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/components/numbercell/state.dart';
 
 class NewGetCliteleState implements Cloneable<NewGetCliteleState> {
+  CliteleNumberState cliteleNumberState;
+  MarkingCellState markingCellState;
+  CliteleItemCellState cliteleItemCellState;
   String navtitle;
-  List<Map<String,dynamic>> items;
-  List<Map<String,dynamic>> numberslist;
-  List<Map<String,dynamic>> markinglist;
   String navrightbtnname;
-  String numberbg;
-  String numbericon;
-  String numbertext;
-  String markingname;
-  String arrow_name;
+
   @override
   NewGetCliteleState clone() {
     return NewGetCliteleState()
     ..navtitle = navtitle
-    ..items = items
     ..navrightbtnname = navrightbtnname
-    ..numberbg = numberbg
-    ..numbericon = numbericon
-    ..numbertext = numbertext
-    ..markingname = markingname
-    ..arrow_name = arrow_name
-    ..markinglist = markinglist;
+    ..cliteleNumberState = cliteleNumberState
+    ..markingCellState = markingCellState
+    ..cliteleItemCellState = cliteleItemCellState;
   }
 }
 
@@ -47,15 +42,21 @@ NewGetCliteleState initState(Map<String, dynamic> args) {
     {'title':'zoey浏览了我的移动工作室','date':'04-01 15:20'},
     {'title':'幕浏览了我的文章转发','date':'03-25 15:20'}
   ];
+  CliteleNumberState cliteleNumberState = CliteleNumberState();
+  cliteleNumberState.numberbg = 'images/number_bg.webp';
+  cliteleNumberState.numberslist = numberslist;
+  cliteleNumberState.numbertext = '获客数据';
+  cliteleNumberState.numbericon = 'images/number_icon.webp';
+  MarkingCellState markingCellState = MarkingCellState();
+  markingCellState.markingname = 'images/marketing.webp';
+  markingCellState.arrow_name = 'images/nomal_arrow.webp';
+  markingCellState.markinglist = markinglist;
+  CliteleItemCellState cliteleItemCellState = CliteleItemCellState();
+  cliteleItemCellState.items = items;
   return NewGetCliteleState()
   ..navtitle = '获客中心'
-  ..items=items
   ..navrightbtnname = 'images/nav_right_numbericon.webp'
-  ..numberbg = 'images/number_bg.webp'
-  ..numbericon = 'images/number_icon.webp'
-  ..numbertext = '获客数据'
-  ..numberslist = numberslist
-  ..markingname = 'images/marketing.webp'
-  ..arrow_name = 'images/nomal_arrow.webp'
-  ..markinglist = markinglist;
+  ..markingCellState = markingCellState
+  ..cliteleNumberState = cliteleNumberState
+  ..cliteleItemCellState = cliteleItemCellState;
 }
