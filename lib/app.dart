@@ -6,6 +6,7 @@ import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/cjzb/page.dar
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/getclitele_detail/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/hotzx/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/numberstatistics/page.dart';
 import 'package:flutter_fish_redux_router_qt/login/page.dart';
 import 'package:flutter_fish_redux_router_qt/main/page.dart';
 import 'package:flutter_fish_redux_router_qt/my/pages/userset/page.dart';
@@ -29,7 +30,8 @@ class YicaifuApp extends StatelessWidget{
         'cjzb':CjzbPage(),
         'hotzx':HotzxPage(),
         'cjzbdetail':CjzbDetailPage(),
-        'userset':UsersetPage()
+        'userset':UsersetPage(),
+        'numberstatistics':NumberStatisticsPage()
       }
   );
   static BuildContext appContext;

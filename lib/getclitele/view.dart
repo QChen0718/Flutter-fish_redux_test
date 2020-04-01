@@ -20,7 +20,7 @@ Widget buildView(NewGetCliteleState state, Dispatch dispatch, ViewService viewSe
       actions: <Widget>[
         new GestureDetector(
           onTap: (){
-
+            dispatch(NewGetCliteleActionCreator.onAction());
           },
           child: Padding(
             padding: new EdgeInsets.only(right: 20),

@@ -5,6 +5,6 @@ enum NewGetCliteleAction { action }
 
 class NewGetCliteleActionCreator {
   static Action onAction() {
-    return const Action(NewGetCliteleAction.action);
+    return Action(NewGetCliteleAction.action);
   }
 }
