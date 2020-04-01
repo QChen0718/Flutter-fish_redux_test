@@ -5,13 +5,13 @@ import 'package:flutter_fish_redux_router_qt/getclitele/pages/cjzb/cjzbdetail/pa
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/cjzb/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/getclitele_detail/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/hotzx/page.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/pages/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/getclitele/page.dart';
 import 'package:flutter_fish_redux_router_qt/login/page.dart';
 import 'package:flutter_fish_redux_router_qt/main/page.dart';
 import 'package:flutter_fish_redux_router_qt/my/pages/userset/page.dart';
 import 'package:flutter_fish_redux_router_qt/start/page.dart';
 import 'customer/page.dart';
-import 'getclitele/page.dart';
+import 'getclitele/pages/jxzx/page.dart';
 import 'my/page.dart';
 
 class YicaifuApp extends StatelessWidget{

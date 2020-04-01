@@ -89,53 +89,41 @@ Widget buildView(NewGetCliteleState state, Dispatch dispatch, ViewService viewSe
               )
             ],
           ),
-          new Stack(
-            alignment: Alignment.centerRight,
-            children: <Widget>[
-              new Container(
-                child: GestureDetector(
-                  onTap: (){
-
-                  },
-                  child: marketingview(),
-                ) ,
-              ),
-              new Positioned(
-                right: 35,
-                child: new Container(
-                  margin: EdgeInsets.only(left: Adapt.px(50)),
-                  child: new Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[
-                      new Text(
-                        '10-22 14:57',
-                        style: new TextStyle(
-                            fontSize: Adapt.px(24),
-                            color: Color(0xFFB2B2B2)
-                        ),
-                      ),
-                      new Text(
-                        '10-22 14:57',
-                        style: new TextStyle(
-                            fontSize: Adapt.px(24),
-                            color: Color(0xFFB2B2B2)
-                        ),
-                      ),
-                    ],
-                  ),
+          new Container(
+            padding: EdgeInsets.fromLTRB(Adapt.px(35), Adapt.px(18), Adapt.px(35), Adapt.px(18)),
+            child: new Row(
+              children: <Widget>[
+                new Image.asset(
+                  state.markingname,
+                  width: Adapt.px(92),
+                  height: Adapt.px(92),
+                  fit: BoxFit.fill,
                 ),
-              ),
-              new Positioned(
-                right: 15,
-                child: new Image.asset(
-                  'images/icon_arrow.webp',
+                new Expanded(
+                    child: new Column(
+                      children: List.generate(state.markinglist.length, (index){
+                        return markingsubwidget(state.markinglist[index]);
+                      })
+                    )
+                ),
+                new Image.asset(
+                  state.arrow_name,
                   width: Adapt.px(16),
                   height: Adapt.px(26),
-                ),
-
-
+                )
+              ],
+            ),
+            decoration: BoxDecoration(
+              border: Border(top: BorderSide(
+                  color: Color(0xfff5f5f5),
+                  width: Adapt.px(10)
+                 ),
+                bottom: BorderSide(
+                  color: Color(0xfff5f5f5),
+                  width: Adapt.px(10)
+                )
               )
-            ],
+            ),
           ),
           new Container(
             margin: EdgeInsets.only(left: Adapt.px(20),top: Adapt.px(40)),
@@ -152,7 +140,46 @@ Widget buildView(NewGetCliteleState state, Dispatch dispatch, ViewService viewSe
     ),
   );
 }
+Widget markingsubwidget(Map<String,dynamic> data){
+  return new Container(
+    margin: EdgeInsets.only(left: Adapt.px(20)),
+    child: new Row(
+      children: <Widget>[
+        new Expanded(
+            child: new RichText(
+                text: new TextSpan(
+                    text: '• ',
+                    style: new TextStyle(
+                        color: Color(0xffF36E27),
+                        fontSize: Adapt.px(18)
+                    ),
+                    children: [
+                      new TextSpan(
+                        text: data['title'],
+                        style: new TextStyle(
+                            color: Color(0xff333333),
+                            fontSize: Adapt.px(24)
+                        ),
+                      )
+                    ]
+                )
+            )
 
+        ),
+        new Container(
+          margin: EdgeInsets.only(right: Adapt.px(20),left: Adapt.px(50)),
+          child: new Text(
+            data['date'],
+            style: new TextStyle(
+                color: Color(0xffB2B2B2),
+                fontSize: Adapt.px(24)
+            ),
+          ),
+        )
+      ],
+    ),
+  );
+}
 Widget subwidget(Map<String,dynamic> data){
   return Container(
     width: Adapt.px(200),
@@ -197,44 +224,6 @@ Widget subwidget(Map<String,dynamic> data){
     ),
   );
 }
-//营销
-Widget marketingview(){
-  return new Row(
-    children: <Widget>[
-      new Container(
-          margin: EdgeInsets.only(left: 15),
-          child: new Image.asset(
-            'images/marketing.webp',
-            width: 46,
-            height: 46,
-          )
-      ),
-      new Container(
-        margin: EdgeInsets.only(left: 10),
-        child: new Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            new Text(
-              '• zoey浏览了我的移动工作室',
-              style: new TextStyle(
-                  fontSize: 12,
-                  color: Color(0xFF333333)
-              ),
-            ),
-            new Text(
-              '• 慕浏览了我的文章转发｜国...',
-              style: new TextStyle(
-                  fontSize: 12,
-                  color: Color(0xFF333333)
-              ),
-            ),
-          ],
-        ),
-      ),
-
-    ],
-  );
-}
 //
 Widget items(Map<String,dynamic>itemdata){
   return Container(
@@ -247,6 +236,7 @@ Widget items(Map<String,dynamic>itemdata){
           height: Adapt.px(75),
         ),
         new Container(
+          padding: EdgeInsets.only(top: Adapt.px(15)),
           child: new Text(
             itemdata['title'],
             style: new TextStyle(

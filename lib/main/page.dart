@@ -1,5 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/page.dart';
 
 import 'effect.dart';
 import 'reducer.dart';

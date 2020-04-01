@@ -1,7 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/page.dart';
-import 'package:flutter_fish_redux_router_qt/getclitele/state.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/state.dart';
 
 const _tabTitles = ['获客','客户','我的'];
 const _tabImagenames = ['images/home.webp','images/customer.webp','images/my.webp'];
