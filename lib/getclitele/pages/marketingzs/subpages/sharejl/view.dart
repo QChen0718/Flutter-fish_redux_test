@@ -5,5 +5,8 @@ import 'action.dart';
 import 'state.dart';
 
 Widget buildView(SharejlState state, Dispatch dispatch, ViewService viewService) {
-  return Container();
+  return new ListView.builder(
+      itemCount: viewService.buildAdapter().itemCount,
+      itemBuilder: viewService.buildAdapter().itemBuilder
+  );
 }

@@ -7,6 +7,9 @@ import 'package:flutter_fish_redux_router_qt/getclitele/pages/getclitele_detail/
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/hotzx/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/marketingzs/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/marketingzs/subpages/marketingclues/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/marketingzs/subpages/sharejl/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/marketingzs/subpages/statistics/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/numberstatistics/page.dart';
 import 'package:flutter_fish_redux_router_qt/login/page.dart';
 import 'package:flutter_fish_redux_router_qt/main/page.dart';
@@ -33,7 +36,10 @@ class YicaifuApp extends StatelessWidget{
         'cjzbdetail':CjzbDetailPage(),
         'userset':UsersetPage(),
         'numberstatistics':NumberStatisticsPage(),
-        'marketingzs':MarketingZSPage()
+        'marketingzs':MarketingZSPage(),
+        'marketingclues':MarketingCluesPage(),
+        'sharejl':SharejlPage(),
+        'statistics':StatisticsPage()
       }
   );
   static BuildContext appContext;

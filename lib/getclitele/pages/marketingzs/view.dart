@@ -2,6 +2,8 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/adapt.dart';
 import 'package:flutter_fish_redux_router_qt/actions/navbar.dart';
+import 'package:flutter_fish_redux_router_qt/app.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/marketingzs/subpages/marketingclues/state.dart';
 
 import 'action.dart';
 import 'state.dart';
@@ -36,9 +38,9 @@ Widget buildView(MarketingZSState state, Dispatch dispatch, ViewService viewServ
         Flexible(
           child: new TabBarView(
             children: [
-//              MarketingClues(),
-//              SharejlPage(),
-//              StatisticsPage(),
+              YicaifuApp.routes.buildPage('marketingclues', null),
+              YicaifuApp.routes.buildPage('sharejl', null),
+              YicaifuApp.routes.buildPage('statistics', null),
             ],
             controller: state.tabController,
           ),

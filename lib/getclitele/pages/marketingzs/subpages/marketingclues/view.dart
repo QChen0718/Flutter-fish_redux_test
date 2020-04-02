@@ -5,5 +5,12 @@ import 'action.dart';
 import 'state.dart';
 
 Widget buildView(MarketingCluesState state, Dispatch dispatch, ViewService viewService) {
-  return Container();
+  return new MediaQuery.removePadding(
+      removeTop: true,
+      context: viewService.context,
+      child: new ListView.builder(
+        itemBuilder: viewService.buildAdapter().itemBuilder,
+        itemCount: viewService.buildAdapter().itemCount,
+      )
+  );
 }

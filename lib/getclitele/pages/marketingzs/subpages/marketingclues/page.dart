@@ -1,4 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/marketingzs/subpages/marketingclues/adapter.dart';
 
 import 'effect.dart';
 import 'reducer.dart';
@@ -13,7 +14,7 @@ class MarketingCluesPage extends Page<MarketingCluesState, Map<String, dynamic>>
             reducer: buildReducer(),
             view: buildView,
             dependencies: Dependencies<MarketingCluesState>(
-                adapter: null,
+                adapter: NoneConn<MarketingCluesState>() + MarketingCluesAdapter(),
                 slots: <String, Dependent<MarketingCluesState>>{
                 }),
             middleware: <Middleware<MarketingCluesState>>[
