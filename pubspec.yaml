@@ -268,6 +268,22 @@ flutter:
     - images/number_icon.webp
     - images/2.0x/number_icon.webp
     - images/3.0x/number_icon.webp
+
+    - images/nav_back_icon.webp
+    - images/2.0x/nav_back_icon.webp
+    - images/3.0x/nav_back_icon.webp
+    - images/statistics_icon1.webp
+    - images/2.0x/statistics_icon1.webp
+    - images/3.0x/statistics_icon1.webp
+    - images/statistics_icon2.webp
+    - images/2.0x/statistics_icon2.webp
+    - images/3.0x/statistics_icon2.webp
+    - images/statistics_icon3.webp
+    - images/2.0x/statistics_icon3.webp
+    - images/3.0x/statistics_icon3.webp
+    - images/statistics_icon4.webp
+    - images/2.0x/statistics_icon4.webp
+    - images/3.0x/statistics_icon4.webp
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

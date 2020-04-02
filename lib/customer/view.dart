@@ -15,15 +15,12 @@ Widget buildView(CustomerState state, Dispatch dispatch, ViewService viewService
     body: new Column(
       children: <Widget>[
         new Container(
-          margin: EdgeInsets.only(top: Adapt.padTopH()),
-          height: Adapt.px(88),
           child: NavBar(
               leftIcon: Image.asset(
                 state.lefticonname,
                 width: Adapt.px(35),
                 height: Adapt.px(35),),
               titleStr: state.navtitle,
-              titleColor: Color(0xff333333),
               rightIcons: <Widget>[
                 _righticon(state.righticonname)
               ],

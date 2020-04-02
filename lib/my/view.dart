@@ -56,10 +56,7 @@ Widget buildView(MyState state, Dispatch dispatch, ViewService viewService) {
                   )
                 ),
               ),
-              new Container(
-                height: Adapt.px(88),
-                margin: EdgeInsets.only(top: Adapt.padTopH()),
-                child: new NavBar(titleStr: state.navtitle,titleColor: Colors.white,rightIcons: <Widget>[
+               new NavBar(titleStr: state.navtitle,titleColor: Colors.white,backgroundColor: Colors.transparent,isHiddenLeftIcon: true,rightIcons: <Widget>[
                   new GestureDetector(
                     child: new Container(
                       margin: EdgeInsets.only(right: Adapt.px(30)),
@@ -76,7 +73,6 @@ Widget buildView(MyState state, Dispatch dispatch, ViewService viewService) {
                     ),
                   )
                 ],),
-              ),
                viewService.buildComponent('headerview')
             ]
       ),
