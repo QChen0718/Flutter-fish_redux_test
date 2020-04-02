@@ -1,10 +1,10 @@
 import 'package:fish_redux/fish_redux.dart';
 
 //TODO replace with your own action
-enum MarkingCellAction { action }
+enum StatisticsAction { action }
 
-class MarkingCellActionCreator {
+class StatisticsActionCreator {
   static Action onAction() {
-    return Action(MarkingCellAction.action);
+    return const Action(StatisticsAction.action);
   }
 }

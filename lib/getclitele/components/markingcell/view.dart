@@ -6,40 +6,46 @@ import 'action.dart';
 import 'state.dart';
 
 Widget buildView(MarkingCellState state, Dispatch dispatch, ViewService viewService) {
-  return new Container(
-    padding: EdgeInsets.fromLTRB(Adapt.px(35), Adapt.px(18), Adapt.px(35), Adapt.px(18)),
-    child: new Row(
-      children: <Widget>[
-        new Image.asset(
-          state.markingname,
-          width: Adapt.px(92),
-          height: Adapt.px(92),
-          fit: BoxFit.fill,
-        ),
-        new Expanded(
-            child: new Column(
-                children: List.generate(state.markinglist.length, (index){
-                  return markingsubwidget(state.markinglist[index]);
-                })
-            )
-        ),
-        new Image.asset(
-          state.arrow_name,
-          width: Adapt.px(16),
-          height: Adapt.px(26),
-        )
-      ],
-    ),
-    decoration: BoxDecoration(
-        border: Border(top: BorderSide(
-            color: Color(0xfff5f5f5),
-            width: Adapt.px(10)
-        ),
-            bottom: BorderSide(
-                color: Color(0xfff5f5f5),
-                width: Adapt.px(10)
-            )
-        )
+  return new GestureDetector(
+    onTap: (){
+      dispatch(MarkingCellActionCreator.onAction());
+    },
+    child: new Container(
+      padding: EdgeInsets.fromLTRB(Adapt.px(35), Adapt.px(18), Adapt.px(35), Adapt.px(18)),
+      child: new Row(
+        children: <Widget>[
+          new Image.asset(
+            state.markingname,
+            width: Adapt.px(92),
+            height: Adapt.px(92),
+            fit: BoxFit.fill,
+          ),
+          new Expanded(
+              child: new Column(
+                  children: List.generate(state.markinglist.length, (index){
+                    return markingsubwidget(state.markinglist[index]);
+                  })
+              )
+          ),
+          new Image.asset(
+            state.arrow_name,
+            width: Adapt.px(16),
+            height: Adapt.px(26),
+          )
+        ],
+      ),
+      decoration: BoxDecoration(
+        color: Colors.white,
+          border: Border(top: BorderSide(
+              color: Color(0xfff5f5f5),
+              width: Adapt.px(10)
+          ),
+              bottom: BorderSide(
+                  color: Color(0xfff5f5f5),
+                  width: Adapt.px(10)
+              )
+          )
+      ),
     ),
   );
 }
