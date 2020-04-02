@@ -8,7 +8,9 @@ import 'package:flutter_fish_redux_router_qt/network/resultcode.dart';
 import 'package:flutter/material.dart';
 enum Method{
   get,
-  post
+  post,
+  put,
+  delete
 }
 class Request{
   //写一个单例
@@ -41,6 +43,16 @@ class Request{
 
     _requestHttp(url, successCallBack,Method.post,headers,params,errorCallBack);
   }
+//  put请求
+  put(String url,Map<String,dynamic> headers, Map<String,dynamic> params,Function successCallBack,Function errorCallBack) async {
+
+    _requestHttp(url, successCallBack,Method.put,headers,params,errorCallBack);
+  }
+  //  put请求
+  delete(String url,Map<String,dynamic> headers, Map<String,dynamic> params,Function successCallBack,Function errorCallBack) async {
+
+    _requestHttp(url, successCallBack,Method.delete,headers,params,errorCallBack);
+  }
 //  请求网络
   _requestHttp(String url,Function successCallBack,[Method method,Map<String,dynamic> headers,Map<String,dynamic> params,Function errorCallBack]) async {
     Response response;
@@ -62,6 +74,20 @@ class Request{
             response = await dio.post(url,data: params);
           }else{
             response = await dio.post(url);
+          }
+          break;
+        case Method.put:
+          if(params != null && params.isNotEmpty){
+            response = await dio.put(url,data: params);
+          }else{
+            response = await dio.put(url);
+          }
+          break;
+        case Method.delete:
+          if(params != null && params.isNotEmpty){
+            response = await dio.delete(url,data: params);
+          }else{
+            response = await dio.delete(url);
           }
           break;
       }

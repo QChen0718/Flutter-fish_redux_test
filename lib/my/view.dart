@@ -56,7 +56,13 @@ Widget buildView(MyState state, Dispatch dispatch, ViewService viewService) {
                   )
                 ),
               ),
-               new NavBar(titleStr: state.navtitle,titleColor: Colors.white,backgroundColor: Colors.transparent,isHiddenLeftIcon: true,rightIcons: <Widget>[
+               new NavBar(
+                 titleStr: state.navtitle,
+                 titleColor: Colors.white,
+                 backgroundColor: Colors.transparent,
+                 isHiddenLeftIcon: true,
+                 isshowBottomlien: false,
+                 rightIcons: <Widget>[
                   new GestureDetector(
                     child: new Container(
                       margin: EdgeInsets.only(right: Adapt.px(30)),

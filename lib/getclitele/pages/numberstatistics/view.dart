@@ -11,24 +11,10 @@ Widget buildView(NumberStatisticsState state, Dispatch dispatch, ViewService vie
     backgroundColor: Colors.white,
     body: Column(
       children: <Widget>[
-        new Container(
-          child: new NavBar(
+        new NavBar(
             titleStr: state.nav_title,
             titleColor: Color(0xff333333),
             isHiddenLeftIcon: false,
-            leftButtonClick: (){
-              dispatch(NumberStatisticsActionCreator.onBack());
-            },
-            rightIcons: <Widget>[
-
-            ],
-          ),
-          decoration: BoxDecoration(
-            border: Border(bottom: BorderSide(
-              color: Color(0xfff5f5f5),
-              width: Adapt.px(10)
-            ))
-          ),
         ),
         new Container(
           color: Colors.white,

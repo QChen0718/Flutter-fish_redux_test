@@ -14,8 +14,7 @@ Widget buildView(CustomerState state, Dispatch dispatch, ViewService viewService
     backgroundColor: Colors.white,
     body: new Column(
       children: <Widget>[
-        new Container(
-          child: NavBar(
+        NavBar(
               leftIcon: Image.asset(
                 state.lefticonname,
                 width: Adapt.px(35),
@@ -27,12 +26,6 @@ Widget buildView(CustomerState state, Dispatch dispatch, ViewService viewService
 //            rightIcons: _righticons(),
               leftButtonClick: _leftBtnClick
           ),
-          decoration: BoxDecoration(
-              border: Border(
-                  bottom: BorderSide(width: Adapt.px(10),color: Color(0xfff5f5f5))
-              )
-          ),
-        ),
         new Container(
           margin: EdgeInsets.fromLTRB(Adapt.px(25), Adapt.px(32), Adapt.px(25), Adapt.px(32)),
           child: viewService.buildComponent('searchbar'),
