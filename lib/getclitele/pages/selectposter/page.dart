@@ -6,6 +6,9 @@ import 'state.dart';
 import 'view.dart';
 
 class SelectPosterPage extends Page<SelectPosterState, Map<String, dynamic>> {
+
+  @override
+  SelectPosterStateKeepAliveStf createState() => SelectPosterStateKeepAliveStf();
   SelectPosterPage()
       : super(
             initState: initState,

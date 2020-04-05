@@ -284,6 +284,29 @@ flutter:
     - images/statistics_icon4.webp
     - images/2.0x/statistics_icon4.webp
     - images/3.0x/statistics_icon4.webp
+
+    - images/poster_photo.webp
+    - images/2.0x/poster_photo.webp
+    - images/3.0x/poster_photo.webp
+    - images/topshare_cover.webp
+    - images/2.0x/topshare_cover.webp
+    - images/3.0x/topshare_cover.webp
+
+    - images/alphaDown.webp
+    - images/2.0x/alphaDown.webp
+    - images/3.0x/alphaDown.webp
+    - images/alphaShare.webp
+    - images/2.0x/alphaShare.webp
+    - images/3.0x/alphaShare.webp
+    - images/photo_next.webp
+    - images/2.0x/photo_next.webp
+    - images/3.0x/photo_next.webp
+    - images/photo_up.webp
+    - images/2.0x/photo_up.webp
+    - images/3.0x/photo_up.webp
+    - images/poster_bg.webp
+    - images/2.0x/poster_bg.webp
+    - images/3.0x/poster_bg.webp
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

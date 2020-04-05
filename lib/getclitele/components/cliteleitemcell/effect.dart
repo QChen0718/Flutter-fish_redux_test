@@ -27,6 +27,7 @@ void _onAction(Action action, Context<CliteleItemCellState> ctx) {
       break;
     case 4:
 //      精品海报
+      Navigator.pushNamed(ctx.context, 'selectposter');
       break;
     case 5:
 //      精彩视频

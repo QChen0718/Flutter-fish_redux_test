@@ -11,6 +11,11 @@ import 'package:flutter_fish_redux_router_qt/getclitele/pages/marketingzs/subpag
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/marketingzs/subpages/sharejl/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/marketingzs/subpages/statistics/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/numberstatistics/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/selectposter/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/selectposter/subpages/hotfinancialword/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/selectposter/subpages/selectposterdetail/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/selectposter/subpages/topshare/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/selectposter/subpages/ycfclimate/page.dart';
 import 'package:flutter_fish_redux_router_qt/login/page.dart';
 import 'package:flutter_fish_redux_router_qt/main/page.dart';
 import 'package:flutter_fish_redux_router_qt/my/pages/userset/page.dart';
@@ -39,7 +44,12 @@ class YicaifuApp extends StatelessWidget{
         'marketingzs':MarketingZSPage(),
         'marketingclues':MarketingCluesPage(),
         'sharejl':SharejlPage(),
-        'statistics':StatisticsPage()
+        'statistics':StatisticsPage(),
+        'selectposter':SelectPosterPage(),
+        'hotfinancialword':HotFinancialWordPage(),
+        'topshare':TopSharePage(),
+        'ycfclimate':YCFClimatePage(),
+        'selectposterdetail':PosterDetailPage()
       }
   );
   static BuildContext appContext;
