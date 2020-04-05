@@ -18,11 +18,15 @@ Widget buildView(MarketingListcellState state, Dispatch dispatch, ViewService vi
             new Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                new Image.asset('',width: Adapt.px(96),height: Adapt.px(96),),
+                new Image.asset(
+                  state.headerphoto,
+                  width: Adapt.px(96),
+                  height: Adapt.px(96),
+                ),
                 new Container(
                   padding: EdgeInsets.only(left: Adapt.px(15)),
                   child: new Text(
-                    'Zoey',
+                    state.username,
                     style: new TextStyle(
                         color: Color(0xff333333),
                         fontSize: Adapt.px(30)
@@ -33,16 +37,21 @@ Widget buildView(MarketingListcellState state, Dispatch dispatch, ViewService vi
             ),
             new RichText(
               text: TextSpan(
+                text: '• ',
+                style: new TextStyle(
+                  color: Color(0xffCACACA),
+                  fontSize: Adapt.px(30)
+                ),
                 children: [
                   TextSpan(
-                      text: '浏览了',
+                      text: state.browsetitle,
                       style: TextStyle(
                           color: Color(0xff666666),
                           fontSize: Adapt.px(30)
                       )
                   ),
                   TextSpan(
-                      text: '财经早知道2020-02-14',
+                      text: state.browsecontent,
                       style: TextStyle(
                           color: Color(0xff52B7FD),
                           fontSize: Adapt.px(30)
@@ -60,7 +69,7 @@ Widget buildView(MarketingListcellState state, Dispatch dispatch, ViewService vi
             new Container(
 //                margin: EdgeInsets.only(top: Adapt.px(20)),
               child: new Text(
-                '升级为客户',
+                state.upgrade,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: Adapt.px(30)
@@ -72,7 +81,7 @@ Widget buildView(MarketingListcellState state, Dispatch dispatch, ViewService vi
             new Container(
               padding: EdgeInsets.only(top: 40),
               child: new Text(
-                '02-14 19：06',
+                state.date,
                 style:  TextStyle(
                     color: Color(0xff999999),
                     fontSize: Adapt.px(24)

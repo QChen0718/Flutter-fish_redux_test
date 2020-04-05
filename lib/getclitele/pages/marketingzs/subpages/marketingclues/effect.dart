@@ -17,6 +17,10 @@ void _onInit(Action action, Context<MarketingCluesState> ctx) {
   List<MarketingListcellState> liststate = [];
   for(int i=0;i<10;i++ ){
     MarketingListcellState marketingListcellState = MarketingListcellState();
+    marketingListcellState.headerphoto = 'images/header_photo.webp';
+    marketingListcellState.username = 'Zoey';
+    marketingListcellState.browsecontent = '财经早知道2019-10-22';
+    marketingListcellState.date = '10-22 14:57';
     liststate.add(marketingListcellState);
   }
   ctx.dispatch(MarketingCluesActionCreator.onInit(liststate));

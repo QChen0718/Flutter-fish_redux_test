@@ -15,14 +15,25 @@ Widget buildView(SharejlCellState state, Dispatch dispatch, ViewService viewServ
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
             children:[
-              new Text(
-                '财经早知道2019-10-22',
-                style:TextStyle(
-                    color: Color(0xff52B7FD)
-                ),
+              new RichText(
+                  text: new TextSpan(
+                    text: '• ',
+                    style: new TextStyle(
+                      color: Color(0xffCACACA),
+                      fontSize: Adapt.px(30)
+                    ),
+                    children: [
+                      new TextSpan(
+                        text: state.sharetitle,
+                        style:TextStyle(
+                            color: Color(0xff52B7FD)
+                        ),
+                      )
+                    ]
+                  )
               ),
               new Text(
-                '10-22 14:57',
+                state.sharedate,
                 style: TextStyle(
                     color: Color(0xffCACACA)
                 ),
@@ -41,14 +52,14 @@ Widget buildView(SharejlCellState state, Dispatch dispatch, ViewService viewServ
                 child: RichText(
                   textAlign:TextAlign.center,
                   text: TextSpan(
-                      text:'查看次数',
+                      text:state.looknumber,
                       style:TextStyle(
                         color:Color(0xff666666),
                         fontSize: Adapt.px(30),
                       ),
                       children: [
                         TextSpan(
-                          text:'5',
+                          text:state.lookcount.toString(),
                           style:TextStyle(
                             fontSize:Adapt.px(46),
                             color: Color(0xffFF6633),
@@ -66,14 +77,14 @@ Widget buildView(SharejlCellState state, Dispatch dispatch, ViewService viewServ
               ),
               new RichText(
                 text: TextSpan(
-                    text:'查看次数',
+                    text:state.lookpersion,
                     style:TextStyle(
                         color:Color(0xff666666),
                         fontSize: Adapt.px(30)
                     ),
                     children: [
                       TextSpan(
-                          text:'2',
+                          text:state.persioncount.toString(),
                           style:TextStyle(
                               fontSize:Adapt.px(46),
                               color: Color(0xffFF6633)

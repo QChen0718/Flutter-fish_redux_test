@@ -1,4 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/marketingzs/subpages/statistics/adapter.dart';
 
 import 'effect.dart';
 import 'reducer.dart';
@@ -13,7 +14,7 @@ class StatisticsPage extends Page<StatisticsState, Map<String, dynamic>> {
             reducer: buildReducer(),
             view: buildView,
             dependencies: Dependencies<StatisticsState>(
-                adapter: null,
+                adapter: NoneConn<StatisticsState>() + StatisticsAdapter(),
                 slots: <String, Dependent<StatisticsState>>{
                 }),
             middleware: <Middleware<StatisticsState>>[
