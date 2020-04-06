@@ -39,12 +39,7 @@ _loginClick(Map<String,dynamic> params,Context<LoginState> ctx){
     Navigator.pushAndRemoveUntil(ctx.context, MaterialPageRoute(builder:(BuildContext context) => MainPage().buildPage({
       'pages':List<Widget>.unmodifiable([
 //          子路由的设置
-        YicaifuApp.routes.buildPage('getclitele', {
-          'clitelesubpages':List<Widget>.unmodifiable([
-            YicaifuApp.routes.buildPage('cjzb', null),
-            YicaifuApp.routes.buildPage('hotzx', null)
-          ])
-        }),
+        YicaifuApp.routes.buildPage('newgetclitele',null),
         YicaifuApp.routes.buildPage('customer', null),
         YicaifuApp.routes.buildPage('my', null)
       ])

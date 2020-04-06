@@ -10,6 +10,7 @@ import 'package:flutter_fish_redux_router_qt/getclitele/pages/marketingzs/page.d
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/marketingzs/subpages/marketingclues/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/marketingzs/subpages/sharejl/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/marketingzs/subpages/statistics/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/mycard/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/numberstatistics/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/selectposter/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/selectposter/subpages/hotfinancialword/page.dart';
@@ -49,7 +50,8 @@ class YicaifuApp extends StatelessWidget{
         'hotfinancialword':HotFinancialWordPage(),
         'topshare':TopSharePage(),
         'ycfclimate':YCFClimatePage(),
-        'selectposterdetail':PosterDetailPage()
+        'selectposterdetail':PosterDetailPage(),
+        'mycard':MyCardPage()
       }
   );
   static BuildContext appContext;

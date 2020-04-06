@@ -17,6 +17,7 @@ void _onAction(Action action, Context<CliteleItemCellState> ctx) {
       break;
     case 1:
 //      智能名片
+      Navigator.pushNamed(ctx.context, 'mycard');
       break;
     case 2:
 //      产品推介
