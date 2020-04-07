@@ -9,15 +9,53 @@ Widget buildView(ScreeningState state, Dispatch dispatch, ViewService viewServic
   return Container(
     color: Colors.white,
     padding: EdgeInsets.only(top: Adapt.padTopH()+Adapt.px(30),left: Adapt.px(44)),
-    child: MediaQuery.removePadding(
-      removeTop: true,
-      context: viewService.context,
-      child: ListView.builder(
-        itemCount: state.titles.length,
-        itemBuilder: (context,index){
-          return buildItem(index,state);
-        },
-      )
+    child: new Column(
+      children: <Widget>[
+        Expanded(
+            child: new MediaQuery.removePadding(
+                removeTop: true,
+                context: viewService.context,
+                child: ListView.builder(
+                  itemCount: state.titles.length,
+                  itemBuilder: (context,index){
+                    return buildItem(index,state);
+                  },
+                )
+            )
+        ),
+        new Container(
+          child: new Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: List.generate(state.btnstyle.length, (index){
+             return _getbutton(state.btnstyle[index], index,dispatch);
+            }),
+          ),
+        )
+      ],
+    ),
+  );
+}
+Widget _getbutton(Map<String,dynamic> data,int index,Dispatch dispatch){
+  return MaterialButton(
+    onPressed: (){
+      dispatch(ScreeningActionCreator.onAction(index));
+    },
+    child: new Container(
+      width: Adapt.px(180),
+      height: 30,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(Adapt.px(47)),
+        color: data['bgcolor'],
+      ),
+      child: new Text(
+        data['title'],
+        style:  TextStyle(
+            color: data['textcolor'],
+            fontSize: Adapt.px(32)
+        ),
+        textAlign: TextAlign.center,
+      ),
     ),
   );
 }

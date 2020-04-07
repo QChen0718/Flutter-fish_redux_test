@@ -1,4 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart' hide Action;
 import 'action.dart';
 import 'state.dart';
 
@@ -9,4 +10,5 @@ Effect<ScreeningState> buildEffect() {
 }
 
 void _onAction(Action action, Context<ScreeningState> ctx) {
+  Navigator.pop(ctx.context);
 }

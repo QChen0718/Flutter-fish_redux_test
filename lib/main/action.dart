@@ -1,7 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 
 //TODO replace with your own action
-enum MainAction { action, onTabBarChange}
+enum MainAction { action, onTabBarChange, init}
 
 class MainActionCreator {
   static Action onAction() {

@@ -6,16 +6,15 @@ import 'action.dart';
 import 'state.dart';
 
 Widget buildView(MainState state, Dispatch dispatch, ViewService viewService) {
-  return Builder(
-      builder: (context){
+//  return Builder(
+//      builder: (context){
         final pageController = PageController();
+
         Widget _buildPage(Widget page){
           return KeepAliveWidget(page);
         }
-        List<Widget> _configPage(List<Widget> pages){
-          return pages.map(_buildPage).toList();
-        }
         return Scaffold(
+          key: state.scaffoldKey,
           backgroundColor: Colors.white,
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: state.selectIndex,
@@ -32,6 +31,12 @@ Widget buildView(MainState state, Dispatch dispatch, ViewService viewService) {
               onPageChanged: (int i) =>
                   dispatch(MainActionCreator.onTabBarChange(i)),
             ),
-        );
-      });
+            endDrawer: Drawer(
+              child: new Text(
+                '测试'
+              ),
+            ),
+//        );
+//      }
+      );
 }

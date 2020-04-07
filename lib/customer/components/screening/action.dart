@@ -4,7 +4,7 @@ import 'package:fish_redux/fish_redux.dart';
 enum ScreeningAction { action }
 
 class ScreeningActionCreator {
-  static Action onAction() {
-    return const Action(ScreeningAction.action);
+  static Action onAction(int index) {
+    return  Action(ScreeningAction.action,payload: index);
   }
 }

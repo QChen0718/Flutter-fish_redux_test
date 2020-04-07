@@ -113,7 +113,7 @@ Widget buildView(MyCardState state, Dispatch dispatch, ViewService viewService) 
                   child: new Text(
                     '编辑名片',
                     style: new TextStyle(
-                      
+
                     ),
 
                   ),
