@@ -64,7 +64,7 @@ Widget buildView(MyCardState state, Dispatch dispatch, ViewService viewService) 
                           ),
                           new Container(
                             child: new Image.asset(
-                              '',
+                              'images/phone_icon.webp',
                               width: Adapt.px(67),
                               height: Adapt.px(67),
                             ),
