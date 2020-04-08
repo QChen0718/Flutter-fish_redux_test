@@ -32,10 +32,10 @@ Widget buildView(MainState state, Dispatch dispatch, ViewService viewService) {
                   dispatch(MainActionCreator.onTabBarChange(i)),
             ),
             endDrawer: Drawer(
-              child: new Text(
-                '测试'
-              ),
+              child:viewService.buildComponent('screening'),
             ),
+          //    禁止滑动出Drawer
+          drawerEdgeDragWidth: 0.0,
 //        );
 //      }
       );

@@ -8,7 +8,6 @@ import 'state.dart';
 Widget buildView(ScreeningState state, Dispatch dispatch, ViewService viewService) {
   return Container(
     color: Colors.white,
-    padding: EdgeInsets.only(top: Adapt.padTopH()+Adapt.px(30),left: Adapt.px(44)),
     child: new Column(
       children: <Widget>[
         Expanded(
@@ -16,14 +15,16 @@ Widget buildView(ScreeningState state, Dispatch dispatch, ViewService viewServic
                 removeTop: true,
                 context: viewService.context,
                 child: ListView.builder(
-                  itemCount: state.titles.length,
+                  padding: EdgeInsets.only(top: Adapt.padTopH()+Adapt.px(30),left: Adapt.px(44)),
+                  itemCount: state.screeningitems.length,
                   itemBuilder: (context,index){
-                    return buildItem(index,state);
+                    return buildItem(index,state,dispatch);
                   },
                 )
             )
         ),
         new Container(
+          margin: EdgeInsets.only(bottom: Adapt.padBotH()+Adapt.px(40)),
           child: new Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: List.generate(state.btnstyle.length, (index){
@@ -38,7 +39,11 @@ Widget buildView(ScreeningState state, Dispatch dispatch, ViewService viewServic
 Widget _getbutton(Map<String,dynamic> data,int index,Dispatch dispatch){
   return MaterialButton(
     onPressed: (){
-      dispatch(ScreeningActionCreator.onAction(index));
+      if(index == 0){
+        dispatch(ScreeningActionCreator.onReset());
+      }else{
+        dispatch(ScreeningActionCreator.onAction(index));
+      }
     },
     child: new Container(
       width: Adapt.px(180),
@@ -59,8 +64,8 @@ Widget _getbutton(Map<String,dynamic> data,int index,Dispatch dispatch){
     ),
   );
 }
-buildItem(int index,ScreeningState state){
-  List subitems = state.items[index];
+buildItem(int index,ScreeningState state,Dispatch dispatch){
+//  List subitems = state.items[index];
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     mainAxisSize: MainAxisSize.min,
@@ -68,7 +73,7 @@ buildItem(int index,ScreeningState state){
       new Container(
         margin: EdgeInsets.only(bottom: Adapt.px(15)),
         child: new Text(
-          state.titles[index],
+          state.screeningitems[index]['title'],
           style: TextStyle(
               color: Color(0xff4A4A4A),
               fontSize: Adapt.px(32)
@@ -81,35 +86,47 @@ buildItem(int index,ScreeningState state){
         child: Wrap(
           spacing: Adapt.px(35),
           runSpacing: Adapt.px(20),
-          children: _subitems(subitems),
+          children: List.generate(state.screeningitems[index]['items'].length, (subindex){
+            return _subitem(state.screeningitems[index]['items'][subindex]['subtitle'],subindex,index,state,dispatch);
+          })
         ),
       )
 
     ],
   );
 }
-//
-_subitems(List currentitems){
-  List<Widget> subitems = [];
-  currentitems.forEach((str){
-    subitems.add(_subitem(str));
-  });
-  return subitems;
-}
+
 //每一个item选项
-_subitem(String currenttitle){
-  return new Container(
-    padding: EdgeInsets.only(left: Adapt.px(20),right: Adapt.px(20)),
-    child: new Text(
-      currenttitle,
-      style: TextStyle(
-          color: Color(0xff4A4A4A),
-          fontSize: Adapt.px(28)
+_subitem(String currenttitle,int index,int section,ScreeningState state,Dispatch dispatch){
+  return new GestureDetector(
+    onTap: (){
+      dispatch(ScreeningActionCreator.onSelectItems({
+        'row':index,
+        'section':section,
+        'bgcolor':state.screeningitems[section]['items'][index]['isselect'] ?
+            Color(0xffFFECE6)
+            :Color(0xffF5F5F5),
+      }));
+    },
+    child: new Container(
+      padding: (section == 4 || section == 6)?
+      EdgeInsets.only(left: Adapt.px(20),right: Adapt.px(20))
+          :EdgeInsets.only(left: Adapt.px(50),right: Adapt.px(50)),
+      child: new Text(
+        currenttitle,
+        style: TextStyle(
+            color:state.screeningitems[section]['items'][index]['isselect'] ?
+            Color(0xffFF6633)
+            :Color(0xff4A4A4A),
+            fontSize: Adapt.px(28)
+        ),
       ),
-    ),
-    decoration: BoxDecoration(
-        color: Color(0xffFFECE6),
-        borderRadius: BorderRadius.circular(Adapt.px(4))
+      decoration: BoxDecoration(
+          color: state.screeningitems[section]['items'][index]['isselect'] ?
+          Color(0xffFFECE6)
+          :Color(0xffF5F5F5),
+          borderRadius: BorderRadius.circular(Adapt.px(4))
+      ),
     ),
   );
 }

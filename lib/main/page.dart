@@ -1,4 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter_fish_redux_router_qt/customer/components/screening/component.dart';
+import 'package:flutter_fish_redux_router_qt/customer/components/screening/state.dart';
 
 import 'effect.dart';
 import 'reducer.dart';
@@ -15,7 +17,7 @@ class MainPage extends Page<MainState, Map<String, dynamic>> {
             dependencies: Dependencies<MainState>(
                 adapter: null,
                 slots: <String, Dependent<MainState>>{
-
+                  'screening':ScreeningConnector() + ScreeningComponent()
                 }),
             middleware: <Middleware<MainState>>[
             ],);

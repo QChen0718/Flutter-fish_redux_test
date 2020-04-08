@@ -12,7 +12,6 @@ class CustomerState extends MutableSource implements Cloneable<CustomerState> {
   SearchBarState searchBarState;
   FilterState filterState;
   List<CustomerListcellState> customercells;
-  ScreeningState screeningState;
   @override
   CustomerState clone() {
     return CustomerState()
@@ -21,8 +20,7 @@ class CustomerState extends MutableSource implements Cloneable<CustomerState> {
     ..righticonname = righticonname
     ..searchBarState = searchBarState
     ..filterState = filterState
-    ..customercells = customercells
-    ..screeningState = screeningState;
+    ..customercells = customercells;
   }
 
   @override

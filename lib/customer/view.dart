@@ -72,11 +72,6 @@ Widget buildView(CustomerState state, Dispatch dispatch, ViewService viewService
         ),
       ],
     ),
-    endDrawer: Drawer(
-      child: viewService.buildComponent('screening'),
-    ),
-//    禁止滑动出Drawer
-    drawerEdgeDragWidth: 0.0,
   );
 }
 

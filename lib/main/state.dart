@@ -1,5 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_fish_redux_router_qt/customer/components/screening/state.dart';
 
 const _tabTitles = ['获客','客户','我的'];
 const _tabImagenames = ['images/home.webp','images/customer.webp','images/my.webp'];
@@ -13,6 +14,7 @@ class MainState implements Cloneable<MainState> {
   int selectIndex;
   BuildContext rootcontext;
   GlobalKey<ScaffoldState> scaffoldKey;
+  ScreeningState screeningState;
   static GlobalKey<ScaffoldState> cscaffoldKey;
   @override
   MainState clone() {
@@ -21,7 +23,8 @@ class MainState implements Cloneable<MainState> {
     ..tabs = tabs
     ..controllers = controllers
     ..rootcontext = rootcontext
-    ..scaffoldKey = scaffoldKey;
+    ..scaffoldKey = scaffoldKey
+    ..screeningState = screeningState;
   }
 }
 
@@ -41,11 +44,17 @@ MainState initState(Map<String, dynamic> args) {
 
       );
   });
+//  scaffoldkey 用来打开侧边栏的
   GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
   MainState.cscaffoldKey = scaffoldKey;
+  ScreeningState screeningState = ScreeningState();
+  screeningState.itemtextcolor = Color(0xff4A4A4A);
+  screeningState.itemtextbgcolor = Color(0xffF5F5F5);
+  screeningState.selectitem = {'row':-1,'section':-1};
   return MainState()
   ..tabs = tabs
   ..selectIndex = 0
   ..controllers = args['pages']
-  ..scaffoldKey = scaffoldKey;
+  ..scaffoldKey = scaffoldKey
+  ..screeningState = screeningState;
 }
