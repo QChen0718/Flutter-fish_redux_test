@@ -13,7 +13,9 @@ class ScreeningState implements Cloneable<ScreeningState> {
       {'subtitle':'产品分享添加','isselect':false},
       {'subtitle':'产品分享添加','isselect':false},
       {'subtitle':'APP注册绑定','isselect':false}]},
-    {'title':'是否有标签','items':[{'subtitle':'是','isselect':false},{'subtitle':'否','isselect':false}],'isselect':false},
+    {'title':'是否有标签','items':[
+      {'subtitle':'是','isselect':false},
+      {'subtitle':'否','isselect':false}]},
     {'title':'标签','items':[
       {'subtitle':'偏好房地产','isselect':false},
       {'subtitle':'拆迁户','isselect':false},
@@ -23,17 +25,11 @@ class ScreeningState implements Cloneable<ScreeningState> {
     {'title':'重置','textcolor':Color(0xff4A4A4A),'bgcolor':Color(0xffF5F5F5)},
     {'title':'确定','textcolor':Color(0xffFFFFFF),'bgcolor':Color(0xffF36E27)}
   ];
-  Color itemtextcolor;
-  Color itemtextbgcolor;
-  Map<String,dynamic> selectitem;
   @override
   ScreeningState clone() {
     return ScreeningState()
     ..screeningitems = screeningitems
-    ..btnstyle = btnstyle
-    ..itemtextcolor = itemtextcolor
-    ..itemtextbgcolor = itemtextbgcolor
-    ..selectitem = selectitem;
+    ..btnstyle = btnstyle;
   }
 }
 

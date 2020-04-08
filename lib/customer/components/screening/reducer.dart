@@ -22,23 +22,26 @@ ScreeningState _onAction(ScreeningState state, Action action) {
 ScreeningState _onSelectItems(ScreeningState state, Action action) {
   var dict = action.payload;
   final ScreeningState newState = state.clone();
+  if(dict['section']!=4 && dict['section']!=6){
+
+    newState.screeningitems[dict['section']]['items'].forEach((data){
+       data['isselect'] = false;
+    });
+  }
   if(dict['bgcolor'] == Color(0xffF5F5F5)){
     newState.screeningitems[dict['section']]['items'][dict['row']]['isselect'] = true;
-    newState.itemtextcolor = Color(0xffFF6633);
-    newState.itemtextbgcolor = Color(0xffFFECE6);
   }else{
     newState.screeningitems[dict['section']]['items'][dict['row']]['isselect'] = false;
-    newState.itemtextcolor = Color(0xff4A4A4A);
-    newState.itemtextbgcolor = Color(0xffF5F5F5);
   }
-
-  newState.selectitem = dict;
   return newState;
 }
 //重置
 ScreeningState _onReset(ScreeningState state, Action action) {
   final ScreeningState newState = state.clone();
-  newState.itemtextcolor = Color(0xff4A4A4A);
-  newState.itemtextbgcolor = Color(0xffF5F5F5);
+  newState.screeningitems.forEach((data){
+    data['items'].forEach((subdata){
+      subdata['isselect'] = false;
+    });
+  });
   return newState;
 }

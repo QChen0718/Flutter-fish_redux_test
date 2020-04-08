@@ -10,5 +10,6 @@ Effect<ScreeningState> buildEffect() {
 }
 
 void _onAction(Action action, Context<ScreeningState> ctx) {
+//  隐藏侧边栏
   Navigator.pop(ctx.context);
 }

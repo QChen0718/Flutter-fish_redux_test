@@ -48,9 +48,6 @@ MainState initState(Map<String, dynamic> args) {
   GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
   MainState.cscaffoldKey = scaffoldKey;
   ScreeningState screeningState = ScreeningState();
-  screeningState.itemtextcolor = Color(0xff4A4A4A);
-  screeningState.itemtextbgcolor = Color(0xffF5F5F5);
-  screeningState.selectitem = {'row':-1,'section':-1};
   return MainState()
   ..tabs = tabs
   ..selectIndex = 0
