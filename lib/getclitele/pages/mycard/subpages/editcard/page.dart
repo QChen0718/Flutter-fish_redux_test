@@ -1,4 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/components/editcardheader/component.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/components/editcardheader/state.dart';
 
 import 'effect.dart';
 import 'reducer.dart';
@@ -15,6 +17,7 @@ class EditCardPage extends Page<EditCardState, Map<String, dynamic>> {
             dependencies: Dependencies<EditCardState>(
                 adapter: null,
                 slots: <String, Dependent<EditCardState>>{
+                  'photoheader':EditCardHeaderviewConnector() + EditCardHeaderviewComponent()
                 }),
             middleware: <Middleware<EditCardState>>[
             ],);

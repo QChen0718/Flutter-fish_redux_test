@@ -11,7 +11,9 @@ import 'package:flutter_fish_redux_router_qt/getclitele/pages/marketingzs/subpag
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/marketingzs/subpages/sharejl/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/marketingzs/subpages/statistics/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/mycard/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/mycard/subpages/editcard/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/numberstatistics/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/productrecommend/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/selectposter/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/selectposter/subpages/hotfinancialword/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/selectposter/subpages/selectposterdetail/page.dart';
@@ -51,7 +53,9 @@ class YicaifuApp extends StatelessWidget{
         'topshare':TopSharePage(),
         'ycfclimate':YCFClimatePage(),
         'selectposterdetail':PosterDetailPage(),
-        'mycard':MyCardPage()
+        'mycard':MyCardPage(),
+        'editcard':EditCardPage(),
+        'producttj':ProductRecommendPage()
       }
   );
   static BuildContext appContext;

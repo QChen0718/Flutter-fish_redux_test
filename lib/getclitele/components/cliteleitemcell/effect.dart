@@ -21,6 +21,7 @@ void _onAction(Action action, Context<CliteleItemCellState> ctx) {
       break;
     case 2:
 //      产品推介
+      Navigator.pushNamed(ctx.context, 'producttj');
       break;
     case 3:
 //      每日财经

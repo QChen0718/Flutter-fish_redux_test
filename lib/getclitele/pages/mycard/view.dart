@@ -102,7 +102,7 @@ Widget buildView(MyCardState state, Dispatch dispatch, ViewService viewService) 
             children: <Widget>[
               new MaterialButton(
                   onPressed: (){
-
+                    dispatch(MyCardActionCreator.onAction(1));
                   },
                 child: new Container(
                   child: new Stack(
@@ -127,7 +127,7 @@ Widget buildView(MyCardState state, Dispatch dispatch, ViewService viewService) 
               ),
               new MaterialButton(
                   onPressed: (){
-
+                    dispatch(MyCardActionCreator.onAction(2));
                   },
                 child: new Container(
                   width: Adapt.px(310),
@@ -175,13 +175,16 @@ Widget buildView(MyCardState state, Dispatch dispatch, ViewService viewService) 
                       width: Adapt.px(25),
                       height: Adapt.px(16),
                     ),
-                    new Text(
-                      state.lookstr,
-                      style: new TextStyle(
-                        color: Color(0xff7D7A7A),
-                        fontSize: Adapt.px(24)
+                    new Container(
+                      margin: EdgeInsets.only(left: Adapt.px(10)),
+                      child: new Text(
+                        state.lookstr,
+                        style: new TextStyle(
+                            color: Color(0xff7D7A7A),
+                            fontSize: Adapt.px(24)
+                        ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               )

@@ -4,7 +4,7 @@ import 'package:fish_redux/fish_redux.dart';
 enum MyCardAction { action }
 
 class MyCardActionCreator {
-  static Action onAction() {
-    return const Action(MyCardAction.action);
+  static Action onAction(int index) {
+    return  Action(MyCardAction.action,payload: index);
   }
 }
