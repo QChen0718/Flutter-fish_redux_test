@@ -11,7 +11,7 @@ Widget buildView(MyCardState state, Dispatch dispatch, ViewService viewService) 
     body: new Column(
       children: <Widget>[
         new NavBar(
-          titleStr: '我的名片',
+          titleStr: state.navtitle,
         ),
         new Stack(
           children: <Widget>[
@@ -31,70 +31,63 @@ Widget buildView(MyCardState state, Dispatch dispatch, ViewService viewService) 
               ),
             ),
             new Container(
-              color: Colors.red,
               margin: EdgeInsets.only(left: Adapt.px(35),right: Adapt.px(35),top: Adapt.px(468)),
-              height: Adapt.px(275),
               child: new Stack(
                 children: <Widget>[
                   new Image.asset(
-                    '',
-                    
+                    state.cardbgimagename,
+                    height: Adapt.px(275),
+                    fit: BoxFit.fill,
                   ),
                   new Column(
                     children: <Widget>[
-                      new Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          new Text(
-                            'C',
-                            style: new TextStyle(
-                                color: Color(0xffFCDFBB),
-                                fontSize: Adapt.px(48)
-                            ),
-                          ),
-                          new Container(
-                            margin: EdgeInsets.only(left: Adapt.px(10),right: Adapt.px(80)),
-                            child: new Text(
-                              '高级理财经理',
+                      new Container(
+                        margin: EdgeInsets.only(top: Adapt.px(25),bottom: Adapt.px(25)),
+                        child: new Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            new Text(
+                              state.username,
                               style: new TextStyle(
-                                  color: Color(0xff9C9C9C),
-                                  fontSize: Adapt.px(28)
-                              ),
-                            ),
-                          ),
-                          new Container(
-                            child: new Image.asset(
-                              'images/phone_icon.webp',
-                              width: Adapt.px(67),
-                              height: Adapt.px(67),
-                            ),
-                          )
-                        ],
-                      ),
-                      new Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          new Column(
-                            children: <Widget>[
-                              new Text(
-                                '12',
-                                style: new TextStyle(
                                   color: Color(0xffFCDFBB),
-                                  fontSize: Adapt.px(58)
+                                  fontSize: Adapt.px(48)
+                              ),
+                            ),
+                            new Container(
+                              margin: EdgeInsets.only(left: Adapt.px(10),right: Adapt.px(80)),
+                              child: new Text(
+                                state.userposition,
+                                style: new TextStyle(
+                                    color: Color(0xff9C9C9C),
+                                    fontSize: Adapt.px(28)
                                 ),
                               ),
-                              new Container(
-                                child: new Text(
-                                  '服务客户(位)',
-                                  style: new TextStyle(
-                                    color: Color(0xff9C9C9C),
-                                    fontSize: Adapt.px(24)
-                                  ),
-                                ),
-                              )
-                            ],
-                          )
-                        ],
+                            ),
+                            new Container(
+                              child: new Image.asset(
+                                state.phonename,
+                                width: Adapt.px(75),
+                                height: Adapt.px(75),
+                                fit: BoxFit.fill,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      new Container(
+                        child: new Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            _subwidget(state.userinfolist[0]),
+                            new Container(
+                              margin: EdgeInsets.only(left: Adapt.px(80),right: Adapt.px(80)),
+                              color: Color(0xffD8D8D8),
+                              height: Adapt.px(44),
+                              width: 1,
+                            ),
+                            _subwidget(state.userinfolist[1])
+                          ],
+                        ),
                       )
                     ],
                   )
@@ -104,24 +97,122 @@ Widget buildView(MyCardState state, Dispatch dispatch, ViewService viewService) 
           ],
         ),
         new Container(
+          margin: EdgeInsets.only(top: Adapt.px(40)),
           child: new Row(
             children: <Widget>[
-              new RaisedButton(
+              new MaterialButton(
                   onPressed: (){
 
                   },
-                  child: new Text(
-                    '编辑名片',
-                    style: new TextStyle(
-
+                child: new Container(
+                  child: new Stack(
+                      alignment: AlignmentDirectional.center,
+                      children: <Widget>[
+                        new Image.asset(
+                          state.editbtnbgimage,
+                          width: Adapt.px(310),
+                          height: Adapt.px(62),
+                          fit: BoxFit.fill,
+                        ),
+                         new Text(
+                            state.editbtntitle,
+                            style: new TextStyle(
+                                color: Color(0xffFCDFBB),
+                                fontSize: Adapt.px(32)
+                            ),
+                        ),
+                      ],
                     ),
+                ),
+              ),
+              new MaterialButton(
+                  onPressed: (){
 
+                  },
+                child: new Container(
+                  width: Adapt.px(310),
+                  height: Adapt.px(56),
+                  child: new Center(
+                    child: new Text(
+                      state.sharebtntitle,
+                      style: new TextStyle(
+                        color: Color(0xff333333),
+                        fontSize: Adapt.px(32)
+                      ),
+                    ),
                   ),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Color(0xff979797),
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(Adapt.px(8))
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+        new Container(
+          margin: EdgeInsets.all(Adapt.px(35)),
+          child: new Row(
+            children: <Widget>[
+              new Expanded(
+                  child: new Text(
+                    state.detailstr,
+                    style: new TextStyle(
+                      color: Color(0xff7D7A7A),
+                      fontSize: Adapt.px(24)
+                    ),
+                  )
+              ),
+              new Container(
+                margin: EdgeInsets.only(left: Adapt.px(20)),
+                child: new Row(
+                  children: <Widget>[
+                    new Image.asset(
+                      state.lookicon,
+                      width: Adapt.px(25),
+                      height: Adapt.px(16),
+                    ),
+                    new Text(
+                      state.lookstr,
+                      style: new TextStyle(
+                        color: Color(0xff7D7A7A),
+                        fontSize: Adapt.px(24)
+                      ),
+                    )
+                  ],
+                ),
               )
             ],
           ),
         )
       ],
     ),
+  );
+}
+
+Widget _subwidget(Map<String,dynamic>data){
+  return Column(
+    children: <Widget>[
+      new Text(
+        data['number'],
+        style: new TextStyle(
+            color: Color(0xffFCDFBB),
+            fontSize: Adapt.px(58)
+        ),
+      ),
+      new Container(
+        margin: EdgeInsets.only(top: Adapt.px(10)),
+        child: new Text(
+          data['desc'],
+          style: new TextStyle(
+              color: Color(0xff9C9C9C),
+              fontSize: Adapt.px(24)
+          ),
+        ),
+      )
+    ],
   );
 }
