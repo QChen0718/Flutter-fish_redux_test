@@ -23,16 +23,11 @@ ScreeningState _onSelectItems(ScreeningState state, Action action) {
   var dict = action.payload;
   final ScreeningState newState = state.clone();
   if(dict['section']!=4 && dict['section']!=6){
-
     newState.screeningitems[dict['section']]['items'].forEach((data){
        data['isselect'] = false;
     });
   }
-  if(dict['bgcolor'] == Color(0xffF5F5F5)){
-    newState.screeningitems[dict['section']]['items'][dict['row']]['isselect'] = true;
-  }else{
-    newState.screeningitems[dict['section']]['items'][dict['row']]['isselect'] = false;
-  }
+  newState.screeningitems[dict['section']]['items'][dict['row']]['isselect'] = !dict['isselect'];
   return newState;
 }
 //重置

@@ -103,9 +103,7 @@ _subitem(String currenttitle,int index,int section,ScreeningState state,Dispatch
       dispatch(ScreeningActionCreator.onSelectItems({
         'row':index,
         'section':section,
-        'bgcolor':state.screeningitems[section]['items'][index]['isselect'] ?
-            Color(0xffFFECE6)
-            :Color(0xffF5F5F5),
+        'isselect':state.screeningitems[section]['items'][index]['isselect']
       }));
     },
     child: new Container(
