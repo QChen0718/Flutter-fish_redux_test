@@ -16,7 +16,17 @@ Widget buildView(EditCardState state, Dispatch dispatch, ViewService viewService
           titleStr: state.navtitle,
         ),
         viewService.buildComponent('photoheader'),
-        _items(viewService.context,state),
+        new Expanded(
+            child: new Form(
+                key: state.formKey, //设置globalKey，用于后面获取FormState
+                child: new Column(
+                  children: List.generate(state.listcardinputdata.length, (index){
+                    return _item(viewService.context, state.listcardinputdata[index]);
+                  }),
+                )
+            )
+        ),
+//        _items(viewService.context,state),
       ],
     ),
     bottomSheet: //固定大小的盒子
@@ -26,7 +36,10 @@ Widget buildView(EditCardState state, Dispatch dispatch, ViewService viewService
         width: Adapt.screenW(),
         height: Adapt.px(80),
         child: new MaterialButton(onPressed: (){
-          print('${state.namecontroller.text},${state.phonecontroller.text}');
+//          print('${state.namecontroller.text},${state.phonecontroller.text}');
+//        校验成功
+          var form = state.formKey.currentState as FormState ;
+          dispatch(EditCardActionCreator.onSubmitClick());
         },
           color: Color(0xffFF6633),
           child: new Text('保存',style: TextStyle(color: Color(0xffFFFFFF),fontSize: Adapt.px(36)),),
@@ -35,19 +48,9 @@ Widget buildView(EditCardState state, Dispatch dispatch, ViewService viewService
     ),
   );
 }
-_items(BuildContext context,EditCardState state){
-  List<Widget> items = [];
-  for(int i=0;i<state.itemtitleArray.length;i++){
-    items.add(_item(context,state.itemtitleArray[i],state.controllArray[i]));
-  }
-  return Column(
-    children: items,
-  );
-}
-Widget _item(BuildContext context,String str,TextEditingController controller){
-  return Column(
-    children: <Widget>[
-      new Container(
+
+Widget _item(BuildContext context,Map<String,dynamic>data){
+  return new Container(
         height: Adapt.px(98),
         child: Row(
           children: <Widget>[
@@ -55,7 +58,7 @@ Widget _item(BuildContext context,String str,TextEditingController controller){
               child: Container(
                 margin: EdgeInsets.only(left: Adapt.px(20)),
                 child: Text(
-                  str,
+                  data['title'],
                   style:  TextStyle(
                       color: Color(0xff333333),
                       fontSize: Adapt.px(34)
@@ -65,31 +68,40 @@ Widget _item(BuildContext context,String str,TextEditingController controller){
             ),
             new Container(
               width: Adapt.px(580),
-              child: TextField(
+              child: TextFormField(
                   decoration: InputDecoration(
                       fillColor: Colors.transparent,
                       filled: true,
-                      hintText: '请输入姓名',
+                      hintText: data['placeholder'],
 //                      disabledBorder: InputBorder.none,
                       enabledBorder: InputBorder.none,//输入框选中时下划线
-                      focusedBorder: InputBorder.none //输入框未选中时下划线
+                      focusedBorder: InputBorder.none,//输入框未选中时下划线
+                      errorBorder: InputBorder.none,
+
+                    errorStyle: TextStyle(
+                      color: Colors.blue
+                    )
                   ),
-                  controller: controller,
+                  controller: data['textcontroller'],
                   textAlign: TextAlign.right,
                   onChanged: (text){
                     _onChanged(text);
-                  }
+                  },
+                  onSaved: (value){
+                    return value;
+                  },
               ),
             )
           ],
         ),
+      decoration: BoxDecoration(
+        border: Border(
+            bottom: BorderSide(
+              color: Color(0xfff5f5f5),
+              width: Adapt.px(1)
+          )
+        )
       ),
-      new Container(
-        color: Color(0xff979797),
-        height: 1,
-        width: Adapt.screenW(),
-      )
-    ],
   );
 }
 _onChanged(String text){

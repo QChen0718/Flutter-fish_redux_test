@@ -8,7 +8,7 @@ import 'state.dart';
 Widget buildView(
     EditCardHeaderviewState state, Dispatch dispatch, ViewService viewService) {
   return Container(
-    margin: EdgeInsets.all(Adapt.px(30)),
+    padding: EdgeInsets.all(Adapt.px(30)),
     child: Row(
       children: <Widget>[
         new Image.asset(
@@ -51,6 +51,14 @@ Widget buildView(
               ],
             ))
       ],
+    ),
+    decoration: BoxDecoration(
+      border: Border(
+        bottom: BorderSide(
+          color: Color(0xfff5f5f5),
+          width: Adapt.px(5)
+        )
+      )
     ),
   );
 }
