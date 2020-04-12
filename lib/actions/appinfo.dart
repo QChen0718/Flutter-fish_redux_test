@@ -11,6 +11,8 @@ class APPInfo{
   static const HTTP_IMAGE_DOWNLOAD_REQUEST_URL = "https://rescdn.xiaohu.in/";
   static String timeStamp = formatDate(DateTime.now(), [yyyy,'-',mm,'-',dd,'T',HH,':',mm,':',ss,z]);
 //
+  static const productLiving  = 2;// 产品路演
+  static const treasureLiving = 6;// 财富讲坛
   static String generateMd5(String data) {
     var content = new Utf8Encoder().convert(data);
     var digest = md5.convert(content);
@@ -36,8 +38,14 @@ class APPInfo{
   static Map<String,dynamic> getFourthHeader(){
     return {ApiVersionKey:'4.0.0'};
   }
+  static Map<String,dynamic> getUserDict(){
+    return {
+      "userMobile" : SpUtil.preferences.getString('mobile'),
+      "userId" : SpUtil.preferences.getString('id'),
+    };
+  }
 //  获取请求默认参数
-  static Map<String,dynamic> getRequestnomalparams(String apiversion,String channel){
+  static Map<String,dynamic> getRequestnomalparams(String apiversion){
      String signStr = APP_CIPHERTEX + "apiVersion" + apiversion + "appKey" + APP_KEY + "timeStamp" +
         timeStamp;
 //  MD5加密
@@ -48,7 +56,7 @@ class APPInfo{
       'sign':sign,
       'version':version,
       'apiVersion':apiversion,
-      'channel':channel
+      'channel':1
     };
   }
 }

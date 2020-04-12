@@ -13,8 +13,8 @@ Widget buildView(TopShareCellState state, Dispatch dispatch, ViewService viewSer
           children: <Widget>[
             new Container(
               margin: EdgeInsets.only(left: Adapt.px(30),top: Adapt.px(20),bottom: Adapt.px(20)),
-              child: new Image.asset(
-                  'images/topshare_cover.webp',
+              child: new Image.network(
+                  state.cavorimagename,
                   width: Adapt.px(170) ,
                   height: Adapt.px(109),
                 fit: BoxFit.fill,
@@ -25,11 +25,11 @@ Widget buildView(TopShareCellState state, Dispatch dispatch, ViewService viewSer
               child: new Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  new Text('一图带你轻松看懂金交所',style: TextStyle(
+                  new Text(state.toptitle,style: TextStyle(
                       color: Color(0xff333333),
                       fontSize: Adapt.px(28)
                   ),),
-                  new Text('一图带你轻松看懂金交所',style: TextStyle(
+                  new Text(state.topcontent,style: TextStyle(
                       color: Color(0xff999999),
                       fontSize: Adapt.px(24)
                   ),)

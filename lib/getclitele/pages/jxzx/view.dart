@@ -2,8 +2,9 @@
 
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_fish_redux_router_qt/actions/adapt.dart';
 import 'package:flutter_fish_redux_router_qt/actions/keepalive_widget.dart';
-import 'package:flutter_fish_redux_router_qt/app.dart';
+import 'package:flutter_fish_redux_router_qt/actions/navbar.dart';
 
 import 'action.dart';
 import 'state.dart';
@@ -15,24 +16,45 @@ Widget buildView(GetCliteleState state, Dispatch dispatch, ViewService viewServi
           return KeepAliveWidget(page);
         }
         return  Scaffold(
-            appBar: new AppBar(
-              title: new Text(
-                  state.navtitle
-              ),
-//              安卓上默认是在最左边的
-              centerTitle: true,
-              bottom: TabBar(
-                tabs: List.generate(state.tabs.length, (index){
-                  return new Text(
-                      state.tabs[index].name
-                  );
-                }),
-                controller: state.tabController,
-              ),
-            ),
-            body: TabBarView(
-              children: state.controllers.map(_buildPage).toList(),
-              controller: state.tabController,
+          backgroundColor: Colors.white,
+            body: new Column(
+              children: <Widget>[
+                NavBar(
+                  titleStr: state.navtitle,
+                ),
+                new Container(
+                  child: TabBar(
+                    tabs: List.generate(state.tabs.length, (index){
+                      return new Text(
+                        state.tabs[index].name,
+                        style: new TextStyle(
+                            fontSize: Adapt.px(32)
+                        ),
+                      );
+                    }),
+                    labelColor: Color(0xffFF6633),
+                    unselectedLabelColor: Color(0xff333333),
+                    indicatorColor: Colors.transparent,
+                    controller: state.tabController,
+                    labelPadding: EdgeInsets.only(top: Adapt.px(20),bottom: Adapt.px(20)),
+                  ),
+                  decoration: BoxDecoration(
+                    border: Border(
+                        bottom: BorderSide(
+                          color: Color(0xfff5f5f5),
+                          width: Adapt.px(2)
+                      )
+                    )
+                  ),
+                ),
+                Expanded(
+                    child: TabBarView(
+                      children: state.controllers.map(_buildPage).toList(),
+                      controller: state.tabController,
+                    )
+                )
+
+              ],
             )
         );
       }

@@ -58,6 +58,7 @@ class Request{
     Response response;
     //    设置请求头
     if(headers != null){
+      headers.addAll({'Content-Type':'application/json'});
       dio.options.headers = headers;
     }
     try{

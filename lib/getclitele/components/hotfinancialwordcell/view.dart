@@ -13,7 +13,7 @@ Widget buildView(HotFinancialWordeCellState state, Dispatch dispatch, ViewServic
     child: Container(
       child: new Column(
         children: <Widget>[
-          new Image.asset(
+          new Image.network(
             state.posterphoto,
             width: Adapt.px(211),
             height: Adapt.px(376),

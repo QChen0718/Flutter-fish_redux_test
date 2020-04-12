@@ -1,10 +1,13 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/components/hotfinancialwordcell/state.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/selectposter/subpages/hotfinancialword/adapter.dart';
-
+import 'package:flutter_fish_redux_router_qt/models/postertitlemodel.dart';
 class HotFinancialWordState extends MutableSource implements Cloneable<HotFinancialWordState> {
 
   List<HotFinancialWordeCellState> hotliststate;
+  int typeId;
+  int pageIndex;
+  int pageSize;
   @override
   HotFinancialWordState clone() {
     return HotFinancialWordState();
@@ -34,5 +37,9 @@ class HotFinancialWordState extends MutableSource implements Cloneable<HotFinanc
 }
 
 HotFinancialWordState initState(Map<String, dynamic> args) {
-  return HotFinancialWordState();
+  var model = args['model'] as PostertitleDataModel;
+  return HotFinancialWordState()
+  ..pageIndex = 1
+  ..pageSize = 10
+  ..typeId = model.id;
 }

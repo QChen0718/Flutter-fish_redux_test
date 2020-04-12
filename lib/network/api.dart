@@ -12,6 +12,14 @@ class API {
   static const REQUEST_URL_GET_NEWS_LIST = BASE_URL + "Site/GetNewsList";
   // 获取用户信息
   static const REQUEST_URL_GET_BASE_INFO_DETAIL = BASE_URL + "User/GetUserBaseInfoDetail";
+  // 获取精品海报头部标题
+  static const REQUEST_GET_RESOURCETYPE_TITLE = BASE_URL +  "Site/getAdResourceType";
+  // 获取金融词，节气海报列表
+  static const REQUEST_GET_ADRESOURCE_LIST = BASE_URL + "Site/getAdResourceList";
+  //获取新闻类型列表
+  static const REQUEST_GET_HOT_NEWS = BASE_URL + "Site/GetHotTopicNews";
+  // 获取视频列表
+  static const REQUEST_GET_VIDEO_LIST = BASE_URL + "Site/VideoList";
 //  h5链接 -----------------------------------------
   //热门资讯详情页
   static const REQUEST_WEB_URL_ZIXUN_DETAIL  = HTTP_REQUEST_WEB_URL + "app/wxnews/";

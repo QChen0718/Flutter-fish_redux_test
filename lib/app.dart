@@ -1,6 +1,9 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/sputil.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/greatvideo/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/greatvideo/subpages/videodetail/page.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/greatvideo/subpages/videolist/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/cjzb/cjzbdetail/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/cjzb/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/getclitele_detail/page.dart';
@@ -55,7 +58,10 @@ class YicaifuApp extends StatelessWidget{
         'selectposterdetail':PosterDetailPage(),
         'mycard':MyCardPage(),
         'editcard':EditCardPage(),
-        'producttj':ProductRecommendPage()
+        'producttj':ProductRecommendPage(),
+        'greatvideo':GreatVideoPage(),
+        'videolist':VideoListPage(),
+        'videodetail':VideoDetailPage(),
       }
   );
   static BuildContext appContext;

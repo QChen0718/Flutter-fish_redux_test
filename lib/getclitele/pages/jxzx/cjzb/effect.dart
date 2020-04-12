@@ -35,7 +35,7 @@ _loadData(Context<CjzbState> ctx){
 
   List<CjcellState> cjcellstatelist = [];
 
-  var params = APPInfo.getRequestnomalparams(APPInfo.getFirstHeader()[APPInfo.ApiVersionKey], '1');
+  var params = APPInfo.getRequestnomalparams(APPInfo.getFirstHeader()[APPInfo.ApiVersionKey]);
   Map<String,dynamic>dict={
     'newsTypeId' : ctx.state.newsTypeId,
     'pageSize':ctx.state.pageSize,
@@ -46,10 +46,7 @@ _loadData(Context<CjzbState> ctx){
   };
   params.addAll(dict);
   var headers = APPInfo.getFirstHeader();
-  Map<String,dynamic>hdict={
-    'Content-Type':'application/json'
-  };
-  headers.addAll(hdict);
+
   Request.getInstance().post(API.REQUEST_URL_GET_NEWS_LIST, headers,params, (value){
   if(value != null){
     NewsListModel model =  NewsListModel.fromJson(value);

@@ -31,16 +31,13 @@ void _init(Action action,Context<GetCliteleState> ctx){
 
 void _getTitleData(Context<GetCliteleState> ctx,TickerProvider tickerProvider){
 //  设置请求参数
-  var params = APPInfo.getRequestnomalparams(APPInfo.getFirstHeader()[APPInfo.ApiVersionKey], '1');
+  var params = APPInfo.getRequestnomalparams(APPInfo.getFirstHeader()[APPInfo.ApiVersionKey]);
   Map<String,dynamic>dict={
     'newsTypeParentId' : 99,
   };
   params.addAll(dict);
   var headers = APPInfo.getFirstHeader();
-  Map<String,dynamic>hdict={
-    'Content-Type':'application/json'
-  };
-  headers.addAll(hdict);
+
 //  请求网络
   Request.getInstance().post(API.REQUEST_GET_NEWSTYPE_TITLE, headers, params, (succeck){
     NewsTitleModel newsTitleModel = NewsTitleModel.fromJson(succeck);

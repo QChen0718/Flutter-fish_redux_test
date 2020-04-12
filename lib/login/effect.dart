@@ -23,7 +23,7 @@ void _onAction(Action action, Context<LoginState> ctx) {
 }
 void _onJumpHome(Action action, Context<LoginState> ctx) {
 //  登录到首页
-  var params = APPInfo.getRequestnomalparams(APPInfo.getFirstHeader()[APPInfo.ApiVersionKey],'1');
+  var params = APPInfo.getRequestnomalparams(APPInfo.getFirstHeader()[APPInfo.ApiVersionKey]);
   Map<String,dynamic>dict = {
     'userName':ctx.state.phone_textEditingController.text,
     'loginType':'0',

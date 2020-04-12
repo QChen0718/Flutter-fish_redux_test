@@ -33,6 +33,7 @@ void _onAction(Action action, Context<CliteleItemCellState> ctx) {
       break;
     case 5:
 //      精彩视频
+      Navigator.pushNamed(ctx.context, 'greatvideo');
       break;
     case 6:
 //      转发助手

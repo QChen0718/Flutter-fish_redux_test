@@ -26,10 +26,7 @@ void _onInit(Action action, Context<MyState> ctx) {
 //加载用户基本信息
 _loaduseinfoData(Context<MyState> ctx){
   var headerdict = APPInfo.getFirstHeader();
-  headerdict.addAll({
-    'Content-Type':'application/json'
-  });
-  var paramsdict = APPInfo.getRequestnomalparams('1.0.0', '1');
+  var paramsdict = APPInfo.getRequestnomalparams(APPInfo.getFirstHeader()[APPInfo.ApiVersionKey],);
   paramsdict.addAll({
     'userId':SpUtil.preferences.getString('id'),
     'userMobile':SpUtil.preferences.getString('mobile')

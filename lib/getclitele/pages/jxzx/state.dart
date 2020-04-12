@@ -33,7 +33,7 @@ class GetCliteleState implements Cloneable<GetCliteleState>  {
 
 GetCliteleState initState(Map<String, dynamic> args) {
   return GetCliteleState()
-  ..navtitle = '获客';
+  ..navtitle = '每日财经';
 }
 
 //财经早报

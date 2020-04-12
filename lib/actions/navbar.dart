@@ -46,14 +46,18 @@ class _NavBarState extends State<NavBar>{
           alignment: AlignmentDirectional.center,
           children: <Widget>[
             new Center(
-                child: new Text(
-                  widget.titleStr,
-                  style:  TextStyle(
-                      color: widget?.titleColor ?? Color(0xff333333),
-                      fontSize: Adapt.px(34)
-                  ),
-                  textAlign: TextAlign.center,
-                )
+                child: new Container(
+                  width: Adapt.px(460),
+                  child: new Text(
+                    widget.titleStr,
+                    style:  TextStyle(
+                        color: widget?.titleColor ?? Color(0xff333333),
+                        fontSize: Adapt.px(34)
+                    ),
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                  )
+                ),
             ),
             new Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

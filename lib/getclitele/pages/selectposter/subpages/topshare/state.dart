@@ -4,6 +4,8 @@ import 'package:flutter_fish_redux_router_qt/getclitele/pages/selectposter/subpa
 
 class TopShareState extends MutableSource implements Cloneable<TopShareState> {
 
+  int pageIndex;
+  int pageSize;
   List<TopShareCellState> topliststate;
   @override
   TopShareState clone() {
@@ -35,5 +37,7 @@ class TopShareState extends MutableSource implements Cloneable<TopShareState> {
 }
 
 TopShareState initState(Map<String, dynamic> args) {
-  return TopShareState();
+  return TopShareState()
+  ..pageSize = 10
+  ..pageIndex = 1;
 }

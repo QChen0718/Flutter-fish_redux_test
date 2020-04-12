@@ -1,24 +1,27 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_fish_redux_router_qt/models/postertitlemodel.dart';
 
 class SelectPosterState implements Cloneable<SelectPosterState> {
   String nav_title;
-  List<String> itemtitles;
+  List<PostertitleDataModel> itemtitles = [];
+  List<Widget> controllers = [];
   TabController tabController;
   @override
   SelectPosterState clone() {
     return SelectPosterState()
     ..nav_title = nav_title
     ..itemtitles = itemtitles
-    ..tabController = tabController;
+    ..tabController = tabController
+    ..controllers = controllers;
   }
 }
 
 SelectPosterState initState(Map<String, dynamic> args) {
-  List<String> itemtitles = ['最热金融词','专题分享','壹财富节气'];
+
   return SelectPosterState()
-  ..nav_title = '精品海报'
-  ..itemtitles = itemtitles;
+  ..nav_title = '精品海报';
+
 }
 // 一次使用的用 SingleTickerProviderStateMixin
 // 使用 SingleTickerProviderStateMixin 主要是TabBar需要用到这块
