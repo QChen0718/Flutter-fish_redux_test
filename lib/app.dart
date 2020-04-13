@@ -1,6 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/sputil.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/forwardingzs/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/greatvideo/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/greatvideo/subpages/videodetail/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/greatvideo/subpages/videolist/page.dart';
@@ -28,6 +29,7 @@ import 'package:flutter_fish_redux_router_qt/my/pages/userset/page.dart';
 import 'package:flutter_fish_redux_router_qt/start/page.dart';
 import 'customer/page.dart';
 import 'getclitele/pages/jxzx/page.dart';
+import 'getclitele/pages/notespost/page.dart';
 import 'my/page.dart';
 
 class YicaifuApp extends StatelessWidget{
@@ -62,6 +64,8 @@ class YicaifuApp extends StatelessWidget{
         'greatvideo':GreatVideoPage(),
         'videolist':VideoListPage(),
         'videodetail':VideoDetailPage(),
+        'forwardingzs':ForwardingZSPage(),
+        'notespost':NotePostPage()
       }
   );
   static BuildContext appContext;

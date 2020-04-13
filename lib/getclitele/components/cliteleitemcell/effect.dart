@@ -37,9 +37,11 @@ void _onAction(Action action, Context<CliteleItemCellState> ctx) {
       break;
     case 6:
 //      转发助手
+      Navigator.pushNamed(ctx.context, 'forwardingzs');
       break;
     case 7:
 //      随手发
+      Navigator.pushNamed(ctx.context, 'notespost');
       break;
     case 8:
 //      敬请期待
