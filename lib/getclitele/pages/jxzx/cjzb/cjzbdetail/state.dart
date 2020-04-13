@@ -1,7 +1,9 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class CjzbDetailState implements Cloneable<CjzbDetailState> {
   String weburl;
+  WebViewController controller;
   @override
   CjzbDetailState clone() {
     return CjzbDetailState()
