@@ -1,5 +1,6 @@
 import 'package:chewie/chewie.dart';
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoDetailState implements Cloneable<VideoDetailState> {
@@ -9,6 +10,7 @@ class VideoDetailState implements Cloneable<VideoDetailState> {
   VideoPlayerController playerController;
   Future<void> initializeVideoPlayerFuture;
   ChewieController chewieController;
+  bool isFullScreen;
   @override
   VideoDetailState clone() {
     return VideoDetailState()
