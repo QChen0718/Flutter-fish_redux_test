@@ -21,7 +21,7 @@ void _onAction(Action action, Context<VideoDetailState> ctx) {
 // 初始化方法
 void _onInit(Action action, Context<VideoDetailState> ctx) {
     MyVideoState myVideoState = MyVideoState();
-    myVideoState.url = 'http://1caifu-file-public.oss-cn-hangzhou.aliyuncs.com/video/business-institute/%E5%BE%AE%E8%AF%BE%E4%BA%94%EF%BC%9A%E9%98%B3%E5%85%89%E7%A7%81%E5%8B%9F%E7%BC%98%E4%BD%95%E9%98%B3%E5%85%89-6bc06548959046dfb7cd77e2e7240202.mp4';
+    myVideoState.url = ctx.state.videourl;
     myVideoState.width = Adapt.screenW();
     myVideoState.height = Adapt.screenW()/16*9;
     ctx.dispatch(VideoDetailActionCreator.onInit(myVideoState));

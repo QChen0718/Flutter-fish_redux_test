@@ -17,6 +17,7 @@ class MyVideoState implements Cloneable<MyVideoState> {
   bool videoInit = false;
 //  video控件管理器
   VideoPlayerController controller;
+  Future<void> initializeVideoPlayerFuture;
   // 记录video播放进度
   Duration position = Duration(seconds: 0);
   // 记录播放控件ui是否显示(进度条，播放按钮，全屏按钮等等)
@@ -26,6 +27,8 @@ class MyVideoState implements Cloneable<MyVideoState> {
 //  BuildContext context;
   // 记录是否全屏
   bool isFullScreen = false;
+//  记录是否静音
+  bool isMute = false;
   // 记录是否全屏
   // 记录当前设备是否横屏，后续用到
   String quicklyname = 'images/quickly_icon.webp';
@@ -48,7 +51,9 @@ class MyVideoState implements Cloneable<MyVideoState> {
     ..timer = timer
     ..hidePlayControl = hidePlayControl
     ..playControlOpacity = playControlOpacity
-    ..isFullScreen = isFullScreen;
+    ..isFullScreen = isFullScreen
+    ..initializeVideoPlayerFuture = initializeVideoPlayerFuture
+    ..isMute = isMute;
   }
 }
 

@@ -23,5 +23,6 @@ class VideoDetailState implements Cloneable<VideoDetailState> {
 VideoDetailState initState(Map<String, dynamic> args) {
 
   return VideoDetailState()
-  ..navtitle = args['title'];
+  ..navtitle = args['title']
+  ..videourl = args['videourl'];
 }

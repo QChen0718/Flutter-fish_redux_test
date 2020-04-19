@@ -10,5 +10,13 @@ Effect<VideoListCellState> buildEffect() {
 }
 
 void _onAction(Action action, Context<VideoListCellState> ctx) {
-  Navigator.pushNamed(ctx.context, 'videodetail',arguments: {'title':ctx.state.videotitle,'video':ctx.state.videoid});
+  Navigator.pushNamed(
+      ctx.context,
+      'videodetail',
+      arguments: {
+        'title':ctx.state.videotitle,
+        'video':ctx.state.videoid,
+        'videourl':ctx.state.videourl
+      },
+  );
 }

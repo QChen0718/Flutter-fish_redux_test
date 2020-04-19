@@ -61,7 +61,7 @@ Widget buildView(MyVideoState state, Dispatch dispatch, ViewService viewService)
                 new Container(
                   margin: EdgeInsets.only(right: Adapt.px(15)),
                   child: new Text(
-                    '0:07',
+                    '0:00',
                     style: new TextStyle(
                       color: Color(0xffffffff),
                       fontSize: Adapt.px(24)
@@ -137,7 +137,8 @@ Widget buildView(MyVideoState state, Dispatch dispatch, ViewService viewService)
               ),
               new GestureDetector(
                 onTap:(){
-
+//                  是否静音
+                  dispatch(MyVideoActionCreator.onAction(100));
                 },
                 child: Container(
                   margin: EdgeInsets.only(right: Adapt.px(7),top: Adapt.px(10)),
@@ -164,20 +165,27 @@ Widget buildView(MyVideoState state, Dispatch dispatch, ViewService viewService)
           onTap: (){
 //            _togglePlayControl();
           },
-          child: state.videoInit ?
-          Center(
-            // 加载url成功时，根据视频比例渲染播放器
-            child: AspectRatio(
-                aspectRatio: state.controller.value.aspectRatio,
-              child: VideoPlayer(state.controller),
-            ),
-          ):Center(
-            child: SizedBox(
-              width: 20,
-              height: 20,
-              child: CircularProgressIndicator(),
-            ),
-          ),
+          child: FutureBuilder(
+              future: state.initializeVideoPlayerFuture,
+              builder: (context, snapshot) {
+                if(snapshot.connectionState == ConnectionState.done){
+//                  加载完成
+                  dispatch(MyVideoActionCreator.onUpdate());
+                  return AspectRatio(
+                    aspectRatio: state.controller.value.aspectRatio,
+                    child: VideoPlayer(state.controller),
+                  );
+                }else {
+                  return Center(
+                    child: SizedBox(
+                      width: 20,
+                      height: 20,
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                }
+              }
+          )
         ),
         _topControl(),
         _bottomControl()

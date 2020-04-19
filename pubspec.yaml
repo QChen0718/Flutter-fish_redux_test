@@ -45,6 +45,8 @@ dependencies:
   chewie: ^0.9.10
   # 横竖屏插件
   orientation: ^1.2.0
+  # 控制屏幕亮度以及屏幕常亮组件
+  screen: ^0.0.5
 dev_dependencies:
   flutter_test:
     sdk: flutter

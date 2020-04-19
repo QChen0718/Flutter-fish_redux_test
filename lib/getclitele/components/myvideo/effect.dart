@@ -14,6 +14,14 @@ Effect<MyVideoState> buildEffect() {
 }
 
 void _onAction(Action action, Context<MyVideoState> ctx) {
+  if(ctx.state.isMute){
+    ctx.state.controller.setVolume(0);
+    ctx.state.isMute = false;
+  }else{
+    ctx.state.controller.setVolume(1);
+    ctx.state.isMute = true;
+  }
+  ctx.dispatch(MyVideoActionCreator.onUpdate());
 }
 void _onInit(Action action, Context<MyVideoState> ctx) {
   urlChange(ctx);
@@ -22,7 +30,6 @@ void urlChange(Context<MyVideoState> ctx){
   if (ctx.state.url == null || ctx.state.url == '') return;
   if (ctx.state.controller != null){
 //    如果控制器存在，清理掉重新创建
-    ctx.state.controller.removeListener(_videoListener(ctx));
     ctx.state.controller.dispose();
   }
 //  初始化组件参数
@@ -30,27 +37,18 @@ void urlChange(Context<MyVideoState> ctx){
   ctx.state.videoInit = false;
   ctx.state.position = Duration(seconds: 0);
 //  这快初始化的有问题，需要修改
-  ctx.state.controller = VideoPlayerController.network(ctx.state.url)..initialize().then((_){
-    ctx.dispatch(MyVideoActionCreator.onUpdate());
-  });
-
-
+  ctx.state.controller = VideoPlayerController.network(ctx.state.url);
+  ctx.state.initializeVideoPlayerFuture = ctx.state.controller.initialize();
+  ctx.state.controller.setLooping(true);
 }
- _videoListener(Context<MyVideoState> ctx) async {
-  Duration res = await ctx.state.controller.position;
-  if(res>=ctx.state.controller.value.duration){
-    ctx.state.controller.pause();
-    ctx.state.controller.seekTo(Duration(seconds: 0));
-  }
-  ctx.state.position = res;
-}
+
 void _onBuild(Action action, Context<MyVideoState> ctx) {
  ctx.state.isFullScreen =  MediaQuery.of(ctx.context).orientation == Orientation.landscape;
 }
 // 控件销毁方法
 void _onDispose(Action action, Context<MyVideoState> ctx) {
   if(ctx.state.controller != null){
-    ctx.state.controller.removeListener(_videoListener(ctx));
+//    销毁掉视频播放器
     ctx.state.controller.dispose();
   }
 }

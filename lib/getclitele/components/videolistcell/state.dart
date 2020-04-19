@@ -6,13 +6,15 @@ class VideoListCellState implements Cloneable<VideoListCellState> {
   String datestr;
   String videotitle;
   int videoid;
+  String videourl;
   @override
   VideoListCellState clone() {
     return VideoListCellState()
     ..coverimagename = coverimagename
     ..datestr = datestr
     ..videotitle = videotitle
-    ..videoid = videoid;
+    ..videoid = videoid
+    ..videourl = videourl;
   }
 }
 

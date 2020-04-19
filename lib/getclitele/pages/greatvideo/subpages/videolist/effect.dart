@@ -39,6 +39,7 @@ _loadListData(Context<VideoListState> ctx){
       videoListCellState.videotitle = value.title;
       videoListCellState.datestr = value.startTime;
       videoListCellState.videoid = value.id;
+      videoListCellState.videourl = value.files;
       liststate.add(videoListCellState);
     });
     ctx.dispatch(VideoListActionCreator.onInit(liststate));
