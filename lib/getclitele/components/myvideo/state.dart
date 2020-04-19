@@ -1,6 +1,9 @@
 import 'dart:async';
 
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_fish_redux_router_qt/app.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/greatvideo/subpages/videodetail/state.dart';
 import 'package:video_player/video_player.dart';
 
 class MyVideoState implements Cloneable<MyVideoState> {
@@ -20,16 +23,48 @@ class MyVideoState implements Cloneable<MyVideoState> {
   Timer timer;
   bool hidePlayControl = true; // 控制是否隐藏控件ui
   double playControlOpacity = 0; // 通过透明度动画显示/隐藏控件ui
+//  BuildContext context;
   // 记录是否全屏
-  bool isFullScreen;
+  bool isFullScreen = false;
+  // 记录是否全屏
+  // 记录当前设备是否横屏，后续用到
+  String quicklyname = 'images/quickly_icon.webp';
+  String volumename = 'images/volume_icon.webp';
+  String screenname = 'images/for_screen.webp';
+  String fullscreen = 'images/fullscreen_icon.webp';
+  String forwardname = 'images/forward_icon.webp';
 
-  MyVideoState({this.url, this.width, this.height, this.title});
+//  MyVideoState({this.url, this.width, this.height, this.title});
   @override
   MyVideoState clone() {
-    return MyVideoState();
+    return MyVideoState()
+    ..url = url
+    ..width = width
+    ..height = height
+    ..title = title
+    ..videoInit = videoInit
+    ..controller = controller
+    ..position = position
+    ..timer = timer
+    ..hidePlayControl = hidePlayControl
+    ..playControlOpacity = playControlOpacity
+    ..isFullScreen = isFullScreen;
   }
 }
 
-MyVideoState initState(Map<String, dynamic> args) {
-  return MyVideoState();
+//MyVideoState initState(Map<String, dynamic> args) {
+//  return MyVideoState();
+//}
+class MyVideoConnector extends ConnOp<VideoDetailState,MyVideoState>{
+  @override
+  get(state) {
+    // TODO: implement get
+    return state.myVideoState;
+  }
+  @override
+  void set(state, subState) {
+    // TODO: implement set
+    state.myVideoState = subState;
+    state.isFullScreen = subState.isFullScreen;
+  }
 }

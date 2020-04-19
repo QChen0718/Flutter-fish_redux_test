@@ -6,6 +6,7 @@ import 'state.dart';
 import 'view.dart';
 
 class MyVideoComponent extends Component<MyVideoState> {
+
   MyVideoComponent()
       : super(
             effect: buildEffect(),

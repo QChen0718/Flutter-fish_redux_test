@@ -41,7 +41,10 @@ dependencies:
   webview_flutter: ^0.3.19+9
   # 播放视频插件
   video_player: ^0.10.8+1
+  # 视频播放UI插件
   chewie: ^0.9.10
+  # 横竖屏插件
+  orientation: ^1.2.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -335,6 +338,22 @@ flutter:
     - images/play_btn.webp
     - images/2.0x/play_btn.webp
     - images/3.0x/play_btn.webp
+
+    - images/for_screen.webp
+    - images/2.0x/for_screen.webp
+    - images/3.0x/for_screen.webp
+    - images/forward_icon.webp
+    - images/2.0x/forward_icon.webp
+    - images/3.0x/forward_icon.webp
+    - images/fullscreen_icon.webp
+    - images/2.0x/fullscreen_icon.webp
+    - images/3.0x/fullscreen_icon.webp
+    - images/quickly_icon.webp
+    - images/2.0x/quickly_icon.webp
+    - images/3.0x/quickly_icon.webp
+    - images/volume_icon.webp
+    - images/2.0x/volume_icon.webp
+    - images/3.0x/volume_icon.webp
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

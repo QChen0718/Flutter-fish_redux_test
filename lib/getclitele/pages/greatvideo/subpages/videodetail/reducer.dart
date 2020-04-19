@@ -20,5 +20,7 @@ VideoDetailState _onAction(VideoDetailState state, Action action) {
 
 VideoDetailState _onInit(VideoDetailState state, Action action) {
   final VideoDetailState newState = state.clone();
+  newState.myVideoState = action.payload;
+  newState.isFullScreen = newState.myVideoState.isFullScreen;
   return newState;
 }
