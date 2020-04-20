@@ -18,6 +18,19 @@ class APPInfo{
     var digest = md5.convert(content);
     return digest.toString();
   }
+  static String durationToTime(int durationnumber){
+    int hours = ((((durationnumber / 1000) / 60)) /60 ).toInt();
+    int min = ((durationnumber / 1000) / 60).toInt();
+    int sec = ((durationnumber / 1000) % 60).toInt();
+    if (hours>0){
+      return getType(hours) + ":" + getType(min) + ":" + getType(sec);
+    }else{
+      return getType(min) + ":" + getType(sec);
+    }
+  }
+  static String getType(int time){
+    return time<10 ? "0" + time.toString() : time.toString();
+  }
 //  版本号
   static String version = SpUtil.packageInfo.version;
 

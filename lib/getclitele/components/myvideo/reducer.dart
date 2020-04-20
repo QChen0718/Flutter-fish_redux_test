@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_fish_redux_router_qt/actions/adapt.dart';
@@ -13,7 +15,9 @@ Reducer<MyVideoState> buildReducer() {
       MyVideoAction.init:_onInit,
       MyVideoAction.update:_onUpdate,
       MyVideoAction.rotating:_onRotating,
-      MyVideoAction.play:_onPlay
+      MyVideoAction.play:_onPlay,
+      MyVideoAction.hidenui:_onHidenui,
+      MyVideoAction.speedandreverse: _onSpeedandreverse
     },
   );
 }
@@ -29,8 +33,6 @@ MyVideoState _onInit(MyVideoState state, Action action) {
 }
 
 MyVideoState _onUpdate(MyVideoState state, Action action) {
-//  bool get isFullScreen =>
-//  state.isFullScreen = MediaQuery.of(ctx.context).orientation == Orientation.portrait;
   final MyVideoState newState = state.clone();
   newState.videoInit = true;
   return newState;
@@ -56,8 +58,34 @@ MyVideoState _onRotating(MyVideoState state,Action action) {
 
 MyVideoState _onPlay(MyVideoState state,Action action) {
   final MyVideoState newState = state.clone();
+
   newState.controller.value.isPlaying?
   newState.controller.pause()
   :newState.controller.play();
+
+  return newState;
+}
+
+MyVideoState _onHidenui(MyVideoState state,Action action) {
+  final MyVideoState newState = state.clone();
+  newState.hidePlayControl = !state.hidePlayControl;
+  return newState;
+}
+MyVideoState _onSpeedandreverse(MyVideoState state,Action action) {
+  final MyVideoState newState = state.clone();
+  if(action.payload == 100){
+    if(newState.controller.value.duration.inSeconds-newState.controller.value.position.inSeconds > 15){
+      newState.controller.seekTo(Duration(seconds: newState.controller.value.position.inSeconds+15));
+    }else{
+      newState.controller.seekTo(Duration(seconds: newState.controller.value.duration.inSeconds));
+    }
+
+  }else{
+    if(newState.controller.value.position.inSeconds>15){
+      newState.controller.seekTo(Duration(seconds: newState.controller.value.position.inSeconds-15));
+    }else{
+      newState.controller.seekTo(Duration(seconds: 0));
+    }
+  }
   return newState;
 }

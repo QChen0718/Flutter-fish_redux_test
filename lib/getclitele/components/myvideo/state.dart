@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_fish_redux_router_qt/app.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/greatvideo/subpages/videodetail/state.dart';
 import 'package:video_player/video_player.dart';
 
@@ -22,9 +20,9 @@ class MyVideoState implements Cloneable<MyVideoState> {
   Duration position = Duration(seconds: 0);
   // 记录播放控件ui是否显示(进度条，播放按钮，全屏按钮等等)
   Timer timer;
-  bool hidePlayControl = true; // 控制是否隐藏控件ui
+  bool hidePlayControl; // 控制是否隐藏控件ui
   double playControlOpacity = 0; // 通过透明度动画显示/隐藏控件ui
-//  BuildContext context;
+
   // 记录是否全屏
   bool isFullScreen = false;
 //  记录是否静音

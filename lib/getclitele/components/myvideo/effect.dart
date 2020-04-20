@@ -36,10 +36,22 @@ void urlChange(Context<MyVideoState> ctx){
   ctx.state.hidePlayControl = true;
   ctx.state.videoInit = false;
   ctx.state.position = Duration(seconds: 0);
-//  这快初始化的有问题，需要修改
+  ctx.state.hidePlayControl = false;
+
   ctx.state.controller = VideoPlayerController.network(ctx.state.url);
   ctx.state.initializeVideoPlayerFuture = ctx.state.controller.initialize();
-  ctx.state.controller.setLooping(true);
+// 监听播放进度
+  ctx.state.controller.addListener(() async{
+//    播放的进度时长
+    Duration res = await ctx.state.controller.value.position;
+//    if(res >= ctx.state.controller.value.duration){
+//      //  说明播放到了最后
+//      ctx.state.controller.pause();
+//      ctx.state.controller.seekTo(Duration(seconds: 0));
+//      ctx.dispatch(MyVideoActionCreator.onInit());
+//    }
+
+  });
 }
 
 void _onBuild(Action action, Context<MyVideoState> ctx) {

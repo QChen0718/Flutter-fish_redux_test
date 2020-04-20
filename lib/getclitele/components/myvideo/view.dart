@@ -1,6 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/adapt.dart';
+import 'package:flutter_fish_redux_router_qt/actions/appinfo.dart';
 import 'package:video_player/video_player.dart';
 import 'package:flutter_fish_redux_router_qt/actions/adapt.dart';
 import 'action.dart';
@@ -13,7 +14,7 @@ Widget buildView(MyVideoState state, Dispatch dispatch, ViewService viewService)
       left: 0,
       bottom: state.isFullScreen?Adapt.padBotH():0,
       child: Offstage( // 控制是否隐藏
-        offstage: false,
+        offstage: state.hidePlayControl,
         child: AnimatedOpacity( // 加入透明度动画
           opacity: 1.0,
           duration: Duration(milliseconds: 300),
@@ -28,13 +29,18 @@ Widget buildView(MyVideoState state, Dispatch dispatch, ViewService viewService)
             ),
             child: state.videoInit ? Row( // 加载完成时才渲染,flex布局
               children: <Widget>[
-                new Container(
-                  margin: EdgeInsets.only(left: Adapt.px(36)),
-                  child: new Image.asset(
+                new GestureDetector(
+                  onTap: (){
+                    dispatch(MyVideoActionCreator.onSpeedandreverse(200));
+                  },
+                  child: new Container(
+                    margin: EdgeInsets.only(left: Adapt.px(36)),
+                    child: new Image.asset(
                       state.quicklyname,
                       width: Adapt.px(26),
                       height: Adapt.px(29),
                     ),
+                  ),
                 ),
                 new Container(
                  child: IconButton( // 播放按钮
@@ -49,19 +55,24 @@ Widget buildView(MyVideoState state, Dispatch dispatch, ViewService viewService)
                       },
                   )
                 ),
-                new Container(
-                  margin: EdgeInsets.only(right: Adapt.px(36)),
-                  child: new Image.asset(
-                        state.forwardname,
-                        width: Adapt.px(26),
-                        height: Adapt.px(29),
-                      ),
+                new GestureDetector(
+                  onTap: (){
+                    dispatch(MyVideoActionCreator.onSpeedandreverse(100));
+                  },
+                  child: new Container(
+                    margin: EdgeInsets.only(right: Adapt.px(36)),
+                    child: new Image.asset(
+                      state.forwardname,
+                      width: Adapt.px(26),
+                      height: Adapt.px(29),
+                    ),
 
+                  ),
                 ),
                 new Container(
                   margin: EdgeInsets.only(right: Adapt.px(15)),
                   child: new Text(
-                    '0:00',
+                    APPInfo.durationToTime(state.controller.value.position.inMilliseconds),
                     style: new TextStyle(
                       color: Color(0xffffffff),
                       fontSize: Adapt.px(24)
@@ -88,7 +99,7 @@ Widget buildView(MyVideoState state, Dispatch dispatch, ViewService viewService)
                 new Container(
                   margin: EdgeInsets.only(left: Adapt.px(15)),
                   child: new Text(
-                    '-3:22',
+                    APPInfo.durationToTime(state.controller.value.duration.inMilliseconds),
                     style: new TextStyle(
                       color: Color(0xffCECECE),
                       fontSize: Adapt.px(24)
@@ -115,41 +126,44 @@ Widget buildView(MyVideoState state, Dispatch dispatch, ViewService viewService)
     return Positioned(
         left: 0,
         top: state.isFullScreen?Adapt.padTopH():0,
-        child: new Container(
-          height: Adapt.px(60),
-          width: state.width,
-          child: new Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-               GestureDetector(
-                    onTap:(){
-                      dispatch(MyVideoActionCreator.onRotating());
-                    },
-                    child: new Container(
-                      margin: EdgeInsets.only(left: Adapt.px(7),top: Adapt.px(10)),
-                      child: new Image.asset(
-                        state.fullscreen,
-                        width: Adapt.px(93),
-                        height: Adapt.px(60),
-                      ),
+        child: new Offstage(
+          offstage: state.hidePlayControl,
+          child: new Container(
+            height: Adapt.px(60),
+            width: state.width,
+            child: new Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                GestureDetector(
+                  onTap:(){
+                    dispatch(MyVideoActionCreator.onRotating());
+                  },
+                  child: new Container(
+                    margin: EdgeInsets.only(left: Adapt.px(7),top: Adapt.px(10)),
+                    child: new Image.asset(
+                      state.fullscreen,
+                      width: Adapt.px(93),
+                      height: Adapt.px(60),
                     ),
-
-              ),
-              new GestureDetector(
-                onTap:(){
-//                  是否静音
-                  dispatch(MyVideoActionCreator.onAction(100));
-                },
-                child: Container(
-                  margin: EdgeInsets.only(right: Adapt.px(7),top: Adapt.px(10)),
-                  child: new Image.asset(
-                    state.volumename,
-                    width: Adapt.px(110),
-                    height: Adapt.px(60),
                   ),
+
                 ),
-              )
-            ],
+                new GestureDetector(
+                  onTap:(){
+//                  是否静音
+                    dispatch(MyVideoActionCreator.onAction(100));
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(right: Adapt.px(7),top: Adapt.px(10)),
+                    child: new Image.asset(
+                      state.volumename,
+                      width: Adapt.px(110),
+                      height: Adapt.px(60),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
         )
     );
@@ -163,8 +177,13 @@ Widget buildView(MyVideoState state, Dispatch dispatch, ViewService viewService)
       children: <Widget>[
         GestureDetector(
           onTap: (){
-//            _togglePlayControl();
+//          单击隐藏功能操作UI
+            dispatch(MyVideoActionCreator.onHidenui());
           },
+            onDoubleTap: (){
+//            双击播放
+              dispatch(MyVideoActionCreator.onPlay());
+            },
           child: FutureBuilder(
               future: state.initializeVideoPlayerFuture,
               builder: (context, snapshot) {
