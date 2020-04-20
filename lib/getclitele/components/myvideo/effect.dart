@@ -43,14 +43,11 @@ void urlChange(Context<MyVideoState> ctx){
 // 监听播放进度
   ctx.state.controller.addListener(() async{
 //    播放的进度时长
-    Duration res = await ctx.state.controller.value.position;
-//    if(res >= ctx.state.controller.value.duration){
-//      //  说明播放到了最后
-//      ctx.state.controller.pause();
-//      ctx.state.controller.seekTo(Duration(seconds: 0));
-//      ctx.dispatch(MyVideoActionCreator.onInit());
-//    }
-
+    Duration res = await ctx.state.controller.position;
+    if(res == ctx.state.controller.value.duration){
+      //  说明播放到了最后
+      ctx.state.controller.pause();
+    }
   });
 }
 

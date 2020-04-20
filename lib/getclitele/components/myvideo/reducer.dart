@@ -37,6 +37,7 @@ MyVideoState _onUpdate(MyVideoState state, Action action) {
   newState.videoInit = true;
   return newState;
 }
+// 横屏，竖屏
 MyVideoState _onRotating(MyVideoState state,Action action) {
   final MyVideoState newState = state.clone();
   if (state.isFullScreen) { // 如果是全屏就切换竖屏
@@ -55,22 +56,24 @@ MyVideoState _onRotating(MyVideoState state,Action action) {
   newState.height = newState.isFullScreen?Adapt.screenW():Adapt.screenW()/16*9; // 竖屏时容器为16：9
   return newState;
 }
-
+// 播放暂停
 MyVideoState _onPlay(MyVideoState state,Action action) {
   final MyVideoState newState = state.clone();
-
+  if(newState.controller.value.duration.inSeconds == newState.controller.value.position.inSeconds){
+    newState.controller.seekTo(Duration(seconds: 0));
+  }
   newState.controller.value.isPlaying?
   newState.controller.pause()
   :newState.controller.play();
-
   return newState;
 }
-
+// 隐藏操作视频按钮
 MyVideoState _onHidenui(MyVideoState state,Action action) {
   final MyVideoState newState = state.clone();
   newState.hidePlayControl = !state.hidePlayControl;
   return newState;
 }
+// 快进，快退
 MyVideoState _onSpeedandreverse(MyVideoState state,Action action) {
   final MyVideoState newState = state.clone();
   if(action.payload == 100){
