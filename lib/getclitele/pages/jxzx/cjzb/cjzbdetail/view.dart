@@ -27,9 +27,10 @@ Widget buildView(CjzbDetailState state, Dispatch dispatch, ViewService viewServi
 //代码重点：JavascriptChannel中的name要与JS中的name.postMessage()相对应！！
 JavascriptChannel _alertJavascriptChannel(BuildContext context,CjzbDetailState state) {
   return JavascriptChannel(
-      name: 'Toast',
+      name: 'showPaperShareFooterKey',
       onMessageReceived: (JavascriptMessage message) {
 //        showToast(message.message);
-          state.controller.evaluateJavascript('');
+          print(message.message);
+//          state.controller.evaluateJavascript('');
       });
 }
