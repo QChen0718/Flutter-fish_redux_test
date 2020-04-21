@@ -1,5 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_fish_redux_router_qt/actions/appinfo.dart';
 import 'package:flutter_fish_redux_router_qt/actions/sputil.dart';
 import 'package:flutter_fish_redux_router_qt/models/cjzblist.dart';
@@ -15,6 +16,7 @@ Effect<CjzbState> buildEffect() {
   return combineEffects(<Object, Effect<CjzbState>>{
     CjzbAction.action: _onAction,
     CjzbAction.onjumpDetail: _onJumpDetail,
+    CjzbAction.refresh:_onRefresh,
     Lifecycle.initState:_onInit
   });
 }
@@ -27,7 +29,12 @@ void _onJumpDetail(Action action,Context<CjzbState> ctx) {
   });
 }
 void _onInit(Action action,Context<CjzbState> ctx) {
+      ctx.state.controller =  EasyRefreshController();
+      ctx.state.scrollController = ScrollController();
     _loadData(ctx);
+}
+void _onRefresh(Action action,Context<CjzbState> ctx) {
+  _loadData(ctx);
 }
 //获取财经早报的列表数据
 _loadData(Context<CjzbState> ctx){

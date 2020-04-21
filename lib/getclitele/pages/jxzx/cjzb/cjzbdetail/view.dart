@@ -1,6 +1,8 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+//import 'package:bridge_webview_flutter/platform_interface.dart';
+//import 'package:bridge_webview_flutter/webview_flutter.dart';
 import 'action.dart';
 import 'state.dart';
 
@@ -14,12 +16,12 @@ Widget buildView(CjzbDetailState state, Dispatch dispatch, ViewService viewServi
     body: WebView(
       initialUrl: state.weburl,
       javascriptMode: JavascriptMode.unrestricted,
-      onWebViewCreated: (controller){
-        state.controller = controller;
+      onWebViewCreated: (WebViewController webViewController){
+        state.controller.complete(webViewController);
       },
-      javascriptChannels: <JavascriptChannel>[
-        _alertJavascriptChannel(viewService.context,state),
-      ].toSet(),
+//      javascriptChannels: <JavascriptChannel>[
+//        _alertJavascriptChannel(viewService.context,state),
+//      ].toSet(),
     )
   );
 }
