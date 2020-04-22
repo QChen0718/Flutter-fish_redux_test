@@ -31,5 +31,6 @@ CjzbState _onInit(CjzbState state,Action action) {
   final CjzbState newState = state.clone();
   newState.listcell = action.payload;
   newState.count = action.payload.length;
+
   return newState;
 }

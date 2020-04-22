@@ -17,8 +17,8 @@ class CjzbState extends MutableSource implements Cloneable<CjzbState> {
 //  Header浮动
   bool headerFloat = false;
 //  触发刷新和加载动作
-  EasyRefreshController controller ;
-  ScrollController scrollController ;
+  EasyRefreshController controller = EasyRefreshController();
+  ScrollController scrollController = ScrollController();
   @override
   CjzbState clone() {
     return CjzbState()
@@ -29,7 +29,9 @@ class CjzbState extends MutableSource implements Cloneable<CjzbState> {
     ..attr = attr
     ..pageIndex = pageIndex
     ..pageSize = pageSize
-    ..headerFloat = headerFloat;
+    ..headerFloat = headerFloat
+    ..controller = controller
+    ..scrollController = scrollController;
   }
 
   @override

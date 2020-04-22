@@ -17,6 +17,7 @@ Effect<CjzbState> buildEffect() {
     CjzbAction.action: _onAction,
     CjzbAction.onjumpDetail: _onJumpDetail,
     CjzbAction.refresh:_onRefresh,
+    CjzbAction.load:_onLoad,
     Lifecycle.initState:_onInit
   });
 }
@@ -29,11 +30,17 @@ void _onJumpDetail(Action action,Context<CjzbState> ctx) {
   });
 }
 void _onInit(Action action,Context<CjzbState> ctx) {
-      ctx.state.controller =  EasyRefreshController();
-      ctx.state.scrollController = ScrollController();
+    ctx.state.pageIndex = 1;
     _loadData(ctx);
 }
+// 刷新数据
 void _onRefresh(Action action,Context<CjzbState> ctx) {
+    ctx.state.pageIndex = 1;
+  _loadData(ctx);
+}
+// 加载数据
+void _onLoad(Action action,Context<CjzbState> ctx) {
+  ctx.state.pageIndex ++;
   _loadData(ctx);
 }
 //获取财经早报的列表数据
@@ -67,6 +74,9 @@ _loadData(Context<CjzbState> ctx){
       cjcellState.cellid = model.id.toString();
       cjcellstatelist.add(cjcellState);
     });
+    //    完成刷新
+//    ctx.state.controller.resetLoadState();
+    ctx.state.controller.finishRefresh();
     //      发送事件更新UI界面
     ctx.dispatch(CjzbActionCreator.onInit(cjcellstatelist));
     }
