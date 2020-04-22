@@ -52,7 +52,6 @@ _loadData(Context<CjzbState> ctx){
     NewsListModel model =  NewsListModel.fromJson(value);
     subjects = model.data;
     subjects.forEach((model){
-      print('value:'+ model.title);
       CjcellState cjcellState = CjcellState();
       cjcellState.celltitle = model.title;
       cjcellState.cellcontent = model.sContent;
