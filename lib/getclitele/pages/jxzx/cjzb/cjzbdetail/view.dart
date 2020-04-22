@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/jsinteractionkey.dart';
 import 'package:flutter_fish_redux_router_qt/actions/navbar.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+//import 'package:bridge_webview_flutter/platform_interface.dart';
+//import 'package:bridge_webview_flutter/webview_flutter.dart';
 import 'action.dart';
 import 'state.dart';
 
@@ -32,7 +34,6 @@ Widget buildView(CjzbDetailState state, Dispatch dispatch, ViewService viewServi
             )
         )
       ],
-    )
   );
 }
 //使用javascriptChannels发送消息 进行交互

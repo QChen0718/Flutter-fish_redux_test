@@ -1,5 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_fish_redux_router_qt/actions/appinfo.dart';
 import 'package:flutter_fish_redux_router_qt/actions/sputil.dart';
 import 'package:flutter_fish_redux_router_qt/models/cjzblist.dart';
@@ -15,6 +16,8 @@ Effect<CjzbState> buildEffect() {
   return combineEffects(<Object, Effect<CjzbState>>{
     CjzbAction.action: _onAction,
     CjzbAction.onjumpDetail: _onJumpDetail,
+    CjzbAction.refresh:_onRefresh,
+    CjzbAction.load:_onLoad,
     Lifecycle.initState:_onInit
   });
 }
@@ -27,13 +30,24 @@ void _onJumpDetail(Action action,Context<CjzbState> ctx) {
   });
 }
 void _onInit(Action action,Context<CjzbState> ctx) {
+    ctx.state.pageIndex = 1;
     _loadData(ctx);
+}
+// 刷新数据
+void _onRefresh(Action action,Context<CjzbState> ctx) {
+    ctx.state.pageIndex = 1;
+  _loadData(ctx);
+}
+// 加载数据
+void _onLoad(Action action,Context<CjzbState> ctx) {
+  ctx.state.pageIndex ++;
+  _loadData(ctx);
 }
 //获取财经早报的列表数据
 _loadData(Context<CjzbState> ctx){
   List<NewListData> subjects = [];
 
-  List<CjcellState> cjcellstatelist = [];
+  List<CjcellState> cjcellstatelist;
 
   var params = APPInfo.getRequestnomalparams(APPInfo.getFirstHeader()[APPInfo.ApiVersionKey]);
   Map<String,dynamic>dict={
@@ -50,6 +64,18 @@ _loadData(Context<CjzbState> ctx){
   Request.getInstance().post(API.REQUEST_URL_GET_NEWS_LIST, headers,params, (value){
   if(value != null){
     NewsListModel model =  NewsListModel.fromJson(value);
+    if(ctx.state.pageIndex == 1){
+//      刷新
+      cjcellstatelist = [];
+      //    完成刷新
+//    ctx.state.controller.resetLoadState();
+      ctx.state.controller.finishRefresh();
+    }else{
+//      加载
+        cjcellstatelist = ctx.state.listcell;
+        ctx.state.controller.finishLoad(noMore: model.data.length <10 ?true:false);
+    }
+
     subjects = model.data;
     subjects.forEach((model){
       CjcellState cjcellState = CjcellState();
@@ -59,6 +85,7 @@ _loadData(Context<CjzbState> ctx){
       cjcellState.cellid = model.id.toString();
       cjcellstatelist.add(cjcellState);
     });
+
     //      发送事件更新UI界面
     ctx.dispatch(CjzbActionCreator.onInit(cjcellstatelist));
     }

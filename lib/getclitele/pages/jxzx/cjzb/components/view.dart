@@ -7,6 +7,10 @@ import 'state.dart';
 
 Widget buildView(CjcellState state, Dispatch dispatch, ViewService viewService) {
   return GestureDetector(
+      onTap: (){
+//          跳转到详情
+        dispatch(CjcellActionCreator.onJumpDetail());
+      },
       child: Container(
         color: Colors.white,
         padding: EdgeInsets.all(Adapt.px(25)),
@@ -17,6 +21,7 @@ Widget buildView(CjcellState state, Dispatch dispatch, ViewService viewService) 
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     new Container(
+
                       child: Text(
                         state.celltitle,
                         style: new TextStyle(
@@ -52,9 +57,6 @@ Widget buildView(CjcellState state, Dispatch dispatch, ViewService viewService) 
           ],
         ),
       ),
-      onTap: (){
-//        跳转到详情
-        dispatch(CjcellActionCreator.onJumpDetail());
-      },
+
   );
 }

@@ -127,7 +127,17 @@ Widget buildView(MyCardState state, Dispatch dispatch, ViewService viewService) 
               ),
               new MaterialButton(
                   onPressed: (){
-                    dispatch(MyCardActionCreator.onAction(2));
+//                    dispatch(MyCardActionCreator.onAction(2));
+//                  从底部弹出视图
+                    showModalBottomSheet(
+                        context: viewService.context,
+                        builder: (context){
+                          return Container(
+                            height: Adapt.px(600),
+                          );
+                        }
+                    );
+
                   },
                 child: new Container(
                   width: Adapt.px(310),

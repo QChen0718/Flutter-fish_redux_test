@@ -4,7 +4,7 @@ import 'package:flutter_fish_redux_router_qt/models/cjzblist.dart';
 import 'components/state.dart';
 
 //TODO replace with your own action
-enum CjzbAction { action,onjumpDetail,updateData ,onInit}
+enum CjzbAction { action,onjumpDetail,updateData ,onInit,refresh,load}
 
 class CjzbActionCreator {
   static Action onAction() {
@@ -18,5 +18,11 @@ class CjzbActionCreator {
   }
   static Action onInit(List<CjcellState> localNavList){
     return Action(CjzbAction.onInit,payload: localNavList);
+  }
+  static Action onRefresh(){
+    return Action(CjzbAction.refresh);
+  }
+  static Action onLoad(){
+    return Action(CjzbAction.load);
   }
 }
