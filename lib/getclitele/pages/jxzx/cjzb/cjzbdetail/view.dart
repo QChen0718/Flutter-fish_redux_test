@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/jsinteractionkey.dart';
 import 'package:flutter_fish_redux_router_qt/actions/navbar.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-//import 'package:bridge_webview_flutter/platform_interface.dart';
-//import 'package:bridge_webview_flutter/webview_flutter.dart';
 import 'action.dart';
 import 'state.dart';
 
@@ -13,7 +11,7 @@ Widget buildView(CjzbDetailState state, Dispatch dispatch, ViewService viewServi
     body: new Column(
       children: <Widget>[
         new NavBar(
-          titleStr: '财经早报详情',
+          titleStr: state.navtitle,
         ),
         new Expanded(
             child: WebView(
@@ -21,11 +19,13 @@ Widget buildView(CjzbDetailState state, Dispatch dispatch, ViewService viewServi
               javascriptMode: JavascriptMode.unrestricted,
               onWebViewCreated: (controller){
                 state.controller = controller;
+//                state.controller.complete(controller);
               },
               onPageFinished: (url){
 //                获取网页 标题
                 state.controller.evaluateJavascript("document.title").then((result){
-                  print(result);
+//                  print(result);
+                    dispatch(CjzbDetailActionCreator.onUpdateTitle(result));
                 });
             },
               javascriptChannels: <JavascriptChannel>[
@@ -34,6 +34,7 @@ Widget buildView(CjzbDetailState state, Dispatch dispatch, ViewService viewServi
             )
         )
       ],
+    )
   );
 }
 //使用javascriptChannels发送消息 进行交互

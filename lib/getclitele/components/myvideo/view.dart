@@ -99,7 +99,7 @@ Widget buildView(MyVideoState state, Dispatch dispatch, ViewService viewService)
                 new Container(
                   margin: EdgeInsets.only(left: Adapt.px(15)),
                   child: new Text(
-                    APPInfo.durationToTime(state.controller.value.duration.inMilliseconds),
+                    APPInfo.durationToTime(state.controller.value.duration?.inMilliseconds ?? 0),
                     style: new TextStyle(
                       color: Color(0xffCECECE),
                       fontSize: Adapt.px(24)

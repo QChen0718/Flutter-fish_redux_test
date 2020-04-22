@@ -6,12 +6,14 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 class CjzbDetailState implements Cloneable<CjzbDetailState> {
   String weburl;
-  Completer<WebViewController> controller = Completer<WebViewController>();
+  WebViewController controller;
+  String navtitle = '';
   @override
   CjzbDetailState clone() {
     return CjzbDetailState()
     ..weburl = weburl
-    ..controller = controller;
+    ..controller = controller
+    ..navtitle = navtitle;
   }
 }
 
