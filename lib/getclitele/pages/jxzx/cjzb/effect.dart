@@ -47,7 +47,7 @@ void _onLoad(Action action,Context<CjzbState> ctx) {
 _loadData(Context<CjzbState> ctx){
   List<NewListData> subjects = [];
 
-  List<CjcellState> cjcellstatelist = [];
+  List<CjcellState> cjcellstatelist;
 
   var params = APPInfo.getRequestnomalparams(APPInfo.getFirstHeader()[APPInfo.ApiVersionKey]);
   Map<String,dynamic>dict={
@@ -64,6 +64,18 @@ _loadData(Context<CjzbState> ctx){
   Request.getInstance().post(API.REQUEST_URL_GET_NEWS_LIST, headers,params, (value){
   if(value != null){
     NewsListModel model =  NewsListModel.fromJson(value);
+    if(ctx.state.pageIndex == 1){
+//      刷新
+      cjcellstatelist = [];
+      //    完成刷新
+//    ctx.state.controller.resetLoadState();
+      ctx.state.controller.finishRefresh();
+    }else{
+//      加载
+        cjcellstatelist = ctx.state.listcell;
+        ctx.state.controller.finishLoad(noMore: model.data.length <10 ?true:false);
+    }
+
     subjects = model.data;
     subjects.forEach((model){
       print('value:'+ model.title);
@@ -74,9 +86,7 @@ _loadData(Context<CjzbState> ctx){
       cjcellState.cellid = model.id.toString();
       cjcellstatelist.add(cjcellState);
     });
-    //    完成刷新
-//    ctx.state.controller.resetLoadState();
-    ctx.state.controller.finishRefresh();
+
     //      发送事件更新UI界面
     ctx.dispatch(CjzbActionCreator.onInit(cjcellstatelist));
     }
