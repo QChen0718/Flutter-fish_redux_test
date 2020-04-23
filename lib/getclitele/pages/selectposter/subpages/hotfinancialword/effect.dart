@@ -11,6 +11,8 @@ import 'state.dart';
 Effect<HotFinancialWordState> buildEffect() {
   return combineEffects(<Object, Effect<HotFinancialWordState>>{
     HotFinancialWordAction.action: _onAction,
+    HotFinancialWordAction.refresh: _onRefresh,
+    HotFinancialWordAction.load: _onLoad,
     Lifecycle.initState:_onInit
   });
 }
@@ -19,6 +21,14 @@ void _onAction(Action action, Context<HotFinancialWordState> ctx) {
 }
 void _onInit(Action action, Context<HotFinancialWordState> ctx) {
 // 加载数据
+  _loadData(ctx);
+}
+void _onRefresh(Action action, Context<HotFinancialWordState> ctx){
+  ctx.state.pageIndex = 1;
+  _loadData(ctx);
+}
+void _onLoad(Action action, Context<HotFinancialWordState> ctx){
+  ctx.state.pageIndex ++;
   _loadData(ctx);
 }
 _loadData(Context<HotFinancialWordState> ctx){
@@ -33,6 +43,11 @@ _loadData(Context<HotFinancialWordState> ctx){
   Request.getInstance().post(API.REQUEST_GET_ADRESOURCE_LIST, headers, params, (response){
     List<HotFinancialWordeCellState> listcellstate = [];
     var model = PosterListModel.fromJson(response);
+    if(ctx.state.pageIndex == 1){
+      ctx.state.controller.finishRefresh();
+    }else{
+      ctx.state.controller.finishLoad(noMore: model.data.length<10 ? true:false);
+    }
     model.data.forEach((value){
       HotFinancialWordeCellState hotFinancialWordeCellState = HotFinancialWordeCellState();
       hotFinancialWordeCellState.posterphoto = APPInfo.HTTP_IMAGE_DOWNLOAD_REQUEST_URL + value.image;

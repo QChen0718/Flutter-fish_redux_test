@@ -1,4 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/components/hotfinancialwordcell/state.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/selectposter/subpages/hotfinancialword/adapter.dart';
 import 'package:flutter_fish_redux_router_qt/models/postertitlemodel.dart';
@@ -8,9 +9,17 @@ class HotFinancialWordState extends MutableSource implements Cloneable<HotFinanc
   int typeId;
   int pageIndex;
   int pageSize;
+  bool isnodata = false;
+  //  触发刷新和加载动作
+  EasyRefreshController controller = EasyRefreshController();
   @override
   HotFinancialWordState clone() {
-    return HotFinancialWordState();
+    return HotFinancialWordState()
+    ..pageIndex = pageIndex
+    ..controller = controller
+    ..pageSize = pageSize
+    ..typeId = typeId
+    ..isnodata = isnodata;
   }
 // cell 的内容赋值方法
   @override

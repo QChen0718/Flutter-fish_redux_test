@@ -29,6 +29,9 @@ class _BasePullRefreshState extends State<BasePullRefresh>{
           refreshingText: '正在刷新中',
           enableInfiniteRefresh: false
       ),
+      footer: ClassicalFooter(
+        noMoreText: '无更多数据'
+      ),
       child: widget.child,
       onRefresh: widget.refresh,
       onLoad: widget.load,

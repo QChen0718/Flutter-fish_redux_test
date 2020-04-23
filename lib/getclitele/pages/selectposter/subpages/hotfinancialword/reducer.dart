@@ -20,5 +20,8 @@ HotFinancialWordState _onAction(HotFinancialWordState state, Action action) {
 HotFinancialWordState _onInit(HotFinancialWordState state, Action action) {
   final HotFinancialWordState newState = state.clone();
   newState.hotliststate = action.payload;
+  if(newState.hotliststate.length == 0){
+    newState.isnodata = true;
+  }
   return newState;
 }
