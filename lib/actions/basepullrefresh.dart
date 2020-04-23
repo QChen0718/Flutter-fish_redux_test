@@ -2,20 +2,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 
-class BasePullRefresh {
-  static Widget refresh(Widget child, Future<void> Function() refresh(EasyRefreshController controller),Future<void> Function() load(EasyRefreshController controller)){
-    EasyRefreshController controller = EasyRefreshController();
+class BasePullRefresh extends StatefulWidget {
+/// 子组件
+  final Widget child;
+  Future<void> Function() refresh;
+  Future<void> Function() load;
+  /// 控制器
+  final EasyRefreshController controller;
+
+  BasePullRefresh({Key key, this.controller, this.child, this.refresh, this.load}) : super(key: key);
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _BasePullRefreshState();
+  }
+}
+class _BasePullRefreshState extends State<BasePullRefresh>{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
     return EasyRefresh(
-        controller: controller,
-        enableControlFinishRefresh: true,
-        enableControlFinishLoad: true,
-        header: ClassicalHeader(
+      controller: widget.controller,
+      enableControlFinishRefresh: true,
+      enableControlFinishLoad: true,
+      header: ClassicalHeader(
           refreshingText: '正在刷新中',
           enableInfiniteRefresh: false
-        ),
-        child: child,
-        onRefresh: refresh(controller),
-        onLoad: load(controller),
+      ),
+      child: widget.child,
+      onRefresh: widget.refresh,
+      onLoad: widget.load,
     );
   }
+
 }
