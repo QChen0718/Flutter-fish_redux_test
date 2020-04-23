@@ -14,7 +14,9 @@ Widget buildView(CjzbState state, Dispatch dispatch, ViewService viewService) {
       context: viewService.context,
       child:
       BasePullRefresh(
-        child: new ListView.builder(
+        child: state.isnodata?
+        Container():
+        new ListView.builder(
             itemCount: viewService.buildAdapter().itemCount,
             itemBuilder: viewService.buildAdapter().itemBuilder
         ),
