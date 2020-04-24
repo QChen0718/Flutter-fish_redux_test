@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 class BasePullRefresh extends StatefulWidget {
-/// 子组件
+  /// 子组件
   final Widget child;
-  Future<void> Function() refresh;
-  Future<void> Function() load;
+  final Future<void> Function() refresh;
+  final Future<void> Function() load;
   /// 控制器
   final EasyRefreshController controller;
 
-  BasePullRefresh({Key key, this.controller, this.child, this.refresh, this.load}) : super(key: key);
+ const BasePullRefresh({Key key, this.controller, this.child, this.refresh, this.load}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState

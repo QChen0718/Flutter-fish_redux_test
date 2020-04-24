@@ -1,17 +1,17 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/adapt.dart';
-import 'package:flutter_fish_redux_router_qt/actions/basepullrefresh.dart';
 import 'package:flutter_fish_redux_router_qt/actions/nodata.dart';
 
 import 'action.dart';
 import 'state.dart';
 
 Widget buildView(HotFinancialWordState state, Dispatch dispatch, ViewService viewService) {
-  return BasePullRefresh(
-    child: state.isnodata? LoadStateLayout(
-      state: LoadState.State_Empty,
-    ) : new GridView.builder(
+  return
+    LoadStateLayout(
+      state: state.loadState,
+      controller: state.controller,
+      successWidget: new GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
 //        横轴子元素数量
         crossAxisCount: 3,
@@ -26,11 +26,14 @@ Widget buildView(HotFinancialWordState state, Dispatch dispatch, ViewService vie
       itemBuilder: viewService.buildAdapter().itemBuilder,
       itemCount: viewService.buildAdapter().itemCount,
     ),
-    controller: state.controller,
+    emptyRetry: (){
+//        刷新列表
+      state.controller.callRefresh();
+    },
     refresh: ()async{
       await dispatch(HotFinancialWordActionCreator.onRefresh());
     },
-    load: () async{
+    load: ()async{
       await dispatch(HotFinancialWordActionCreator.onLoad());
     },
   );

@@ -1,5 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_fish_redux_router_qt/actions/appinfo.dart';
+import 'package:flutter_fish_redux_router_qt/actions/nodata.dart';
 import 'package:flutter_fish_redux_router_qt/actions/sputil.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/components/hotfinancialwordcell/state.dart';
 import 'package:flutter_fish_redux_router_qt/models/posterlistmodel.dart';
@@ -44,10 +45,16 @@ _loadData(Context<HotFinancialWordState> ctx){
     List<HotFinancialWordeCellState> listcellstate = [];
     var model = PosterListModel.fromJson(response);
     if(ctx.state.pageIndex == 1){
+      if(model.data.length == 0){
+        ctx.state.loadState = LoadState.State_Empty;
+      }else{
+        ctx.state.loadState = LoadState.State_Success;
+      }
       ctx.state.controller.finishRefresh();
     }else{
       ctx.state.controller.finishLoad(noMore: model.data.length<10 ? true:false);
     }
+
     model.data.forEach((value){
       HotFinancialWordeCellState hotFinancialWordeCellState = HotFinancialWordeCellState();
       hotFinancialWordeCellState.posterphoto = APPInfo.HTTP_IMAGE_DOWNLOAD_REQUEST_URL + value.image;
@@ -56,6 +63,6 @@ _loadData(Context<HotFinancialWordState> ctx){
     });
     ctx.dispatch(HotFinancialWordActionCreator.onInit(listcellstate));
   }, (error){
-
+     ctx.state.loadState = LoadState.State_Error;
   });
 }

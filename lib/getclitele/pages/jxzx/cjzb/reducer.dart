@@ -31,7 +31,7 @@ CjzbState _onInit(CjzbState state,Action action) {
   final CjzbState newState = state.clone();
   newState.listcell = action.payload;
   newState.count = action.payload.length;
-  if(newState.listcell?.length ?? 0 == 0){
+  if(newState.listcell.length == 0){
     newState.isnodata = true;
   }
   return newState;
