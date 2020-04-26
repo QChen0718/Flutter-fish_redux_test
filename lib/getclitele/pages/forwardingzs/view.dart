@@ -1,6 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/adapt.dart';
+import 'package:flutter_fish_redux_router_qt/actions/loadingview.dart';
 import 'package:flutter_fish_redux_router_qt/actions/navbar.dart';
 
 import 'action.dart';
@@ -16,7 +17,15 @@ Widget buildView(ForwardingZSState state, Dispatch dispatch, ViewService viewSer
           rightIcons: <Widget>[
             new GestureDetector(
               onTap: (){
-                
+                showDialog(
+                    context: viewService.context,
+                   barrierDismissible: false,
+                  builder: (BuildContext context) {
+                      return LoadingView(
+                        loadingtitle: '测试',
+                      );
+                  }
+                );
               },
               child: new Container(
                 margin: EdgeInsets.only(right: Adapt.px(40)),

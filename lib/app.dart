@@ -90,6 +90,22 @@ class YicaifuApp extends StatelessWidget{
 // 定义NavigatorState的GlobalKey
   static GlobalKey<NavigatorState> navigatorState = new GlobalKey();
 //  3、在需要跳转的地方调用navigatorState.currentState获取到NavigatorState进行界面跳转即可。
+//  生命周期
+  @override
+  void didRChangeAppLifecycleState(AppLifecycleState state) {
+    print("--" + state.toString());
+    var suspending;
+    switch (state) {
+      case AppLifecycleState.inactive: // 处于这种状态的应用程序应该假设它们可能在任何时候暂停。
+        break;
+      case AppLifecycleState.resumed:// 应用程序可见，前台
+        break;
+      case AppLifecycleState.paused: // 应用程序不可见，后台
+        break;
+      default:
+        break;
+    }
+  }
   @override
   Widget build(BuildContext context) {
     appContext = context;
