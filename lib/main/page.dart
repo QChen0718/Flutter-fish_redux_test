@@ -8,7 +8,7 @@ import 'reducer.dart';
 import 'state.dart';
 import 'view.dart';
 
-class MainPage extends Page<MainState, Map<String, dynamic>> with WidgetsBindingObserver{
+class MainPage extends Page<MainState, Map<String, dynamic>>{
   MainPage()
       : super(
             initState: initState,
