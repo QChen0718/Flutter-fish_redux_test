@@ -1,4 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_fish_redux_router_qt/customer/components/screening/component.dart';
 import 'package:flutter_fish_redux_router_qt/customer/components/screening/state.dart';
 
@@ -7,7 +8,7 @@ import 'reducer.dart';
 import 'state.dart';
 import 'view.dart';
 
-class MainPage extends Page<MainState, Map<String, dynamic>> {
+class MainPage extends Page<MainState, Map<String, dynamic>> with WidgetsBindingObserver{
   MainPage()
       : super(
             initState: initState,

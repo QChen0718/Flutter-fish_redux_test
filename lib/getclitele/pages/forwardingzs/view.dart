@@ -22,7 +22,7 @@ Widget buildView(ForwardingZSState state, Dispatch dispatch, ViewService viewSer
                    barrierDismissible: false,
                   builder: (BuildContext context) {
                       return LoadingView(
-                        loadingtitle: '测试',
+                        wxurl: '',
                       );
                   }
                 );

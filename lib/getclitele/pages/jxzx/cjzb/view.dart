@@ -1,5 +1,4 @@
 
-
 import 'package:date_format/date_format.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';

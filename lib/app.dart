@@ -92,7 +92,7 @@ class YicaifuApp extends StatelessWidget{
 //  3、在需要跳转的地方调用navigatorState.currentState获取到NavigatorState进行界面跳转即可。
 //  生命周期
   @override
-  void didRChangeAppLifecycleState(AppLifecycleState state) {
+  void didChangeAppLifecycleState(AppLifecycleState state) {
     print("--" + state.toString());
     var suspending;
     switch (state) {
