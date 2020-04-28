@@ -1,4 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter_fish_redux_router_qt/getclitele/pages/notespost/adapter.dart';
 
 import 'effect.dart';
 import 'reducer.dart';
@@ -13,7 +14,7 @@ class NotePostPage extends Page<NotePostState, Map<String, dynamic>> {
             reducer: buildReducer(),
             view: buildView,
             dependencies: Dependencies<NotePostState>(
-                adapter: null,
+                adapter: NoneConn<NotePostState>() + NoteSpostAdapter(),
                 slots: <String, Dependent<NotePostState>>{
                 }),
             middleware: <Middleware<NotePostState>>[

@@ -30,7 +30,18 @@ Widget buildView(NotePostState state, Dispatch dispatch, ViewService viewService
               ),
             )
           ],
-        )
+//          backgroundColor: Colors.blue,
+        ),
+        new Expanded(
+            child:new MediaQuery.removePadding(
+                removeTop: true,
+                context: viewService.context,
+                child: ListView.builder(
+                  itemBuilder: viewService.buildAdapter().itemBuilder,
+                  itemCount: viewService.buildAdapter().itemCount,
+                )
+            )
+        ),
       ],
     ),
   );

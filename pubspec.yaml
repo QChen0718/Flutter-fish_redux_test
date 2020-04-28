@@ -386,6 +386,10 @@ flutter:
     - images/select_box_select.webp
     - images/2.0x/select_box_select.webp
     - images/3.0x/select_box_select.webp
+
+    - images/timer_icon.webp
+    - images/2.0x/timer_icon.webp
+    - images/3.0x/timer_icon.webp
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

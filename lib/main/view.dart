@@ -17,6 +17,7 @@ Widget buildView(MainState state, Dispatch dispatch, ViewService viewService) {
           key: state.scaffoldKey,
           backgroundColor: Colors.white,
             bottomNavigationBar: BottomNavigationBar(
+              backgroundColor: Colors.white,
               currentIndex: state.selectIndex,
               items: state.tabs,
               onTap: (index) {
