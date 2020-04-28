@@ -2,6 +2,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/navbar.dart';
 import 'package:flutter_fish_redux_router_qt/actions/adapt.dart';
+import 'package:flutter_fish_redux_router_qt/actions/sharepopview.dart';
 import 'action.dart';
 import 'state.dart';
 
@@ -132,9 +133,7 @@ Widget buildView(MyCardState state, Dispatch dispatch, ViewService viewService) 
                     showModalBottomSheet(
                         context: viewService.context,
                         builder: (context){
-                          return Container(
-                            height: Adapt.px(600),
-                          );
+                          return SharePopView();
                         }
                     );
 

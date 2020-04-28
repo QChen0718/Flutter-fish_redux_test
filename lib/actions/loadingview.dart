@@ -64,21 +64,27 @@ class LoadingView extends Dialog{
                             color: Color(0xffF1F1F1)
                           ),
                         ),
-                        new Container(
-                          width: Adapt.px(440),
-                          height: Adapt.px(88),
-                          child: new Text(
-                            '前往「转发助手」编辑',
-                            style: new TextStyle(
-                              color: Colors.white,
-                              fontSize: Adapt.px(34),
-                              height: 2
+                        new GestureDetector(
+                          onTap: (){
+                            Navigator.pop(context);
+                            Navigator.pushNamed(context, 'forwardingzs');
+                          },
+                          child: new Container(
+                            width: Adapt.px(440),
+                            height: Adapt.px(88),
+                            child: new Text(
+                              '前往「转发助手」编辑',
+                              style: new TextStyle(
+                                  color: Colors.white,
+                                  fontSize: Adapt.px(34),
+                                  height: 2
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(Adapt.px(8)),
-                            color: Color(0xffFF6633)
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(Adapt.px(8)),
+                                color: Color(0xffFF6633)
+                            ),
                           ),
                         )
                       ],

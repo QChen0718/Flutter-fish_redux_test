@@ -39,7 +39,12 @@ Widget buildView(ForwardingZSState state, Dispatch dispatch, ViewService viewSer
               ),
             )
           ],
+        ),
+        viewService.buildComponent('forwardingheader'),
+        Expanded(
+          child: viewService.buildComponent('forwardingcontent'),
         )
+
       ],
     ),
   );

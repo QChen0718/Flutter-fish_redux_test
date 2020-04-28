@@ -367,6 +367,25 @@ flutter:
     - images/wxchart_icon.webp
     - images/2.0x/wxchart_icon.webp
     - images/3.0x/wxchart_icon.webp
+
+    - images/add_wxurl.webp
+    - images/2.0x/add_wxurl.webp
+    - images/3.0x/add_wxurl.webp
+
+    - images/backTipsImage.webp
+    - images/2.0x/backTipsImage.webp
+    - images/3.0x/backTipsImage.webp
+
+    - images/wxcircle_icon.webp
+    - images/2.0x/wxcircle_icon.webp
+    - images/3.0x/wxcircle_icon.webp
+
+    - images/select_box_nomal.webp
+    - images/2.0x/select_box_nomal.webp
+    - images/3.0x/select_box_nomal.webp
+    - images/select_box_select.webp
+    - images/2.0x/select_box_select.webp
+    - images/3.0x/select_box_select.webp
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
