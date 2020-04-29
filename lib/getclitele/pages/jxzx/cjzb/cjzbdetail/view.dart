@@ -2,7 +2,8 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/jsinteractionkey.dart';
 import 'package:flutter_fish_redux_router_qt/actions/navbar.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:bridge_webview_flutter/webview_flutter.dart';
+import 'package:bridge_webview_flutter/platform_interface.dart';
 import 'action.dart';
 import 'state.dart';
 
@@ -14,7 +15,7 @@ Widget buildView(CjzbDetailState state, Dispatch dispatch, ViewService viewServi
           titleStr: state.navtitle,
         ),
         new Expanded(
-            child: WebView(
+            child: BridgeWebView(
               initialUrl: state.weburl,
               javascriptMode: JavascriptMode.unrestricted,
               onWebViewCreated: (controller){

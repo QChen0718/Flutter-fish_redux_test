@@ -1,8 +1,9 @@
 import 'dart:async';
 
 //import 'package:bridge_webview_flutter/webview_flutter.dart';
+import 'package:bridge_webview_flutter/webview_flutter.dart';
 import 'package:fish_redux/fish_redux.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+//import 'package:webview_flutter/webview_flutter.dart';
 
 class CjzbDetailState implements Cloneable<CjzbDetailState> {
   String weburl;

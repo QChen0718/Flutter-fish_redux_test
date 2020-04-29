@@ -1,4 +1,7 @@
 PODS:
+  - bridge_webview_flutter (0.0.1):
+    - Flutter
+    - WebViewJavascriptBridge
   - Flutter (1.0.0)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
@@ -28,10 +31,10 @@ PODS:
     - Flutter
   - wakelock (0.0.1):
     - Flutter
-  - webview_flutter (0.0.1):
-    - Flutter
+  - WebViewJavascriptBridge (6.0.3)
 
 DEPENDENCIES:
+  - bridge_webview_flutter (from `.symlinks/plugins/bridge_webview_flutter/ios`)
   - Flutter (from `Flutter`)
   - orientation (from `.symlinks/plugins/orientation/ios`)
   - package_info (from `.symlinks/plugins/package_info/ios`)
@@ -45,13 +48,16 @@ DEPENDENCIES:
   - video_player (from `.symlinks/plugins/video_player/ios`)
   - video_player_web (from `.symlinks/plugins/video_player_web/ios`)
   - wakelock (from `.symlinks/plugins/wakelock/ios`)
-  - webview_flutter (from `.symlinks/plugins/webview_flutter/ios`)
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - WebViewJavascriptBridge
   trunk:
     - FMDB
 
 EXTERNAL SOURCES:
+  bridge_webview_flutter:
+    :path: ".symlinks/plugins/bridge_webview_flutter/ios"
   Flutter:
     :path: Flutter
   orientation:
@@ -78,10 +84,9 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/video_player_web/ios"
   wakelock:
     :path: ".symlinks/plugins/wakelock/ios"
-  webview_flutter:
-    :path: ".symlinks/plugins/webview_flutter/ios"
 
 SPEC CHECKSUMS:
+  bridge_webview_flutter: 8e8343f977bb931a3d8a31ce352bc7af67dd69ff
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   orientation: 6c9203efe86ce4cff379756910f18b2d745628c3
@@ -96,8 +101,8 @@ SPEC CHECKSUMS:
   video_player: 69c5f029fac4ffe4fc8a85ea7f7b793709661549
   video_player_web: da8cadb8274ed4f8dbee8d7171b420dedd437ce7
   wakelock: bd3dcc6a8bcf53a1c0309780ff192dcee67c6ccb
-  webview_flutter: d2b4d6c66968ad042ad94cbb791f5b72b4678a96
+  WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
 
-PODFILE CHECKSUM: 1b66dae606f75376c5f2135a8290850eeb09ae83
+PODFILE CHECKSUM: 2e22532d580ff016d7d82e856209f68957ac6f33
 
 COCOAPODS: 1.8.4

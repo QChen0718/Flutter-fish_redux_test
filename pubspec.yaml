@@ -38,9 +38,9 @@ dependencies:
   # 轮播图
   flutter_swiper: ^1.1.6
   # 加载web页面
-  webview_flutter: ^0.3.19+9
+#  webview_flutter: ^0.3.19+9
   # js 交互
-#  bridge_webview_flutter: ^0.1.2
+  bridge_webview_flutter: ^0.1.3
   # 播放视频插件
   video_player: ^0.10.8+1
   # 视频播放UI插件
