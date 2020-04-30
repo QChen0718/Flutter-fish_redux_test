@@ -390,6 +390,10 @@ flutter:
     - images/timer_icon.webp
     - images/2.0x/timer_icon.webp
     - images/3.0x/timer_icon.webp
+
+    - images/NoData.webp
+    - images/2.0x/NoData.webp
+    - images/3.0x/NoData.webp
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

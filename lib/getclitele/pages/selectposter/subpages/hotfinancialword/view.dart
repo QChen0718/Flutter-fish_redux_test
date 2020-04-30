@@ -12,29 +12,25 @@ Widget buildView(HotFinancialWordState state, Dispatch dispatch, ViewService vie
       state: state.loadState,
       controller: state.controller,
       successWidget: new GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
 //        横轴子元素数量
-        crossAxisCount: 3,
+            crossAxisCount: 3,
 //        主轴方向的间距
-        mainAxisSpacing:Adapt.px(10),
+            mainAxisSpacing:Adapt.px(10),
 //        横轴方向子元素的间距
-        crossAxisSpacing:Adapt.px(28),
-        childAspectRatio: 0.49,
-      ),
-      primary: false,
-      padding:  EdgeInsets.only(left:Adapt.px(30),top: Adapt.px(25),right: Adapt.px(30),bottom: Adapt.px(49)),
-      itemBuilder: viewService.buildAdapter().itemBuilder,
-      itemCount: viewService.buildAdapter().itemCount,
-    ),
-    emptyRetry: (){
-//        刷新列表
-      state.controller.callRefresh();
-    },
-    refresh: ()async{
-      await dispatch(HotFinancialWordActionCreator.onRefresh());
-    },
-    load: ()async{
-      await dispatch(HotFinancialWordActionCreator.onLoad());
-    },
-  );
+            crossAxisSpacing:Adapt.px(28),
+            childAspectRatio: 0.49,
+          ),
+          primary: false,
+          padding:  EdgeInsets.only(left:Adapt.px(30),top: Adapt.px(25),right: Adapt.px(30),bottom: Adapt.px(49)),
+          itemBuilder: viewService.buildAdapter().itemBuilder,
+          itemCount: viewService.buildAdapter().itemCount,
+        ),
+      refresh: ()async{
+        await dispatch(HotFinancialWordActionCreator.onRefresh());
+      },
+      load: ()async{
+        await dispatch(HotFinancialWordActionCreator.onLoad());
+      },
+    );
 }
