@@ -12,24 +12,19 @@ Widget buildView(CjzbState state, Dispatch dispatch, ViewService viewService) {
   return new MediaQuery.removePadding(
       removeTop: true,
       context: viewService.context,
-      child:
-      BasePullRefresh(
-        child: state.isnodata?
-        LoadStateLayout(
-          state: LoadState.State_Empty,
-        ):
-        new ListView.builder(
+      child: LoadStateLayout(
+        controller: state.controller,
+        state: state.loadState,
+        successWidget: ListView.builder(
             itemCount: viewService.buildAdapter().itemCount,
             itemBuilder: viewService.buildAdapter().itemBuilder
         ),
-        controller: state.controller,
         refresh: () async{
           await dispatch(CjzbActionCreator.onRefresh());
         },
         load: () async{
           await dispatch(CjzbActionCreator.onLoad());
         },
-      )
-      ///      第一种使用方式
+      )///      第一种使用方式
   );
 }

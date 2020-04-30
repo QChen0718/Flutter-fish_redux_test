@@ -1,6 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
+import 'package:flutter_fish_redux_router_qt/actions/nodata.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/cjzb/adapter.dart';
 import 'package:flutter_fish_redux_router_qt/models/newstitlemodel.dart';
 import 'components/state.dart';
@@ -19,7 +20,7 @@ class CjzbState extends MutableSource implements Cloneable<CjzbState> {
 //  触发刷新和加载动作
   EasyRefreshController controller = EasyRefreshController();
   ScrollController scrollController = ScrollController();
-  bool isnodata = false;
+  LoadState loadState;
   @override
   CjzbState clone() {
     return CjzbState()
@@ -33,7 +34,7 @@ class CjzbState extends MutableSource implements Cloneable<CjzbState> {
     ..headerFloat = headerFloat
     ..controller = controller
     ..scrollController = scrollController
-    ..isnodata = isnodata;
+    ..loadState = loadState;
   }
 
   @override

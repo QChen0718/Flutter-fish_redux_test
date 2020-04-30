@@ -2,6 +2,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_fish_redux_router_qt/actions/appinfo.dart';
+import 'package:flutter_fish_redux_router_qt/actions/nodata.dart';
 import 'package:flutter_fish_redux_router_qt/actions/sputil.dart';
 import 'package:flutter_fish_redux_router_qt/models/cjzblist.dart';
 import 'package:flutter_fish_redux_router_qt/models/newslistmodel.dart';
@@ -68,8 +69,13 @@ _loadData(Context<CjzbState> ctx){
 //      刷新
       cjcellstatelist = [];
       //    完成刷新
-//    ctx.state.controller.resetLoadState();
       ctx.state.controller.finishRefresh();
+      ctx.state.controller.resetLoadState();
+      if(model.data.length == 0){
+        ctx.state.loadState = LoadState.State_Empty;
+      }else{
+        ctx.state.loadState = LoadState.State_Success;
+      }
     }else{
 //      加载
         cjcellstatelist = ctx.state.listcell;
@@ -90,6 +96,6 @@ _loadData(Context<CjzbState> ctx){
     ctx.dispatch(CjzbActionCreator.onInit(cjcellstatelist));
     }
   }, (error){
-
+    ctx.state.loadState = LoadState.State_Error;
   });
 }

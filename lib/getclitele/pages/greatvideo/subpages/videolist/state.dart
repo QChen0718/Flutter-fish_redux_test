@@ -1,4 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
+import 'package:flutter_fish_redux_router_qt/actions/nodata.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/components/videolistcell/state.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/greatvideo/subpages/videolist/adapter.dart';
 
@@ -8,13 +10,17 @@ class VideoListState extends MutableSource implements Cloneable<VideoListState> 
   int pageSize;
   int pageIndex;
   int type;
+  EasyRefreshController easyRefreshController = EasyRefreshController();
+  LoadState loadState = LoadState.State_Loading;
   @override
   VideoListState clone() {
     return VideoListState()
     ..liststate = liststate
     ..pageIndex = pageIndex
     ..pageSize = pageSize
-    ..type = type;
+    ..type = type
+    ..loadState = loadState
+    ..easyRefreshController = easyRefreshController;
   }
 
   @override

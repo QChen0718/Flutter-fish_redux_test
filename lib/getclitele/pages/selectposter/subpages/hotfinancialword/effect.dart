@@ -52,8 +52,9 @@ _loadData(Context<HotFinancialWordState> ctx){
         ctx.state.loadState = LoadState.State_Success;
       }
       ctx.state.controller.finishRefresh();
+      ctx.state.controller.resetLoadState();
     }else{
-      ctx.state.controller.finishLoad(noMore: model.data.length<10 ? true:false);
+      ctx.state.controller.finishLoad(noMore: ctx.state.hotliststate.length == model.totalCount ? true:false);
     }
 
     model.data.forEach((value){
@@ -62,7 +63,11 @@ _loadData(Context<HotFinancialWordState> ctx){
       hotFinancialWordeCellState.postername = value.name;
       listcellstate.add(hotFinancialWordeCellState);
     });
-    ctx.dispatch(HotFinancialWordActionCreator.onInit(listcellstate));
+    // 延时1s执行返回
+    Future.delayed(Duration(seconds: 1), (){
+      ctx.dispatch(HotFinancialWordActionCreator.onInit(listcellstate));
+    });
+
   }, (error){
      ctx.state.loadState = LoadState.State_Error;
   });

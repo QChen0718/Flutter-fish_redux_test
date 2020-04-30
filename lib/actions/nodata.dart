@@ -1,4 +1,3 @@
-import 'package:date_format/date_format.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_fish_redux_router_qt/actions/adapt.dart';
@@ -55,8 +54,10 @@ class _LoadStateLayoutState extends State<LoadStateLayout>{
           break;
         case LoadState.State_Error:
           return _errorView;
+          break;
         case LoadState.State_Empty:
           return _nodataView;
+          break;
         default:
           break;
       }
@@ -67,14 +68,22 @@ class _LoadStateLayoutState extends State<LoadStateLayout>{
       return ListView(
          children: <Widget>[
            Container(
-             alignment: Alignment.center,
+             margin: EdgeInsets.only(top: Adapt.px(300)+Adapt.padTopH()),
              color: Colors.white,
              child: Container(
                  child: Column(
                    mainAxisAlignment: MainAxisAlignment.center,
                    children: <Widget>[
-                     new Text(
-                         '拼命加载中...'
+                     new SizedBox(
+                       width: 20,
+                       height: 20,
+                       child: CircularProgressIndicator(),
+                     ),
+                     new Container(
+                       margin: EdgeInsets.only(top: Adapt.px(20)),
+                       child: Text(
+                           '拼命加载中...'
+                       ),
                      ),
                    ],
                  )
@@ -90,11 +99,8 @@ class _LoadStateLayoutState extends State<LoadStateLayout>{
       return ListView(
         children: <Widget>[
           Container(
-            width: double.infinity,
-            height: double.infinity,
-            child: InkWell(
-              onTap: widget.errorRetry,
-              child: Column(
+            margin: EdgeInsets.only(top: Adapt.px(300)+Adapt.padTopH()),
+            child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
@@ -103,7 +109,6 @@ class _LoadStateLayoutState extends State<LoadStateLayout>{
                 ],
               ),
             ),
-          )
         ],
       );
   }
@@ -111,22 +116,19 @@ class _LoadStateLayoutState extends State<LoadStateLayout>{
   Widget get _nodataView{
     return ListView(
       children: <Widget>[
-        new Center(
-          child: Container(
-            margin: EdgeInsets.only(top: Adapt.px(200)),
-            child: InkWell(
-              onTap: widget.errorRetry,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Image.asset(
-                      'images/NoData.webp'
-                  ),
-                ],
-              ),
+        Container(
+          margin: EdgeInsets.only(top: Adapt.px(300)+Adapt.padTopH()),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image.asset(
+                    'images/NoData.webp'
+                ),
+              ],
             ),
           ),
-        )
+        ),
       ],
     );
   }
