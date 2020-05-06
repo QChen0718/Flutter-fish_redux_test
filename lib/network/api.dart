@@ -1,5 +1,8 @@
 class API {
   static const BASE_URL = 'https://test-api4app.1caifu.com/api/';
+  //--------新的域名
+  static const NEW_HTTP_REQUEST_URL = "https://testsaas-api.xiaohu.in/api/";
+
   static const HTTP_REQUEST_WEB_URL = "https://test-h5.1caifu.com/";
   static const kBillboardlistUrl = "http://www.devio.org/io/flutter_app/json/home_page.json";//首页热门帖子
 //  获取banner数据
@@ -20,6 +23,10 @@ class API {
   static const REQUEST_GET_HOT_NEWS = BASE_URL + "Site/GetHotTopicNews";
   // 获取视频列表
   static const REQUEST_GET_VIDEO_LIST = BASE_URL + "Site/VideoList";
+  // 获客中心/获客数据
+  static const REQUEST_GET_USERDATA = NEW_HTTP_REQUEST_URL + "user/readRecord/GetUserData?userId=";
+  // 获客中心/营销助手
+  static const REQUEST_GET_RECORDTOP = NEW_HTTP_REQUEST_URL + "user/readRecord/GetRecordTop?userId=";
 //  h5链接 -----------------------------------------
   //热门资讯详情页
   static const REQUEST_WEB_URL_ZIXUN_DETAIL  = HTTP_REQUEST_WEB_URL + "app/wxnews/";

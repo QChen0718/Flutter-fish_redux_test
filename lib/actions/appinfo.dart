@@ -72,4 +72,19 @@ class APPInfo{
       'channel':1
     };
   }
+
+//  获取新的请求默认参数
+  static Map<String,dynamic> getNewRequestnomalparams(String apiversion){
+    String signStr = APP_CIPHERTEX + "apiVersion" + apiversion + "appKey" + APP_KEY + "timeStamp" +
+        timeStamp;
+//  MD5加密
+    String sign = generateMd5(signStr).toUpperCase();
+    return {
+      'appKey':APP_KEY,
+      'timeStamp':timeStamp,
+      'sign':sign,
+      'version':version,
+      'apiVersion':apiversion,
+    };
+  }
 }

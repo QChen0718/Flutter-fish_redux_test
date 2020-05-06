@@ -1,4 +1,6 @@
 PODS:
+  - audioplayers (0.0.1):
+    - Flutter
   - bridge_webview_flutter (0.0.1):
     - Flutter
     - WebViewJavascriptBridge
@@ -34,6 +36,7 @@ PODS:
   - WebViewJavascriptBridge (6.0.3)
 
 DEPENDENCIES:
+  - audioplayers (from `.symlinks/plugins/audioplayers/ios`)
   - bridge_webview_flutter (from `.symlinks/plugins/bridge_webview_flutter/ios`)
   - Flutter (from `Flutter`)
   - orientation (from `.symlinks/plugins/orientation/ios`)
@@ -56,6 +59,8 @@ SPEC REPOS:
     - FMDB
 
 EXTERNAL SOURCES:
+  audioplayers:
+    :path: ".symlinks/plugins/audioplayers/ios"
   bridge_webview_flutter:
     :path: ".symlinks/plugins/bridge_webview_flutter/ios"
   Flutter:
@@ -86,6 +91,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/wakelock/ios"
 
 SPEC CHECKSUMS:
+  audioplayers: 84f968cea3f2deab00ec4f8ff53358b3c0b3992c
   bridge_webview_flutter: 8e8343f977bb931a3d8a31ce352bc7af67dd69ff
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a

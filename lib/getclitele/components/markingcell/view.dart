@@ -22,7 +22,8 @@ Widget buildView(MarkingCellState state, Dispatch dispatch, ViewService viewServ
           ),
           new Expanded(
               child: new Column(
-                  children: List.generate(state.markinglist.length, (index){
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: List.generate(state.markinglist?.length ?? 0, (index){
                     return markingsubwidget(state.markinglist[index]);
                   })
               )
@@ -55,25 +56,28 @@ Widget markingsubwidget(Map<String,dynamic> data){
     child: new Row(
       children: <Widget>[
         new Expanded(
-            child: new RichText(
-                text: new TextSpan(
-                    text: '• ',
-                    style: new TextStyle(
-                        color: Color(0xffF36E27),
-                        fontSize: Adapt.px(18)
-                    ),
-                    children: [
-                      new TextSpan(
-                        text: data['title'],
+            child: new Container(
+                height: Adapt.px(33),
+                child: new RichText(
+                    text: new TextSpan(
+                        text: '• ',
                         style: new TextStyle(
-                            color: Color(0xff333333),
-                            fontSize: Adapt.px(24)
+                            color: Color(0xffF36E27),
+                            fontSize: Adapt.px(18),
                         ),
-                      )
-                    ]
+                        children: [
+                          new TextSpan(
+                            text: data['title'],
+                            style: new TextStyle(
+                                color: Color(0xff333333),
+                                fontSize: Adapt.px(24)
+                            ),
+
+                          )
+                        ]
+                    )
                 )
             )
-
         ),
         new Container(
           margin: EdgeInsets.only(right: Adapt.px(20),left: Adapt.px(50)),

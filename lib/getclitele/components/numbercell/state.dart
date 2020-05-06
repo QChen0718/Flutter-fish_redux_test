@@ -2,9 +2,9 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/state.dart';
 
 class CliteleNumberState implements Cloneable<CliteleNumberState> {
-  String numberbg;
-  String numbericon;
-  String numbertext;
+  String numberbg = 'images/number_bg.webp';
+  String numbericon = 'images/number_icon.webp';
+  String numbertext = '获客数据';
   List<Map<String,dynamic>> numberslist;
   @override
   CliteleNumberState clone() {
@@ -15,10 +15,6 @@ class CliteleNumberState implements Cloneable<CliteleNumberState> {
     ..numberslist = numberslist;
   }
 }
-
-//CliteleNumberState initState(Map<String, dynamic> args) {
-//  return CliteleNumberState();
-//}
 
 class CliteleNumberConnector extends ConnOp<NewGetCliteleState,CliteleNumberState>{
   @override

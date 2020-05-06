@@ -47,7 +47,7 @@ Widget buildView(CliteleNumberState state, Dispatch dispatch, ViewService viewSe
                   child: new Wrap(
                       spacing: Adapt.px(20),
                       runSpacing: Adapt.px(30),
-                      children: List.generate(state.numberslist.length, (index){
+                      children: List.generate(state.numberslist?.length ?? 0, (index){
                         return subwidget(state.numberslist[index]);
                       })
                   ),

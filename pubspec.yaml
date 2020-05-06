@@ -51,6 +51,8 @@ dependencies:
   screen: ^0.0.5
   # 刷新加载控件
   flutter_easyrefresh: ^2.1.1
+  # 音频播放插件
+  audioplayers: ^0.15.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

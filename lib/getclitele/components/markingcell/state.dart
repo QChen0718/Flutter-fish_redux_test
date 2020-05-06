@@ -2,9 +2,9 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/state.dart';
 
 class MarkingCellState implements Cloneable<MarkingCellState> {
-  String markingname;
+  String markingname = 'images/marketing.webp';
   List<Map<String,dynamic>> markinglist;
-  String arrow_name;
+  String arrow_name = 'images/nomal_arrow.webp';
   @override
   MarkingCellState clone() {
     return MarkingCellState()
