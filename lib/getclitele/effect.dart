@@ -30,12 +30,12 @@ void _onInit(Action action, Context<NewGetCliteleState> ctx) {
 _loadData(Context<NewGetCliteleState> ctx){
 
   Request.getInstance().get(API.REQUEST_GET_USERDATA + SpUtil.preferences.getString('id'), APPInfo.getRequestnomalparams('1.0.0'), null, (succeck){
-    var model = NumberDataModel.fromJson(succeck['data']);
+    var model = NumberModel.fromJson(succeck);
     List<Map<String,dynamic>> numberslist = [
-      {'days':model.userCount.toString(),'title':'日增','number':model.userCountToday.toString(),'desc':'累计客户(人)'},
-      {'days':model.visitCount.toString(),'title':'日增','number':model.userCountToday.toString(),'desc':'累计访问(人)'},
-      {'days':model.publishCount.toString(),'title':'日增','number':model.publishCountToday.toString(),'desc':'累计发布(次)'},
-      {'days':model.customerCount.toString(),'title':'日增','number':model.customerCountToday.toString(),'desc':'累计绑定客户数(人)'},
+      {'days':model.dataModel.userCount.toString(),'title':'日增','number':model.dataModel.userCountToday.toString(),'desc':'累计客户(人)'},
+      {'days':model.dataModel.visitCount.toString(),'title':'日增','number':model.dataModel.userCountToday.toString(),'desc':'累计访问(人)'},
+      {'days':model.dataModel.publishCount.toString(),'title':'日增','number':model.dataModel.publishCountToday.toString(),'desc':'累计发布(次)'},
+      {'days':model.dataModel.customerCount.toString(),'title':'日增','number':model.dataModel.customerCountToday.toString(),'desc':'累计绑定客户数(人)'},
     ];
     CliteleNumberState cliteleNumberState = CliteleNumberState();
     cliteleNumberState.numberslist = numberslist;

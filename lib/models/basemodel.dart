@@ -3,13 +3,14 @@ class BaseModel{
   bool isSuccess;
   String errMsg;
 
-  BaseModel(this.totalCount, this.isSuccess, this.errMsg);
-  @override
-  BaseModel.fromJson(Map<String,dynamic> json){
+  BaseModel({this.totalCount, this.isSuccess, this.errMsg});
+// 解析基础json 数据
+  fromJson(Map<String,dynamic> json){
     isSuccess = json['isSuccess'];
     errMsg = json['errMsg'];
     totalCount = json['totalCount'] !=null ? json['totalCount'] : 0;
   }
+
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['totalCount'] = this.totalCount;

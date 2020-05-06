@@ -1,5 +1,21 @@
 import 'package:flutter_fish_redux_router_qt/models/basemodel.dart';
+class NumberModel extends BaseModel{
+  NumberDataModel dataModel;
 
+  NumberModel(this.dataModel);
+  NumberModel.fromJson(Map<String,dynamic> json){
+    super.fromJson(json);
+    dataModel = json['data'] != null ? new NumberDataModel.fromJson(json['data']) : null;
+  }
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data.addAll(super.toJson());
+    if (this.dataModel != null) {
+      data['data'] = this.dataModel.toJson();
+    }
+    return data;
+  }
+}
 class NumberDataModel{
   int userCount;
   int userCountToday;
