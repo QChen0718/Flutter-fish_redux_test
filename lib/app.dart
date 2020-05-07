@@ -3,6 +3,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_fish_redux_router_qt/actions/sputil.dart';
+import 'package:flutter_fish_redux_router_qt/customer/pages/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/forwardingzs/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/greatvideo/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/greatvideo/subpages/videodetail/page.dart';
@@ -46,6 +47,7 @@ class YicaifuApp extends StatefulWidget{
         'getclitele':GetClitelePage(),
         'newgetclitele':NewGetClitelePage(),
         'customer':CustomerPage(),
+        'customerdetail':CustomerDetailPage(),
         'my':MyPage(),
         'getcliteledetail':GetCliteleDetailPage(),
         'cjzb':CjzbPage(),

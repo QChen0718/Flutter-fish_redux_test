@@ -396,6 +396,16 @@ flutter:
     - images/NoData.webp
     - images/2.0x/NoData.webp
     - images/3.0x/NoData.webp
+
+    - images/add_item_icon.webp
+    - images/2.0x/add_item_icon.webp
+    - images/3.0x/add_item_icon.webp
+    - images/more_nav_icon.webp
+    - images/2.0x/more_nav_icon.webp
+    - images/3.0x/more_nav_icon.webp
+    - images/white_back_icon.webp
+    - images/2.0x/white_back_icon.webp
+    - images/3.0x/white_back_icon.webp
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

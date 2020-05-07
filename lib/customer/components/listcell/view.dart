@@ -9,7 +9,7 @@ Widget buildView(CustomerListcellState state, Dispatch dispatch, ViewService vie
   return GestureDetector(
     onTap: (){
       //跳转到详情页面
-//      Navigator.push(context, MaterialPageRoute(builder: (context) => ClienteDetail()));
+      dispatch(CustomerListcellActionCreator.onAction());
     },
     child: Container(
       padding: EdgeInsets.all(Adapt.px(25)),

@@ -5,6 +5,6 @@ enum CustomerListcellAction { action }
 
 class CustomerListcellActionCreator {
   static Action onAction() {
-    return const Action(CustomerListcellAction.action);
+    return  Action(CustomerListcellAction.action);
   }
 }
