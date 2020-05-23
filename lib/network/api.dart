@@ -1,7 +1,7 @@
 class API {
   static const BASE_URL = 'https://test-api4app.1caifu.com/api/';
   //--------新的域名
-  static const NEW_HTTP_REQUEST_URL = "https://testsaas-api.xiaohu.in/api/";
+  static const NEW_HTTP_REQUEST_URL = "https://testsaas-api.xiaohu.in/api/app/";
 
   static const HTTP_REQUEST_WEB_URL = "https://test-h5.1caifu.com/";
   static const kBillboardlistUrl = "http://www.devio.org/io/flutter_app/json/home_page.json";//首页热门帖子
