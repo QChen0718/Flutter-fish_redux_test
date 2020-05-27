@@ -34,7 +34,7 @@ _loadData(Context<NewGetCliteleState> ctx){
     List<Map<String,dynamic>> numberslist = [
       {'days':model.dataModel.userCount.toString(),'title':'日增','number':model.dataModel.userCountToday.toString(),'desc':'累计客户(人)'},
       {'days':model.dataModel.visitCount.toString(),'title':'日增','number':model.dataModel.userCountToday.toString(),'desc':'累计访问(人)'},
-      {'days':model.dataModel.publishCount.toString(),'title':'日增','number':model.dataModel.publishCountToday.toString(),'desc':'累计发布(次)'},
+      {'days':model.dataModel.shareCount.toString(),'title':'日增','number':model.dataModel.shareCountToday.toString(),'desc':'累计发布(次)'},
       {'days':model.dataModel.customerCount.toString(),'title':'日增','number':model.dataModel.customerCountToday.toString(),'desc':'累计绑定客户数(人)'},
     ];
     CliteleNumberState cliteleNumberState = CliteleNumberState();

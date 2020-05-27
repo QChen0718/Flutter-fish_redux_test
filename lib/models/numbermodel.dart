@@ -23,8 +23,8 @@ class NumberDataModel{
   int orderAddWeek;
   int visitCount;
   int visitCountToday;
-  int publishCount;
-  int publishCountToday;
+  int shareCount;
+  int shareCountToday;
   int customerCount;
   int customerCountToday;
 
@@ -35,8 +35,8 @@ class NumberDataModel{
         this.orderAddWeek,
         this.visitCount,
         this.visitCountToday,
-        this.publishCount,
-        this.publishCountToday,
+        this.shareCount,
+        this.shareCountToday,
         this.customerCount,
         this.customerCountToday});
 
@@ -47,8 +47,8 @@ class NumberDataModel{
     orderAddWeek = json['orderAddWeek'];
     visitCount = json['visitCount'];
     visitCountToday = json['visitCountToday'];
-    publishCount = json['publishCount'];
-    publishCountToday = json['publishCountToday'];
+    shareCount = json['shareCount'];
+    shareCountToday = json['shareCountToday'];
     customerCount = json['customerCount'];
     customerCountToday = json['customerCountToday'];
   }
@@ -61,8 +61,8 @@ class NumberDataModel{
     data['orderAddWeek'] = this.orderAddWeek;
     data['visitCount'] = this.visitCount;
     data['visitCountToday'] = this.visitCountToday;
-    data['publishCount'] = this.publishCount;
-    data['publishCountToday'] = this.publishCountToday;
+    data['shareCount'] = this.shareCount;
+    data['shareCountToday'] = this.shareCountToday;
     data['customerCount'] = this.customerCount;
     data['customerCountToday'] = this.customerCountToday;
     return data;

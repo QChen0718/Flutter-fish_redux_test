@@ -53,7 +53,7 @@ DEPENDENCIES:
   - wakelock (from `.symlinks/plugins/wakelock/ios`)
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - FMDB
     - WebViewJavascriptBridge
 
@@ -108,6 +108,6 @@ SPEC CHECKSUMS:
   wakelock: bd3dcc6a8bcf53a1c0309780ff192dcee67c6ccb
   WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
 
-PODFILE CHECKSUM: 9dbec3813f167a0cc3ea92e422b8ee096f5e47b8
+PODFILE CHECKSUM: 2e22532d580ff016d7d82e856209f68957ac6f33
 
-COCOAPODS: 1.9.0
+COCOAPODS: 1.9.2
