@@ -4,20 +4,30 @@ import 'dart:convert';
 import 'package:convert/convert.dart';
 import 'package:crypto/crypto.dart';
 import 'package:date_format/date_format.dart';
+import 'package:flutter_des/flutter_des.dart';
 class APPInfo{
   static const APP_KEY = "ycfiosiplqs93zpd98qjhayrm";
   // 接口密文
   static const APP_CIPHERTEX = "dhzurowp8adlrmacrkhai8zjrksbdaycfios";
   static const HTTP_IMAGE_DOWNLOAD_REQUEST_URL = "https://rescdn.xiaohu.in/";
   static String timeStamp = formatDate(DateTime.now(), [yyyy,'-',mm,'-',dd,'T',HH,':',mm,':',ss,z]);
+  static String DES_KEY_STR = "XCHONGKJ";
+  static String encryptstr;
 //
   static const productLiving  = 2;// 产品路演
   static const treasureLiving = 6;// 财富讲坛
+//  md5加密
   static String generateMd5(String data) {
     var content = new Utf8Encoder().convert(data);
     var digest = md5.convert(content);
     return digest.toString();
   }
+//  des加密
+  static Future<String> generateDES(String data) async{
+    encryptstr = await FlutterDes.encryptToHex(data, DES_KEY_STR);
+    return encryptstr;
+  }
+// 时间戳转换成时分秒
   static String durationToTime(int durationnumber){
     int hours = ((((durationnumber / 1000) / 60)) /60 ).toInt();
     int min = ((durationnumber / 1000) / 60).toInt();
@@ -61,8 +71,16 @@ class APPInfo{
   static Map<String,dynamic> getRequestnomalparams(String apiversion){
      String signStr = APP_CIPHERTEX + "apiVersion" + apiversion + "appKey" + APP_KEY + "timeStamp" +
         timeStamp;
+     String signdesStr = SpUtil.preferences.getString('id') + ":" + SpUtil.preferences.getString('mobile') + ":" + timeStamp + ":" + "0";
+//   des 加密
+     generateDES(signdesStr).then((value){
+       print("des加密结果" + encryptstr);
+     });
+
+
 //  MD5加密
      String sign = generateMd5(signStr).toUpperCase();
+
     return {
       'appKey':APP_KEY,
       'timeStamp':timeStamp,

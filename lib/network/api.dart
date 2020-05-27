@@ -27,6 +27,8 @@ class API {
   static const REQUEST_GET_USERDATA = NEW_HTTP_REQUEST_URL + "user/readRecord/GetUserData?userId=";
   // 获客中心/营销助手
   static const REQUEST_GET_RECORDTOP = NEW_HTTP_REQUEST_URL + "user/readRecord/GetRecordTop?userId=";
+  // 获取用户信息
+  static const REQUEST_GET_USERINFODATA = NEW_HTTP_REQUEST_URL + "user/getSimpleDetail/";
 //  h5链接 -----------------------------------------
   //热门资讯详情页
   static const REQUEST_WEB_URL_ZIXUN_DETAIL  = HTTP_REQUEST_WEB_URL + "app/wxnews/";

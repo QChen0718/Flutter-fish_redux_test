@@ -1,11 +1,18 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
+import 'package:flutter_fish_redux_router_qt/actions/appinfo.dart';
+import 'package:flutter_fish_redux_router_qt/actions/sputil.dart';
+import 'package:flutter_fish_redux_router_qt/models/cardmodel.dart';
+import 'package:flutter_fish_redux_router_qt/network/api.dart';
+import 'package:flutter_fish_redux_router_qt/network/request.dart';
 import 'action.dart';
 import 'state.dart';
 
 Effect<MyCardState> buildEffect() {
   return combineEffects(<Object, Effect<MyCardState>>{
     MyCardAction.action: _onAction,
+    MyCardAction.phoneClick: _onPhoneClick,
+    Lifecycle.initState: _onInit
   });
 }
 
@@ -16,4 +23,21 @@ void _onAction(Action action, Context<MyCardState> ctx) {
     }else{
 
     }
+}
+
+void _onPhoneClick(Action action, Context<MyCardState> ctx) {
+
+}
+// 初始化方法获取数据
+void _onInit(Action action, Context<MyCardState> ctx) {
+  _loadData(ctx);
+}
+_loadData(Context<MyCardState> ctx){
+  Request.getInstance().get(API.REQUEST_GET_USERINFODATA + SpUtil.preferences.getString('id'), APPInfo.getNewRequestnomalparams('1.0.0'), null, (succeck){
+      var cardmodel = CardModel.fromJson(succeck);
+      print(cardmodel.dataModel.photo);
+
+  }, (error){
+
+  });
 }

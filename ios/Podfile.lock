@@ -5,6 +5,8 @@ PODS:
     - Flutter
     - WebViewJavascriptBridge
   - Flutter (1.0.0)
+  - flutter_des (0.0.1):
+    - Flutter
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -39,6 +41,7 @@ DEPENDENCIES:
   - audioplayers (from `.symlinks/plugins/audioplayers/ios`)
   - bridge_webview_flutter (from `.symlinks/plugins/bridge_webview_flutter/ios`)
   - Flutter (from `Flutter`)
+  - flutter_des (from `.symlinks/plugins/flutter_des/ios`)
   - orientation (from `.symlinks/plugins/orientation/ios`)
   - package_info (from `.symlinks/plugins/package_info/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
@@ -64,6 +67,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/bridge_webview_flutter/ios"
   Flutter:
     :path: Flutter
+  flutter_des:
+    :path: ".symlinks/plugins/flutter_des/ios"
   orientation:
     :path: ".symlinks/plugins/orientation/ios"
   package_info:
@@ -93,6 +98,7 @@ SPEC CHECKSUMS:
   audioplayers: 84f968cea3f2deab00ec4f8ff53358b3c0b3992c
   bridge_webview_flutter: 8e8343f977bb931a3d8a31ce352bc7af67dd69ff
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_des: af0bb83f27f1468ad652d907958b1d42d5644544
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   orientation: 6c9203efe86ce4cff379756910f18b2d745628c3
   package_info: 48b108e75b8802c2d5e126f208ef540561c98aef

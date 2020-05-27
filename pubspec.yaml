@@ -53,6 +53,8 @@ dependencies:
   flutter_easyrefresh: ^2.1.1
   # 音频播放插件
   audioplayers: ^0.15.1
+  # des加密
+  flutter_des: ^1.1.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

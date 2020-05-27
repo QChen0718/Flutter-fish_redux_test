@@ -8,5 +8,6 @@ class UserInfo{
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setString('id', loginModel.data.id.toString());
     sharedPreferences.setString('mobile', loginModel.data.mobile);
+    sharedPreferences.setBool('isAuth', loginModel.data.isAuth);
   }
 }

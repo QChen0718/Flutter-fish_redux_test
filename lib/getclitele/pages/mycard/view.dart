@@ -18,7 +18,7 @@ Widget buildView(MyCardState state, Dispatch dispatch, ViewService viewService) 
           children: <Widget>[
             new Container(
               margin: EdgeInsets.only(left: Adapt.px(35),right: Adapt.px(35)),
-              height: Adapt.px(743),
+              height: Adapt.px(955),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius:BorderRadius.circular(Adapt.px(17)),
@@ -32,7 +32,20 @@ Widget buildView(MyCardState state, Dispatch dispatch, ViewService viewService) 
               ),
             ),
             new Container(
-              margin: EdgeInsets.only(left: Adapt.px(35),right: Adapt.px(35),top: Adapt.px(468)),
+              margin: EdgeInsets.only(left: Adapt.px(35),right: Adapt.px(35),top: Adapt.px(0)),
+
+              decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(Adapt.px(17)),topRight: Radius.circular(Adapt.px(17)))
+              ),
+              child: new Image.network(
+                '',
+                width: Adapt.px(680),
+                height: Adapt.px(680),
+              ),
+            ),
+            new Container(
+              margin: EdgeInsets.only(left: Adapt.px(35),right: Adapt.px(35),top: Adapt.px(680)),
               child: new Stack(
                 children: <Widget>[
                   new Image.asset(
