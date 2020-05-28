@@ -27,7 +27,7 @@ class CardDataModel {
   String photo;
   String weChat;
   int customerCount;
-  int manageCapital;
+  double manageCapital;
   String company;
   String companyAddress;
   String position;

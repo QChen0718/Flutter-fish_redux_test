@@ -48,5 +48,11 @@
 	<false/>
 	<key>io.flutter.embedded_views_preview</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>此App需要获取个人照片进行编辑是否允许此App获取相册权限？</string>
+	<key>NSCameraUsageDescription</key>
+	<string>此App需要获取个人照片进行编辑是否允许此App获取相机权限？</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>此App需要获取个人照片进行编辑是否允许此App获取相册权限？</string>
 </dict>
 </plist>

@@ -14,6 +14,8 @@ class MyCardState implements Cloneable<MyCardState> {
   String detailstr;
   String lookstr;
   String lookicon;
+  String photoHeader;
+  String phoneNumber;
   @override
   MyCardState clone() {
     return MyCardState()
@@ -28,7 +30,9 @@ class MyCardState implements Cloneable<MyCardState> {
     ..editbtnbgimage = editbtnbgimage
     ..detailstr = detailstr
     ..lookicon = lookicon
-    ..lookstr = lookstr;
+    ..lookstr = lookstr
+    ..photoHeader = photoHeader
+    ..phoneNumber = phoneNumber;
   }
 }
 

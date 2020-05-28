@@ -33,15 +33,14 @@ Widget buildView(MyCardState state, Dispatch dispatch, ViewService viewService) 
             ),
             new Container(
               margin: EdgeInsets.only(left: Adapt.px(35),right: Adapt.px(35),top: Adapt.px(0)),
-
-              decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.only(topLeft: Radius.circular(Adapt.px(17)),topRight: Radius.circular(Adapt.px(17)))
-              ),
-              child: new Image.network(
-                '',
-                width: Adapt.px(680),
-                height: Adapt.px(680),
+              height: Adapt.px(680),
+              decoration:state.photoHeader == null ? BoxDecoration() : BoxDecoration(
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(Adapt.px(17)),topRight: Radius.circular(Adapt.px(17))),
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      state.photoHeader
+                    )
+                  )
               ),
             ),
             new Container(
@@ -78,11 +77,16 @@ Widget buildView(MyCardState state, Dispatch dispatch, ViewService viewService) 
                               ),
                             ),
                             new Container(
-                              child: new Image.asset(
-                                state.phonename,
-                                width: Adapt.px(75),
-                                height: Adapt.px(75),
-                                fit: BoxFit.fill,
+                              child: new GestureDetector(
+                                child: new Image.asset(
+                                  state.phonename,
+                                  width: Adapt.px(75),
+                                  height: Adapt.px(75),
+                                  fit: BoxFit.fill,
+                                ),
+                                onTap: (){
+                                  dispatch(MyCardActionCreator.onPhoneClick(state.phoneNumber));
+                                },
                               ),
                             )
                           ],

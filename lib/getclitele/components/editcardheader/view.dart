@@ -1,6 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/adapt.dart';
+import 'package:flutter_fish_redux_router_qt/actions/selectphotoview.dart';
 
 import 'action.dart';
 import 'state.dart';
@@ -11,11 +12,19 @@ Widget buildView(
     padding: EdgeInsets.all(Adapt.px(30)),
     child: Row(
       children: <Widget>[
-        new Image.asset(
-          state.headerphoto,
-          width: Adapt.px(170),
-          height: Adapt.px(226),
-          fit: BoxFit.fill,
+        new GestureDetector(
+          child:SelectPhotoView().image != null ? new Image.file(
+            SelectPhotoView().image,
+          ) : new Image.asset(
+            state.headerphoto,
+            width: Adapt.px(170),
+            height: Adapt.px(226),
+            fit: BoxFit.fill,
+          ),
+          onTap: (){
+//            选择头像
+              dispatch(EditCardHeaderviewActionCreator.onSelectPhoto());
+          },
         ),
         new Container(
             margin: EdgeInsets.only(left: Adapt.px(40)),

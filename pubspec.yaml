@@ -55,6 +55,10 @@ dependencies:
   audioplayers: ^0.15.1
   # des加密
   flutter_des: ^1.1.1
+  # 调用系统电话，短信，邮箱三方插件
+  url_launcher: ^5.4.10
+  # 选择系统相册，相机三方插件
+  image_picker: ^0.6.6+5
 dev_dependencies:
   flutter_test:
     sdk: flutter
