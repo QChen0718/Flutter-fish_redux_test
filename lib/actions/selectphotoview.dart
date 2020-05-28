@@ -6,7 +6,10 @@ import 'package:flutter_fish_redux_router_qt/actions/adapt.dart';
 import 'package:image_picker/image_picker.dart';
 
 class SelectPhotoView extends StatefulWidget{
-  File image;
+//  File image;
+  final void Function(File image) selectImageCoreBack;
+
+  const SelectPhotoView({Key key, this.selectImageCoreBack}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -34,9 +37,8 @@ class _SelectPhotoViewState extends State<SelectPhotoView>{
                 new GestureDetector(
                   onTap: () async{
                    var image = await ImagePicker.pickImage(source: ImageSource.camera);
-                   setState(() {
-                     widget.image = image;
-                   });
+                   widget.selectImageCoreBack(image);
+
                   },
                   child: new Container(
                     height: Adapt.px(80),
@@ -64,9 +66,7 @@ class _SelectPhotoViewState extends State<SelectPhotoView>{
                 new GestureDetector(
                   onTap: () async{
                     var image = await  ImagePicker.pickImage(source: ImageSource.gallery);
-                    setState(() {
-                      widget.image = image;
-                    });
+                    widget.selectImageCoreBack(image);
                   },
                   child: new Container(
                     height: Adapt.px(80),

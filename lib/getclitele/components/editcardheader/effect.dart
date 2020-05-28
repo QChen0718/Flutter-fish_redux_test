@@ -19,7 +19,9 @@ void _onSelectPhoto(Action action, Context<EditCardHeaderviewState> ctx) {
     showModalBottomSheet(
         context: ctx.context,
         builder: (context){
-            return SelectPhotoView();
+            return SelectPhotoView(selectImageCoreBack:(image){
+              ctx.dispatch(EditCardHeaderviewActionCreator.onUpdatePhoto(image));
+            });
         }
     );
 }

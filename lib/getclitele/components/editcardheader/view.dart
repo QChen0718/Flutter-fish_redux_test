@@ -13,8 +13,8 @@ Widget buildView(
     child: Row(
       children: <Widget>[
         new GestureDetector(
-          child:SelectPhotoView().image != null ? new Image.file(
-            SelectPhotoView().image,
+          child:state.headerfile != null ? new Image.file(
+            state.headerfile,
           ) : new Image.asset(
             state.headerphoto,
             width: Adapt.px(170),
