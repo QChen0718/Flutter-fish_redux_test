@@ -1,3 +1,4 @@
+
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/components/editcardheader/state.dart';
@@ -28,7 +29,10 @@ class EditCardState implements Cloneable<EditCardState> {
     ..managercontroller = managercontroller
     ..servercontroller = servercontroller
     ..compationnamecontroller = compationnamecontroller
-    ..comprationaddresscontroller = comprationaddresscontroller;
+    ..comprationaddresscontroller = comprationaddresscontroller
+    ..listcardinputdata = listcardinputdata
+    ..placeholderlist = placeholderlist
+    ..formKey = formKey;
   }
 }
 

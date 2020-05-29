@@ -15,6 +15,9 @@ Widget buildView(
         new GestureDetector(
           child:state.headerfile != null ? new Image.file(
             state.headerfile,
+            width: Adapt.px(170),
+            height: Adapt.px(226),
+            fit: BoxFit.fill,
           ) : new Image.asset(
             state.headerphoto,
             width: Adapt.px(170),
