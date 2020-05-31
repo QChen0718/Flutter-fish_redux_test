@@ -1,3 +1,6 @@
+
+import 'dart:io';
+
 import 'package:fish_redux/fish_redux.dart';
 
 import 'action.dart';
@@ -18,7 +21,8 @@ EditCardHeaderviewState _onAction(EditCardHeaderviewState state, Action action) 
 }
 
 EditCardHeaderviewState _onUpdatePhoto(EditCardHeaderviewState state, Action action) {
+  var fileurl = action.payload as File;
   final EditCardHeaderviewState newState = state.clone();
-  newState.headerfile = action.payload;
+  newState.headerfile = fileurl;
   return newState;
 }
