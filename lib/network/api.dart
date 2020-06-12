@@ -29,6 +29,37 @@ class API {
   static const REQUEST_GET_RECORDTOP = NEW_HTTP_REQUEST_URL + "user/readRecord/GetRecordTop?userId=";
   // 获取用户信息
   static const REQUEST_GET_USERINFODATA = NEW_HTTP_REQUEST_URL + "user/getSimpleDetail/";
+
+  // 获取客户列表
+  static const REQUEST_GET_CUSTOMER_LIST = NEW_HTTP_REQUEST_URL + "user/customer?";
+  // get获取客户信息，del删除客户信息，put修改客户信息
+  static const REQUEST_GET_CUSTOMER = NEW_HTTP_REQUEST_URL +"user/customer/";
+// 添加客户信息
+  static const REQUEST_POST_CUSTOMER = NEW_HTTP_REQUEST_URL +"user/customer";
+// 添加客户标签
+  static const REQUEST_PUT_ADDTAG = NEW_HTTP_REQUEST_URL+"user/customer/addTag";
+// 移除客户标签
+  static const REQUEST_PUT_REMOVETAG = NEW_HTTP_REQUEST_URL+"user/customer/removeTag";
+// 获取客户标签列表
+  static const REQUEST_GET_CUSTOMERTAG = NEW_HTTP_REQUEST_URL+"user/customerTag?uccId=";
+// 删除我的标签
+  static const REQUEST_DET_CUSTOMERTAG = NEW_HTTP_REQUEST_URL+"user/customerTag/";
+// 获取客户交易信息
+  static const REQUEST_GET_TRADEINFO = NEW_HTTP_REQUEST_URL+"user/customer/getTradeInfo/";
+// 获取客户交易统计
+  static const REQUEST_GET_TRADETOTAL = NEW_HTTP_REQUEST_URL+"user/customer/GetTradeTotal/";
+
+// 获取客户合同
+  static const REQUEST_GET_CUSTOMERCONTRACT = NEW_HTTP_REQUEST_URL+"trade/contract?pageIndex=%d&pageSize=10&UccId=%s";
+// 获取客户确认书
+  static const REQUEST_GET_CUSTOMERCONFIRMATION = NEW_HTTP_REQUEST_URL+"trade/confirmation?pageIndex=%d&pageSize=10&UccId=%s";
+
+// 获取客户足迹
+
+  static const REQUEST_GET_FOOTPRINT = NEW_HTTP_REQUEST_URL+"user/customer/getFootPrint?pageIndex=%d&pageSize=10&uccId=%s";
+
+//  获取客户佣金列表
+  static const REQUEST_GET_BROKERAGE = NEW_HTTP_REQUEST_URL+"trade/brokerage?pageIndex=%d&pageSize=10&uccId=%s";
 //  h5链接 -----------------------------------------
   //热门资讯详情页
   static const REQUEST_WEB_URL_ZIXUN_DETAIL  = HTTP_REQUEST_WEB_URL + "app/wxnews/";
