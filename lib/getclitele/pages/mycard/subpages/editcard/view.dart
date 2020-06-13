@@ -10,6 +10,7 @@ Widget buildView(EditCardState state, Dispatch dispatch, ViewService viewService
 
   return Scaffold(
     backgroundColor: Colors.white,
+    resizeToAvoidBottomInset: false,
     body: Column(
       children: <Widget>[
         new NavBar(
@@ -31,7 +32,7 @@ Widget buildView(EditCardState state, Dispatch dispatch, ViewService viewService
     ),
     bottomSheet: //固定大小的盒子
     new Container(
-      margin: EdgeInsets.only(bottom: Adapt.px(44)),
+      margin: EdgeInsets.only(bottom: Adapt.padBotH()),
       child: SizedBox(
         width: Adapt.screenW(),
         height: Adapt.px(80),
