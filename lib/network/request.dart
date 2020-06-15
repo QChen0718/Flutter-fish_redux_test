@@ -57,10 +57,9 @@ class Request{
   _requestHttp(String url,Function successCallBack,[Method method,Map<String,dynamic> headers,Map<String,dynamic> params,Function errorCallBack]) async {
     Response response;
     //    设置请求头
-    if(headers != null){
-      headers.addAll({'Content-Type':'application/json'});
-      dio.options.headers = headers;
-    }
+//    请求头中固定的请求参数
+    dio.options.headers = APPInfo.getNewRequestnomalparams('1.0.0');
+
     try{
       switch(method){
         case Method.get:

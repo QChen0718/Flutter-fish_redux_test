@@ -37,7 +37,7 @@ void _onInit(Action action, Context<MyCardState> ctx) {
   _loadData(ctx);
 }
 _loadData(Context<MyCardState> ctx){
-  Request.getInstance().get(API.REQUEST_GET_USERINFODATA + SpUtil.preferences.getString('id'), APPInfo.getNewRequestnomalparams('1.0.0'), null, (succeck){
+  Request.getInstance().get(API.REQUEST_GET_USERINFODATA + SpUtil.preferences.getString('id'), null, null, (succeck){
       var cardmodel = CardModel.fromJson(succeck);
       print(cardmodel.dataModel.photo);
       ctx.dispatch(MyCardActionCreator.onInitData(cardmodel.dataModel));

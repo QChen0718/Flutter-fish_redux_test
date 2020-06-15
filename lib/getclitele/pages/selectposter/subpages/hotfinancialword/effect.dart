@@ -59,7 +59,11 @@ _loadData(Context<HotFinancialWordState> ctx){
 
     model.data.forEach((value){
       HotFinancialWordeCellState hotFinancialWordeCellState = HotFinancialWordeCellState();
-      hotFinancialWordeCellState.posterphoto = APPInfo.HTTP_IMAGE_DOWNLOAD_REQUEST_URL + value.image;
+      if (value.image != null){
+        hotFinancialWordeCellState.posterphoto = APPInfo.HTTP_IMAGE_DOWNLOAD_REQUEST_URL + value.image;
+      }else{
+        hotFinancialWordeCellState.posterphoto = APPInfo.HTTP_IMAGE_DOWNLOAD_REQUEST_URL + "";
+      }
       hotFinancialWordeCellState.postername = value.name;
       listcellstate.add(hotFinancialWordeCellState);
     });

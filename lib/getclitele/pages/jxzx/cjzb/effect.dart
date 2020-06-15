@@ -60,9 +60,8 @@ _loadData(Context<CjzbState> ctx){
     "userId" : SpUtil.preferences.getString('id'),
   };
   params.addAll(dict);
-  var headers = APPInfo.getFirstHeader();
 
-  Request.getInstance().post(API.REQUEST_URL_GET_NEWS_LIST, headers,params, (value){
+  Request.getInstance().post(API.REQUEST_URL_GET_NEWS_LIST, null,params, (value){
   if(value != null){
     NewsListModel model =  NewsListModel.fromJson(value);
     if(ctx.state.pageIndex == 1){

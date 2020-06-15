@@ -30,7 +30,7 @@ void _onInit(Action action, Context<NewGetCliteleState> ctx) {
 // 加载获客数据
 _loadData(Context<NewGetCliteleState> ctx){
 
-  Request.getInstance().get(API.REQUEST_GET_USERDATA + SpUtil.preferences.getString('id'), APPInfo.getRequestnomalparams('1.0.0'), null, (succeck){
+  Request.getInstance().get(API.REQUEST_GET_USERDATA + SpUtil.preferences.getString('id'), null, null, (succeck){
     var model = NumberModel.fromJson(succeck);
     List<Map<String,dynamic>> numberslist = [
       {'days':model.dataModel.userCount.toString(),'title':'日增','number':model.dataModel.userCountToday.toString(),'desc':'累计客户(人)'},
@@ -46,7 +46,7 @@ _loadData(Context<NewGetCliteleState> ctx){
 
   });
   
-  Request.getInstance().get(API.REQUEST_GET_RECORDTOP + '887', APPInfo.getNewRequestnomalparams('1.0.0'), null, (succeck){
+  Request.getInstance().get(API.REQUEST_GET_RECORDTOP + '887', null, null, (succeck){
       var model = MarkingModel.fromJson(succeck);
       List<Map<String,dynamic>> markinglist = [];
       model.data.forEach((value){
