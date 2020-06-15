@@ -26,6 +26,10 @@ void _onInit(Action action, Context<CustomerState> ctx) {
     customerListcellState.description ='累计交易';
     listcell.add(customerListcellState);
   }
-
+  _loadData(ctx);
   ctx.dispatch(CustomerActionCreator.onInit(listcell));
+}
+// 加载列表数据
+_loadData(Context<CustomerState> ctx){
+    
 }

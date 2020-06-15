@@ -10,7 +10,6 @@ Widget buildView(EditCardState state, Dispatch dispatch, ViewService viewService
 
   return Scaffold(
     backgroundColor: Colors.white,
-    resizeToAvoidBottomInset: false,
     body: Column(
       children: <Widget>[
         new NavBar(
@@ -18,14 +17,22 @@ Widget buildView(EditCardState state, Dispatch dispatch, ViewService viewService
         ),
         viewService.buildComponent('photoheader'),
         new Expanded(
-            child: new Form(
-                key: state.formKey, //设置globalKey，用于后面获取FormState
-                child: new Column(
-                  children: List.generate(state.listcardinputdata.length, (index){
-                    return _item(viewService.context, state.listcardinputdata[index]);
-                  }),
+            child: new MediaQuery.removePadding(
+              removeTop: true,
+              context: viewService.context, 
+              child: ListView(
+                children:[
+                  new Form(
+                  key: state.formKey, //设置globalKey，用于后面获取FormState
+                  child: new Column(
+                    children: List.generate(state.listcardinputdata.length, (index){
+                      return _item(viewService.context, state.listcardinputdata[index]);
+                    }),
+                  )
                 )
+              ]
             )
+            ) 
         ),
 //        _items(viewService.context,state),
       ],

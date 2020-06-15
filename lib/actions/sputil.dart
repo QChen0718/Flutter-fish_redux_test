@@ -1,4 +1,4 @@
-//统一处理异步获取数据的方法
+//统一处理异步获取数据的方法，异步转同步
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:package_info/package_info.dart';

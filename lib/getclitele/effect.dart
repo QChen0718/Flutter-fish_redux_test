@@ -1,6 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
 import 'package:flutter_fish_redux_router_qt/actions/appinfo.dart';
+import 'package:flutter_fish_redux_router_qt/actions/dateformat.dart';
 import 'package:flutter_fish_redux_router_qt/actions/sputil.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/jxzx/action.dart';
 import 'package:flutter_fish_redux_router_qt/models/basemodel.dart';
@@ -49,7 +50,7 @@ _loadData(Context<NewGetCliteleState> ctx){
       var model = MarkingModel.fromJson(succeck);
       List<Map<String,dynamic>> markinglist = [];
       model.data.forEach((value){
-        markinglist.add({'title':value.title,'date':'04-01 15:20'});
+        markinglist.add({'title':value.title,'date':DateFormat.currentdateFormat(value.createTime)});
       });
       MarkingCellState markingCellState = MarkingCellState();
       markingCellState.markinglist = markinglist;

@@ -1,3 +1,4 @@
+import 'package:flutter_fish_redux_router_qt/actions/dateformat.dart';
 import 'package:flutter_fish_redux_router_qt/actions/sputil.dart';
 import 'package:package_info/package_info.dart';
 import 'dart:convert';
@@ -10,7 +11,7 @@ class APPInfo{
   // 接口密文
   static const APP_CIPHERTEX = "dhzurowp8adlrmacrkhai8zjrksbdaycfios";
   static const HTTP_IMAGE_DOWNLOAD_REQUEST_URL = "https://rescdn.xiaohu.in/";
-  static String timeStamp = formatDate(DateTime.now(), [yyyy,'-',mm,'-',dd,'T',HH,':',mm,':',ss,z]);
+  static String timeStamp = DateFormat.nowdateFormat();
   static String DES_KEY_STR = "XCHONGKJ";
   static String encryptstr;
 //

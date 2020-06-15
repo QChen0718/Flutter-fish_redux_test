@@ -48,7 +48,7 @@ class Request{
 
     _requestHttp(url, successCallBack,Method.put,headers,params,errorCallBack);
   }
-  //  put请求
+  //  delete请求
   delete(String url,Map<String,dynamic> headers, Map<String,dynamic> params,Function successCallBack,Function errorCallBack) async {
 
     _requestHttp(url, successCallBack,Method.delete,headers,params,errorCallBack);
