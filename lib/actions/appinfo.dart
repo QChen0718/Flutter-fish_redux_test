@@ -104,6 +104,8 @@ class APPInfo{
       'sign':sign,
       'version':version,
       'apiVersion':apiversion,
+//      des加密的，规则比较复杂，需要字符运算等操作，所以先写死了一个token
+      'appToken':"xPNDoG47U/W/HExBvZ7VU45U/X5tPII6g47CVoRK50/v0mB0MSL7ng=="
     };
   }
 }

@@ -1,5 +1,11 @@
+
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter_fish_redux_router_qt/actions/appinfo.dart';
+import 'package:flutter_fish_redux_router_qt/actions/tost.dart';
 import 'package:flutter_fish_redux_router_qt/customer/components/listcell/state.dart';
+import 'package:flutter_fish_redux_router_qt/models/customerlistmodel.dart';
+import 'package:flutter_fish_redux_router_qt/network/api.dart';
+import 'package:flutter_fish_redux_router_qt/network/request.dart';
 import 'action.dart';
 import 'state.dart';
 
@@ -14,22 +20,39 @@ void _onAction(Action action, Context<CustomerState> ctx) {
 }
 
 void _onInit(Action action, Context<CustomerState> ctx) {
-  List<CustomerListcellState> listcell = [];
-  for(int i=0;i<10;i++){
-    CustomerListcellState customerListcellState = CustomerListcellState();
-    customerListcellState.cellheaderimagename = 'images/header_photo.webp';
-    customerListcellState.username = '王强';
-    customerListcellState.date = '最近访问：2020-02-24 15：47';
-    customerListcellState.user_items = ['偏好房地产','拆迁户'];
-    customerListcellState.numbers = '1256';
-    customerListcellState.unit = '万';
-    customerListcellState.description ='累计交易';
-    listcell.add(customerListcellState);
-  }
+
   _loadData(ctx);
-  ctx.dispatch(CustomerActionCreator.onInit(listcell));
+
 }
 // 加载列表数据
 _loadData(Context<CustomerState> ctx){
-    
+    Request.getInstance().get(API.REQUEST_POST_CUSTOMER, null, null, (succeck){
+      var model = CustomerListModel.fromJson(succeck);
+      if(model.isSuccess){
+//        请求成功
+        List<CustomerListcellState> listcell = [];
+        model.data.forEach((submodel){
+          CustomerListcellState customerListcellState = CustomerListcellState();
+          customerListcellState.cellheaderimagename = APPInfo.HTTP_IMAGE_DOWNLOAD_REQUEST_URL + submodel.photo;
+          customerListcellState.username = submodel.name;
+          if(submodel.lastLoginTime !=null){
+            customerListcellState.date = '最近访问：'+submodel.lastLoginTime;
+          }else{
+            customerListcellState.date = '最近访问：无';
+          }
+
+          customerListcellState.user_items = submodel.tagList;
+          customerListcellState.numbers = submodel.totalPrice;
+          customerListcellState.unit = '万';
+          customerListcellState.description ='累计交易';
+          listcell.add(customerListcellState);
+        });
+        ctx.dispatch(CustomerActionCreator.onInit(listcell));
+      }else{
+//        请求失败
+        Toast.toast(ctx.context,msg: model.errMsg);
+      }
+    }, (error){
+
+    });
 }
