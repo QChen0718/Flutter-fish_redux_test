@@ -1,13 +1,17 @@
 
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_fish_redux_router_qt/actions/appinfo.dart';
+import 'package:flutter_fish_redux_router_qt/actions/notificationcenter.dart';
 import 'package:flutter_fish_redux_router_qt/actions/tost.dart';
 import 'package:flutter_fish_redux_router_qt/customer/components/listcell/state.dart';
 import 'package:flutter_fish_redux_router_qt/models/customerlistmodel.dart';
 import 'package:flutter_fish_redux_router_qt/network/api.dart';
 import 'package:flutter_fish_redux_router_qt/network/request.dart';
+import 'package:flutter_fish_redux_router_qt/singleton/khsingleton.dart';
+import 'package:sprintf/sprintf.dart';
 import 'action.dart';
 import 'state.dart';
+
 
 Effect<CustomerState> buildEffect() {
   return combineEffects(<Object, Effect<CustomerState>>{
@@ -20,13 +24,34 @@ void _onAction(Action action, Context<CustomerState> ctx) {
 }
 
 void _onInit(Action action, Context<CustomerState> ctx) {
-
+//  通知刷新列表数据
+  NotificationCenter.instance.addObserver("updateCustomerList", (obj){
+      _loadData(ctx);
+  });
   _loadData(ctx);
 
 }
 // 加载列表数据
 _loadData(Context<CustomerState> ctx){
-    Request.getInstance().get(API.REQUEST_POST_CUSTOMER, null, null, (succeck){
+  var khsingletion = KHSingleton.getInstance();
+    Request.getInstance().get(
+        API.REQUEST_POST_CUSTOMER
+            + sprintf(
+            "sort=%s&customerQueryType=%s&keywords=%s&isRegister=%s&isMobile=%s&isOrder=%s&isWeChat=%s&channels=%s&isTag=%s&tags=%s",
+            [khsingletion.sort,
+              khsingletion.customerQueryType,
+              khsingletion.keywords,
+              khsingletion.isRegister,
+              khsingletion.isMobile,
+              khsingletion.isOrder,
+              khsingletion.isWeChat,
+              khsingletion.channels,
+              khsingletion.isTag,
+              khsingletion.tags]
+        ),
+        null,
+        null, (succeck)
+    {
       var model = CustomerListModel.fromJson(succeck);
       if(model.isSuccess){
 //        请求成功
@@ -40,7 +65,6 @@ _loadData(Context<CustomerState> ctx){
           }else{
             customerListcellState.date = '最近访问：无';
           }
-
           customerListcellState.user_items = submodel.tagList;
           customerListcellState.numbers = submodel.totalPrice;
           customerListcellState.unit = '万';

@@ -16,7 +16,7 @@ Widget buildView(CustomerListcellState state, Dispatch dispatch, ViewService vie
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          new Image.asset(
+          new Image.network(
             state.cellheaderimagename,
             width: Adapt.px(108),
             height: Adapt.px(108),

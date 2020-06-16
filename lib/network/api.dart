@@ -35,7 +35,7 @@ class API {
   // get获取客户信息，del删除客户信息，put修改客户信息
   static const REQUEST_GET_CUSTOMER = NEW_HTTP_REQUEST_URL +"user/customer/";
 // 添加客户信息
-  static const REQUEST_POST_CUSTOMER = NEW_HTTP_REQUEST_URL +"user/customer";
+  static const REQUEST_POST_CUSTOMER = NEW_HTTP_REQUEST_URL +"user/customer?";
 // 添加客户标签
   static const REQUEST_PUT_ADDTAG = NEW_HTTP_REQUEST_URL+"user/customer/addTag";
 // 移除客户标签

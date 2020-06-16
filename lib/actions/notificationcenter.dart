@@ -20,22 +20,26 @@ class NotificationCenter {
 
   //创建Map来记录名称
   Map<String, dynamic> postNameMap = Map<String, dynamic>();
-
+//全局闭包变量，通过该闭包来触发通知方法
   GetObject getObject;
 
   //添加监听者方法
-  addObserver(String postName, object(dynamic object)) {
+//  定义回调方法，赋值给全局闭包 objects(dynamic object)
+  addObserver(String postName, objects(dynamic object)) {
 
     postNameMap[postName] = null;
-    getObject = object;
+    getObject = objects;
   }
 
   //发送通知传值
+  //  传递的内容 object
   postNotification(String postName, dynamic object) {
     //检索Map是否含有postName
     if (postNameMap.containsKey(postName)) {
 
       postNameMap[postName] = object;
+//      调用闭包会触发闭包方法来接收通知响应
+
       getObject(postNameMap[postName]);
     }
 

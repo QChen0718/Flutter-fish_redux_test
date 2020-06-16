@@ -3,6 +3,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/adapt.dart';
 
+
 import 'action.dart';
 import 'state.dart';
 
@@ -84,15 +85,20 @@ _item(String title, int index, Dispatch dispatch, FilterState state) {
       onTap: () {
         switch (index) {
           case 0:
+//            默认排序
             dispatch(FilterActionCreator.onShow(title));
             break;
           case 1:
-//            dispatch(FilterActionCreator.onShow());
+//            持仓客户
+            dispatch(FilterActionCreator.onAction("1"));
+
             break;
           case 2:
-//            dispatch(FilterActionCreator.onShow());
+//            近期到账
+            dispatch(FilterActionCreator.onAction("2"));
             break;
           case 3:
+//            筛选
             dispatch(FilterActionCreator.onOpenDrawer());
             break;
         }
@@ -128,7 +134,7 @@ _item(String title, int index, Dispatch dispatch, FilterState state) {
                   child: new Text(
                     title,
                     style: TextStyle(
-                        color: Color(0xff333333), fontSize: Adapt.px(32)),
+                        color: Color(0xffFF6633), fontSize: Adapt.px(32)),
                   ),
                 ),
                 new Container(

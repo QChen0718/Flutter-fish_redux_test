@@ -59,6 +59,8 @@ dependencies:
   url_launcher: ^5.4.10
   # 选择系统相册，相机三方插件
   image_picker: ^0.6.6+5
+  #字符串格式化
+  sprintf: ^4.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

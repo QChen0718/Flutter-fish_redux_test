@@ -4,8 +4,8 @@ import 'package:fish_redux/fish_redux.dart';
 enum FilterAction { action,show,onpenDrawer}
 
 class FilterActionCreator {
-  static Action onAction() {
-    return const Action(FilterAction.action);
+  static Action onAction(String index) {
+    return  Action(FilterAction.action,payload: index);
   }
   static Action onShow(String selecttitle) {
     return Action(FilterAction.show,payload: selecttitle);
