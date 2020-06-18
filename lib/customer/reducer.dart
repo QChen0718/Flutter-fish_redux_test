@@ -24,7 +24,9 @@ CustomerState _onUpdateData(CustomerState state, Action action) {
   return newState;
 }
 CustomerState _onInit(CustomerState state, Action action) {
+  var dict = action.payload;
   final CustomerState newState = state.clone();
-  newState.customercells = action.payload;
+  newState.customercells = dict['list'];
+  newState.totalcountstr = dict ['total'];
   return newState;
 }

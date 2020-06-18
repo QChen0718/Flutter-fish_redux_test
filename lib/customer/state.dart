@@ -1,4 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/customer/adapter.dart';
 import 'package:flutter_fish_redux_router_qt/customer/components/filter/state.dart';
 import 'package:flutter_fish_redux_router_qt/customer/components/listcell/state.dart';
@@ -12,6 +13,7 @@ class CustomerState extends MutableSource implements Cloneable<CustomerState> {
   SearchBarState searchBarState;
   FilterState filterState;
   List<CustomerListcellState> customercells;
+  String totalcountstr = '共0条记录';
   @override
   CustomerState clone() {
     return CustomerState()
@@ -20,7 +22,8 @@ class CustomerState extends MutableSource implements Cloneable<CustomerState> {
     ..righticonname = righticonname
     ..searchBarState = searchBarState
     ..filterState = filterState
-    ..customercells = customercells;
+    ..customercells = customercells
+    ..totalcountstr = totalcountstr;
   }
 
   @override
@@ -58,6 +61,7 @@ CustomerState initState(Map<String, dynamic> args) {
   filterState.filterselectname = 'images/select_filter_btn.webp';
   filterState.filtericonname = 'images/filter_icon.webp';
   filterState.arrow_bottom = 'images/arrow_bottom.webp';
+  filterState.textColor = Color(0xff333333);
   return CustomerState()
   ..navtitle = '我的客户'
   ..lefticonname = 'images/message_icon.webp'

@@ -12,7 +12,7 @@ class CustomerActionCreator {
   static Action onUpdateData() {
     return Action(CustomerAction.updateData);
   }
-  static Action onInit(List<CustomerListcellState> cellstates) {
-    return Action(CustomerAction.init,payload: cellstates);
+  static Action onInit(List<CustomerListcellState> cellstates,String totalstr) {
+    return Action(CustomerAction.init,payload:{'list':cellstates,'total':totalstr});
   }
 }

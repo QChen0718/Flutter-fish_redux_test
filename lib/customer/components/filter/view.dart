@@ -52,7 +52,7 @@ Widget buildView(
 Widget _itemcell(String title, FilterState state, int index,Dispatch dispatch) {
   return GestureDetector(
     onTap: () {
-      dispatch(FilterActionCreator.onShow(title));
+      dispatch(FilterActionCreator.onSelectItem(title,index));
     },
     child: Row(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -73,7 +73,10 @@ Widget _itemcell(String title, FilterState state, int index,Dispatch dispatch) {
             child: new Text(
           title,
           style:
-              new TextStyle(color: Color(0xff666666), fontSize: Adapt.px(26)),
+              new TextStyle(
+                  color:title == state.selectitemtitle ? Color(0xffFF6633):Color(0xff666666),
+                  fontSize: Adapt.px(26)
+              ),
         )),
       ],
     ),
@@ -91,7 +94,6 @@ _item(String title, int index, Dispatch dispatch, FilterState state) {
           case 1:
 //            持仓客户
             dispatch(FilterActionCreator.onAction("1"));
-
             break;
           case 2:
 //            近期到账
@@ -157,7 +159,7 @@ _item(String title, int index, Dispatch dispatch, FilterState state) {
           ) : Text(
               title,
               style: TextStyle(
-                color: Color(0xff333333),
+                color: state.selectitem == index ? state.textColor : Color(0xff333333),
                 fontSize: Adapt.px(32),
               ),
          ));

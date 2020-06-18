@@ -51,7 +51,7 @@ Widget buildView(CustomerState state, Dispatch dispatch, ViewService viewService
                   child: new Container(
                     padding: EdgeInsets.only(bottom: Adapt.px(10)),
                     child: new Text(
-                      '共890条记录',
+                      state.totalcountstr,
                       style: TextStyle(
                           color: Color(0xff999999),
                           fontSize: Adapt.px(24)

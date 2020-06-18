@@ -71,7 +71,7 @@ _loadData(Context<CustomerState> ctx){
           customerListcellState.description ='累计交易';
           listcell.add(customerListcellState);
         });
-        ctx.dispatch(CustomerActionCreator.onInit(listcell));
+        ctx.dispatch(CustomerActionCreator.onInit(listcell,'共'+model.totalCount.toString()+'条记录'));
       }else{
 //        请求失败
         Toast.toast(ctx.context,msg: model.errMsg);

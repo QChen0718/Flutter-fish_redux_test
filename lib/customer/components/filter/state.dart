@@ -1,4 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/customer/state.dart';
 
 class FilterState implements Cloneable<FilterState> {
@@ -9,6 +10,8 @@ class FilterState implements Cloneable<FilterState> {
   String filterselectname;
   String selectitemtitle;
   String arrow_bottom;
+  Color textColor;
+  int selectitem = 0;
   @override
   FilterState clone() {
     return FilterState()
@@ -18,7 +21,9 @@ class FilterState implements Cloneable<FilterState> {
     ..filtericonname = filtericonname
     ..filterselectname = filterselectname
     ..selectitemtitle = selectitemtitle
-    ..arrow_bottom = arrow_bottom;
+    ..arrow_bottom = arrow_bottom
+    ..textColor = textColor
+    ..selectitem = selectitem;
   }
 }
 
