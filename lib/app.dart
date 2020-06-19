@@ -3,6 +3,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_fish_redux_router_qt/actions/sputil.dart';
+import 'package:flutter_fish_redux_router_qt/customer/pages/addcustomer/page.dart';
 import 'package:flutter_fish_redux_router_qt/customer/pages/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/forwardingzs/page.dart';
 import 'package:flutter_fish_redux_router_qt/getclitele/pages/greatvideo/page.dart';
@@ -71,7 +72,8 @@ class YicaifuApp extends StatefulWidget{
         'videolist':VideoListPage(),
         'videodetail':VideoDetailPage(),
         'forwardingzs':ForwardingZSPage(),
-        'notespost':NotePostPage()
+        'notespost':NotePostPage(),
+        'addcustomer':addcustomerPage()
       }
   );
   @override

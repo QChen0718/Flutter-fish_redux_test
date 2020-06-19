@@ -1,5 +1,7 @@
 
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart' hide Action;
+
 import 'package:flutter_fish_redux_router_qt/actions/appinfo.dart';
 import 'package:flutter_fish_redux_router_qt/actions/notificationcenter.dart';
 import 'package:flutter_fish_redux_router_qt/actions/tost.dart';
@@ -16,6 +18,7 @@ import 'state.dart';
 Effect<CustomerState> buildEffect() {
   return combineEffects(<Object, Effect<CustomerState>>{
     CustomerAction.action: _onAction,
+    CustomerAction.addcustomer: _onAddCustomer,
     Lifecycle.initState: _onInit
   });
 }
@@ -23,6 +26,9 @@ Effect<CustomerState> buildEffect() {
 void _onAction(Action action, Context<CustomerState> ctx) {
 }
 
+void _onAddCustomer(Action action, Context<CustomerState> ctx) {
+  Navigator.pushNamed(ctx.context, 'addcustomer');
+}
 void _onInit(Action action, Context<CustomerState> ctx) {
 //  通知刷新列表数据
   NotificationCenter.instance.addObserver("updateCustomerList", (obj){

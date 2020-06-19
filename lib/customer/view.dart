@@ -4,6 +4,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/adapt.dart';
 import 'package:flutter_fish_redux_router_qt/actions/navbar.dart';
+import 'package:flutter_fish_redux_router_qt/customer/pages/addcustomer/action.dart';
 
 import 'action.dart';
 import 'state.dart';
@@ -21,7 +22,7 @@ Widget buildView(CustomerState state, Dispatch dispatch, ViewService viewService
                 height: Adapt.px(35),),
               titleStr: state.navtitle,
               rightIcons: <Widget>[
-                _righticon(state.righticonname)
+                _righticon(state.righticonname,dispatch)
               ],
 //            rightIcons: _righticons(),
               leftButtonClick: _leftBtnClick
@@ -75,10 +76,11 @@ Widget buildView(CustomerState state, Dispatch dispatch, ViewService viewService
   );
 }
 
-Widget _righticon(String content){
+Widget _righticon(String content,Dispatch dispatch){
   return GestureDetector(
     onTap: (){
-
+//      添加客户
+      dispatch(CustomerActionCreator.onAddcustomer());
     },
     child: new Container(
       margin: EdgeInsets.only(right: Adapt.px(36)),
