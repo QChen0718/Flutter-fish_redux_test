@@ -22,6 +22,11 @@ class LoadStateLayout extends StatefulWidget{
     this.load,
     this.controller,}) : super(key: key); //空数据事件处理
   @override
+  StatefulElement createElement() {
+    // TODO: implement createElement
+    return super.createElement();
+  }
+  @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
     return _LoadStateLayoutState();
