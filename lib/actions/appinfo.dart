@@ -72,11 +72,11 @@ class APPInfo{
   static Map<String,dynamic> getRequestnomalparams(String apiversion){
      String signStr = APP_CIPHERTEX + "apiVersion" + apiversion + "appKey" + APP_KEY + "timeStamp" +
         timeStamp;
-     String signdesStr = SpUtil.preferences.getString('id') + ":" + SpUtil.preferences.getString('mobile') + ":" + timeStamp + ":" + "0";
-//   des 加密
-     generateDES(signdesStr).then((value){
-       print("des加密结果" + encryptstr);
-     });
+//     String signdesStr = SpUtil.preferences.getString('id') ?? '' + ":" + SpUtil.preferences.getString('mobile') ?? '' + ":" + timeStamp + ":" + "0";
+////   des 加密
+//     generateDES(signdesStr).then((value){
+//       print("des加密结果" + encryptstr);
+//     });
 
 
 //  MD5加密
