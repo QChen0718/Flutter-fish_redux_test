@@ -23,8 +23,8 @@ Widget buildView(EditCardState state, Dispatch dispatch, ViewService viewService
               child: ListView(
                 children:[
                   new Form(
-                  key: state.formKey, //设置globalKey，用于后面获取FormState
-                  child: new Column(
+                    key: state.formKey, //设置globalKey，用于后面获取FormState
+                    child: new Column(
                     children: List.generate(state.listcardinputdata.length, (index){
                       return _item(viewService.context, state.listcardinputdata[index]);
                     }),

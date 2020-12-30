@@ -1,6 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_redux_router_qt/actions/adapt.dart';
+import 'package:flutter_fish_redux_router_qt/actions/sputil.dart';
 
 import 'action.dart';
 import 'state.dart';
@@ -24,6 +25,12 @@ Widget buildView(ItemState state, Dispatch dispatch, ViewService viewService) {
                     fontSize: Adapt.px(34)
                 ),
               ),
+            ),
+          ),
+          new Container(
+            margin: EdgeInsets.only(right: 10),
+            child: new Text(
+              SpUtil.projectVersion,
             ),
           ),
           new Container(

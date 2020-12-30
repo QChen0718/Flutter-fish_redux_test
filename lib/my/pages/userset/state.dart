@@ -41,7 +41,7 @@ class UsersetState extends MutableSource implements Cloneable<UsersetState> {
 }
 
 UsersetState initState(Map<String, dynamic> args) {
-  List<String> itemtitles = ['修改登录密码','清理缓存','开启消息提醒','帮助与反馈','关于壹财富','用户协议','退出登录'];
+  List<String> itemtitles = ['修改登录密码','清理缓存','开启消息提醒','帮助与反馈','关于壹财富','用户协议','版本号','退出登录'];
   return UsersetState()
   ..title = '设置'
   ..itemtitles = itemtitles

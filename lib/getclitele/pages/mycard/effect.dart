@@ -1,6 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
 import 'package:flutter_fish_redux_router_qt/actions/appinfo.dart';
+import 'package:flutter_fish_redux_router_qt/actions/sharepopview.dart';
 import 'package:flutter_fish_redux_router_qt/actions/sputil.dart';
 import 'package:flutter_fish_redux_router_qt/models/cardmodel.dart';
 import 'package:flutter_fish_redux_router_qt/network/api.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_fish_redux_router_qt/network/request.dart';
 import 'action.dart';
 import 'state.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_package_payview/flutter_package_payview.dart';
 Effect<MyCardState> buildEffect() {
   return combineEffects(<Object, Effect<MyCardState>>{
     MyCardAction.action: _onAction,
@@ -21,7 +23,14 @@ void _onAction(Action action, Context<MyCardState> ctx) {
 //      编辑名片
       Navigator.pushNamed(ctx.context, 'editcard');
     }else{
-
+      //                  从底部弹出视图
+      showModalBottomSheet(
+          context: ctx.context,
+          builder: (context){
+            // return SharePopView();
+            return PayView();
+          }
+      );
     }
 }
 

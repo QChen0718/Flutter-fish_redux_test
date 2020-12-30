@@ -145,15 +145,7 @@ Widget buildView(MyCardState state, Dispatch dispatch, ViewService viewService) 
               ),
               new MaterialButton(
                   onPressed: (){
-//                    dispatch(MyCardActionCreator.onAction(2));
-//                  从底部弹出视图
-                    showModalBottomSheet(
-                        context: viewService.context,
-                        builder: (context){
-                          return SharePopView();
-                        }
-                    );
-
+                   dispatch(MyCardActionCreator.onAction(2));
                   },
                 child: new Container(
                   width: Adapt.px(310),

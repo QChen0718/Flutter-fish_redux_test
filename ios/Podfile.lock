@@ -1,4 +1,5 @@
 PODS:
+  - AlipaySDK-iOS (15.7.9)
   - audioplayers (0.0.1):
     - Flutter
   - bridge_webview_flutter (0.0.1):
@@ -9,6 +10,11 @@ PODS:
     - Flutter
   - flutter_plugin_android_lifecycle (0.0.1):
     - Flutter
+  - flutter_plugin_two (0.0.1):
+    - Flutter
+  - fluwx (0.0.1):
+    - Flutter
+    - WechatOpenSDK (= 1.8.7.1)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -33,6 +39,9 @@ PODS:
   - sqflite (0.0.1):
     - Flutter
     - FMDB (~> 2.7.2)
+  - tobias (0.0.1):
+    - AlipaySDK-iOS (~> 15.7.9)
+    - Flutter
   - url_launcher (0.0.1):
     - Flutter
   - url_launcher_macos (0.0.1):
@@ -46,6 +55,7 @@ PODS:
   - wakelock (0.0.1):
     - Flutter
   - WebViewJavascriptBridge (6.0.3)
+  - WechatOpenSDK (1.8.7.1)
 
 DEPENDENCIES:
   - audioplayers (from `.symlinks/plugins/audioplayers/ios`)
@@ -53,6 +63,8 @@ DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_des (from `.symlinks/plugins/flutter_des/ios`)
   - flutter_plugin_android_lifecycle (from `.symlinks/plugins/flutter_plugin_android_lifecycle/ios`)
+  - flutter_plugin_two (from `.symlinks/plugins/flutter_plugin_two/ios`)
+  - fluwx (from `.symlinks/plugins/fluwx/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
   - orientation (from `.symlinks/plugins/orientation/ios`)
   - package_info (from `.symlinks/plugins/package_info/ios`)
@@ -63,6 +75,7 @@ DEPENDENCIES:
   - shared_preferences_macos (from `.symlinks/plugins/shared_preferences_macos/ios`)
   - shared_preferences_web (from `.symlinks/plugins/shared_preferences_web/ios`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
+  - tobias (from `.symlinks/plugins/tobias/ios`)
   - url_launcher (from `.symlinks/plugins/url_launcher/ios`)
   - url_launcher_macos (from `.symlinks/plugins/url_launcher_macos/ios`)
   - url_launcher_web (from `.symlinks/plugins/url_launcher_web/ios`)
@@ -72,8 +85,10 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AlipaySDK-iOS
     - FMDB
     - WebViewJavascriptBridge
+    - WechatOpenSDK
 
 EXTERNAL SOURCES:
   audioplayers:
@@ -86,6 +101,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_des/ios"
   flutter_plugin_android_lifecycle:
     :path: ".symlinks/plugins/flutter_plugin_android_lifecycle/ios"
+  flutter_plugin_two:
+    :path: ".symlinks/plugins/flutter_plugin_two/ios"
+  fluwx:
+    :path: ".symlinks/plugins/fluwx/ios"
   image_picker:
     :path: ".symlinks/plugins/image_picker/ios"
   orientation:
@@ -106,6 +125,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/shared_preferences_web/ios"
   sqflite:
     :path: ".symlinks/plugins/sqflite/ios"
+  tobias:
+    :path: ".symlinks/plugins/tobias/ios"
   url_launcher:
     :path: ".symlinks/plugins/url_launcher/ios"
   url_launcher_macos:
@@ -120,11 +141,14 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/wakelock/ios"
 
 SPEC CHECKSUMS:
+  AlipaySDK-iOS: 94ff4c0e17c5e7d126b8207596d5033006534c25
   audioplayers: 84f968cea3f2deab00ec4f8ff53358b3c0b3992c
   bridge_webview_flutter: 8e8343f977bb931a3d8a31ce352bc7af67dd69ff
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   flutter_des: af0bb83f27f1468ad652d907958b1d42d5644544
   flutter_plugin_android_lifecycle: dc0b544e129eebb77a6bfb1239d4d1c673a60a35
+  flutter_plugin_two: 68adab2b19e81d4c805e9e42205bbc4f2499c5b5
+  fluwx: 07a55ed66bf3a4961e836a2a411b02dcada32902
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   image_picker: 66aa71bc96850a90590a35d4c4a2907b0d823109
   orientation: 6c9203efe86ce4cff379756910f18b2d745628c3
@@ -136,6 +160,7 @@ SPEC CHECKSUMS:
   shared_preferences_macos: f3f29b71ccbb56bf40c9dd6396c9acf15e214087
   shared_preferences_web: 141cce0c3ed1a1c5bf2a0e44f52d31eeb66e5ea9
   sqflite: 4001a31ff81d210346b500c55b17f4d6c7589dd0
+  tobias: 6872e2198dc30e17c10513b9ee114e28d099bc70
   url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
   url_launcher_macos: fd7894421cd39320dce5f292fc99ea9270b2a313
   url_launcher_web: e5527357f037c87560776e36436bf2b0288b965c
@@ -143,7 +168,8 @@ SPEC CHECKSUMS:
   video_player_web: da8cadb8274ed4f8dbee8d7171b420dedd437ce7
   wakelock: bd3dcc6a8bcf53a1c0309780ff192dcee67c6ccb
   WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
+  WechatOpenSDK: 6a4d1436c15b3b5fe2a0bd383f3046010186da44
 
 PODFILE CHECKSUM: 4a4409c46f100d5546154aa5138e5f25ba06131f
 
-COCOAPODS: 1.9.2
+COCOAPODS: 1.9.3

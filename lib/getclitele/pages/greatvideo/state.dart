@@ -22,7 +22,9 @@ GreatVideoState initState(Map<String, dynamic> args) {
   return GreatVideoState()
   ..navtitle = '精彩视频'
   ..tabtitles = ['财富讲坛','产品路演']
-  ..controllers = [YicaifuApp.routes.buildPage('videolist', {'type':APPInfo.treasureLiving}),YicaifuApp.routes.buildPage('videolist', {'type':APPInfo.productLiving})];
+  ..controllers =
+  [YicaifuApp.routes.buildPage('videolist', {'type':APPInfo.treasureLiving}),
+    YicaifuApp.routes.buildPage('videolist', {'type':APPInfo.productLiving})];
 }
 // 一次使用的用 SingleTickerProviderStateMixin
 // 使用 SingleTickerProviderStateMixin 主要是TabBar需要用到这块

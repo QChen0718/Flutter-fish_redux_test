@@ -31,17 +31,19 @@ import 'package:flutter_fish_redux_router_qt/login/page.dart';
 import 'package:flutter_fish_redux_router_qt/main/page.dart';
 import 'package:flutter_fish_redux_router_qt/my/pages/userset/page.dart';
 import 'package:flutter_fish_redux_router_qt/start/page.dart';
+import 'package:flutter_fish_redux_router_qt/testmixin.dart';
 import 'actions/loadingview.dart';
 import 'actions/notificationcenter.dart';
 import 'customer/page.dart';
 import 'getclitele/pages/jxzx/page.dart';
 import 'getclitele/pages/notespost/page.dart';
 import 'my/page.dart';
+import 'package:flutter_plugin_two/flutter_plugin_two.dart';
 
 class YicaifuApp extends StatefulWidget{
   //  初始化路由表，管理所有页面的路由
   static AbstractRoutes routes = PageRoutes(
-      pages: <String, Page<Object,dynamic>>{
+      pages:  {
         'statr':StartPage(),
         'login':LoginPage(),
         'main':MainPage(),
@@ -86,6 +88,7 @@ class YicaifuApp extends StatefulWidget{
 class _YicaifuAppState extends State<YicaifuApp> with WidgetsBindingObserver{
 
   static BuildContext appContext;
+
 //这块检查是显示登录页面还是直接显示首页
  Widget _checkshowpage(){
    String userid = SpUtil.preferences.getString('id');

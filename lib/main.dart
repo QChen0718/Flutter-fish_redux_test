@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_fish_redux_router_qt/actions/sputil.dart';
 import 'package:flutter_fish_redux_router_qt/app.dart';
+import 'package:flutter_fish_redux_router_qt/testmixin.dart';
 
 void main(){
 
   realRunApp();
+  TestMiXin().log();
 }
 
 void realRunApp()async{

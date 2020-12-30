@@ -2,15 +2,18 @@
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:package_info/package_info.dart';
+import 'package:flutter_plugin_two/flutter_plugin_two.dart';
 class SpUtil{
  static SharedPreferences preferences;
  static PackageInfo packageInfo;
  static ClipboardData clipboardData;
+ static String projectVersion;
  static Future<bool> getInstance() async{
    preferences = await SharedPreferences.getInstance();
    packageInfo = await PackageInfo.fromPlatform();
    //    访问剪贴板的内容
    clipboardData = await Clipboard.getData(Clipboard.kTextPlain);
+   projectVersion = await FlutterPluginTwo.projectVersion;
    return true;
  }
 }

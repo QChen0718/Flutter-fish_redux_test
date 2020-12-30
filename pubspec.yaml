@@ -61,6 +61,15 @@ dependencies:
   image_picker: ^0.6.6+5
   #字符串格式化
   sprintf: ^4.0.2
+
+  flutter_plugin_two:
+    git:
+      url: https://github.com/QChen0718/flutter_plugin_one.git
+
+  # 支付视图
+  flutter_package_payview:
+    git:
+      url: https://github.com/QChen0718/flutter_package_payView.git
 dev_dependencies:
   flutter_test:
     sdk: flutter

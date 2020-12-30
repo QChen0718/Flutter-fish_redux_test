@@ -1,7 +1,7 @@
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:fish_redux/fish_redux.dart' ;
+
 import 'package:flutter_fish_redux_router_qt/customer/components/screening/component.dart';
-import 'package:flutter_fish_redux_router_qt/customer/components/screening/state.dart';
+import 'package:flutter_fish_redux_router_qt/customer/components/screening/state.dart' ;
 
 import 'effect.dart';
 import 'reducer.dart';
