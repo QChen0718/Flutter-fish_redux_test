@@ -28,7 +28,7 @@ void _onAction(Action action, Context<MyCardState> ctx) {
           context: ctx.context,
           builder: (context){
             // return SharePopView();
-            return PayView();
+            return PayView(hasPassWord: 1,);
           }
       );
     }
