@@ -8,7 +8,7 @@ import 'state.dart';
 Widget buildView(LoginState state, Dispatch dispatch, ViewService viewService) {
   return Scaffold(
 //    解决键盘谈起时页面会上下移动的问题
-    resizeToAvoidBottomPadding: false,
+    resizeToAvoidBottomInset: false,
     body: Stack(
       children: <Widget>[
         new Image.asset(

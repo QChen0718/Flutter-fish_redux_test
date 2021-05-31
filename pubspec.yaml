@@ -26,7 +26,7 @@ dependencies:
   # 状态管理
   fish_redux: ^0.3.1
   # 网络请求库
-  dio: ^3.0.9
+  dio: ^4.0.0
   # 获取APP版本号
   package_info: ^0.4.0+14
   # 时间格式化
@@ -40,7 +40,7 @@ dependencies:
   # 加载web页面
 #  webview_flutter: ^0.3.19+9
   # js 交互
-  bridge_webview_flutter: ^0.1.3
+  bridge_webview_flutter: ^0.1.5
   # 播放视频插件
   video_player: ^0.10.8+1
   # 视频播放UI插件
@@ -52,13 +52,13 @@ dependencies:
   # 刷新加载控件
   flutter_easyrefresh: ^2.1.1
   # 音频播放插件
-  audioplayers: ^0.15.1
+#  audioplayers: ^0.19.0
   # des加密
   flutter_des: ^1.1.1
   # 调用系统电话，短信，邮箱三方插件
   url_launcher: ^5.4.10
   # 选择系统相册，相机三方插件
-  image_picker: ^0.6.6+5
+  image_picker: ^0.7.5+3
   #字符串格式化
   sprintf: ^4.0.2
 
@@ -68,8 +68,9 @@ dependencies:
 
   # 支付视图
   flutter_package_payview:
-    git:
-      url: https://github.com/QChen0718/flutter_package_payView.git
+    path: /Users/sun/flutterproject/flutter_package_payview
+#    git:
+#      url: https://github.com/QChen0718/flutter_package_payView.git
 dev_dependencies:
   flutter_test:
     sdk: flutter

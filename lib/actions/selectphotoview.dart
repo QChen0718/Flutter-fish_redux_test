@@ -37,8 +37,8 @@ class _SelectPhotoViewState extends State<SelectPhotoView>{
                 new GestureDetector(
                   onTap: () async{
                     Navigator.pop(context);
-                   var image = await ImagePicker.pickImage(source: ImageSource.camera);
-                   widget.selectImageCoreBack(image);
+                   var image = await ImagePicker.platform.pickImage(source: ImageSource.camera);
+                   widget.selectImageCoreBack(File(image.path));
 
                   },
                   child: new Container(
@@ -67,8 +67,8 @@ class _SelectPhotoViewState extends State<SelectPhotoView>{
                 new GestureDetector(
                   onTap: () async{
                     Navigator.pop(context);
-                    var image = await  ImagePicker.pickImage(source: ImageSource.gallery);
-                    widget.selectImageCoreBack(image);
+                    var image = await  ImagePicker.platform.pickImage(source: ImageSource.gallery);
+                    widget.selectImageCoreBack(File(image.path));
                   },
                   child: new Container(
                     height: Adapt.px(80),

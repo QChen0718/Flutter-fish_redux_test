@@ -100,10 +100,10 @@ class Request{
         errorResponse = new Response(statusCode: 666);
       }
 //      请求超时
-      if(error.type == DioErrorType.CONNECT_TIMEOUT){
+      if(error.type == DioErrorType.connectTimeout){
         errorResponse.statusCode = ResultCode.CONNECT_TIMEOUT;
       }
-      else if(error.type == DioErrorType.RECEIVE_TIMEOUT){
+      else if(error.type == DioErrorType.receiveTimeout){
         errorResponse.statusCode = ResultCode.RECEIVE_TIMEOUT;
       }
 //      debug模式才打印
